@@ -48,9 +48,6 @@ library(stringr)
 library(ggplot2)
 library(tidyr)
 library(showtext)
-# 添加中文字体
-font_add("WenQuanYi", "/System/Library/Fonts/wqy-microhei.ttc")
-font_add("SourceHanSerif", "/Users/gaoch/Library/Fonts/SourceHanSerifSC-Regular.otf")
 showtext_auto()
 
 # 使用 gh CLI 获取数据（避免 API 限流）
