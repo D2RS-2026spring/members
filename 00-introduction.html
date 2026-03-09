@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>数据科学的 Whole Game – D2RS-2026spring 数据分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">D2RS-2026spring 数据分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">首页</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./00-introduction.html" aria-current="page"> 
+<span class="menu-text">课程导论</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./01-tools-reference.html"> 
+<span class="menu-text">技术工具</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./issue1_students.html"> 
+<span class="menu-text">Issue #1 分析</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./issue2_voting.html"> 
+<span class="menu-text">Issue #2 分析</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./members-list.html"> 
+<span class="menu-text">成员名单</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#什么是数据科学的-whole-game" id="toc-什么是数据科学的-whole-game" class="nav-link active" data-scroll-target="#什么是数据科学的-whole-game">什么是数据科学的 Whole Game？</a>
+  <ul class="collapse">
+  <li><a href="#whole-game-的六个核心环节" id="toc-whole-game-的六个核心环节" class="nav-link" data-scroll-target="#whole-game-的六个核心环节">Whole Game 的六个核心环节</a></li>
+  </ul></li>
+  <li><a href="#本课程的两个-whole-game-案例" id="toc-本课程的两个-whole-game-案例" class="nav-link" data-scroll-target="#本课程的两个-whole-game-案例">本课程的两个 Whole Game 案例</a>
+  <ul class="collapse">
+  <li><a href="#案例一issue-1-学生信息采集与分析" id="toc-案例一issue-1-学生信息采集与分析" class="nav-link" data-scroll-target="#案例一issue-1-学生信息采集与分析">案例一：Issue #1 —— 学生信息采集与分析</a></li>
+  <li><a href="#案例二issue-2-ai-模型性能投票分析" id="toc-案例二issue-2-ai-模型性能投票分析" class="nav-link" data-scroll-target="#案例二issue-2-ai-模型性能投票分析">案例二：Issue #2 —— AI 模型性能投票分析</a></li>
+  </ul></li>
+  <li><a href="#技术栈详解" id="toc-技术栈详解" class="nav-link" data-scroll-target="#技术栈详解">技术栈详解</a>
+  <ul class="collapse">
+  <li><a href="#核心工具链" id="toc-核心工具链" class="nav-link" data-scroll-target="#核心工具链">核心工具链</a></li>
+  <li><a href="#quarto可复现研究的利器" id="toc-quarto可复现研究的利器" class="nav-link" data-scroll-target="#quarto可复现研究的利器">Quarto：可复现研究的利器</a></li>
+  </ul></li>
+  <li><a href="#数据科学的核心原则" id="toc-数据科学的核心原则" class="nav-link" data-scroll-target="#数据科学的核心原则">数据科学的核心原则</a>
+  <ul class="collapse">
+  <li><a href="#可复现性reproducibility" id="toc-可复现性reproducibility" class="nav-link" data-scroll-target="#可复现性reproducibility">1. 可复现性（Reproducibility）</a></li>
+  <li><a href="#数据整洁原则tidy-data" id="toc-数据整洁原则tidy-data" class="nav-link" data-scroll-target="#数据整洁原则tidy-data">2. 数据整洁原则（Tidy Data）</a></li>
+  <li><a href="#版本控制与协作" id="toc-版本控制与协作" class="nav-link" data-scroll-target="#版本控制与协作">3. 版本控制与协作</a></li>
+  </ul></li>
+  <li><a href="#学习路径建议" id="toc-学习路径建议" class="nav-link" data-scroll-target="#学习路径建议">学习路径建议</a>
+  <ul class="collapse">
+  <li><a href="#入门路径完成本项目" id="toc-入门路径完成本项目" class="nav-link" data-scroll-target="#入门路径完成本项目">入门路径（完成本项目）</a></li>
+  <li><a href="#进阶路径" id="toc-进阶路径" class="nav-link" data-scroll-target="#进阶路径">进阶路径</a></li>
+  </ul></li>
+  <li><a href="#常见问题" id="toc-常见问题" class="nav-link" data-scroll-target="#常见问题">常见问题</a>
+  <ul class="collapse">
+  <li><a href="#q-为什么选择-r-而不是-python" id="toc-q-为什么选择-r-而不是-python" class="nav-link" data-scroll-target="#q-为什么选择-r-而不是-python">Q: 为什么选择 R 而不是 Python？</a></li>
+  <li><a href="#q-我需要什么先验知识" id="toc-q-我需要什么先验知识" class="nav-link" data-scroll-target="#q-我需要什么先验知识">Q: 我需要什么先验知识？</a></li>
+  <li><a href="#q-数据更新后如何确保我的分析仍然有效" id="toc-q-数据更新后如何确保我的分析仍然有效" class="nav-link" data-scroll-target="#q-数据更新后如何确保我的分析仍然有效">Q: 数据更新后，如何确保我的分析仍然有效？</a></li>
+  </ul></li>
+  <li><a href="#下一步" id="toc-下一步" class="nav-link" data-scroll-target="#下一步">下一步</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">数据科学的 Whole Game</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">从原始数据到洞察的完整旅程</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="什么是数据科学的-whole-game" class="level2">
+<h2 class="anchored" data-anchor-id="什么是数据科学的-whole-game">什么是数据科学的 Whole Game？</h2>
+<p>在 Hadley Wickham 等人的著作《R for Data Science》中，“Whole Game” 是一个核心概念，指的是<strong>数据科学项目的完整生命周期</strong>。与传统的分章节教学方式不同，Whole Game 方法主张让学生先经历一个完整的小型数据科学项目，建立全局视野，然后再深入各个技术细节。</p>
+<section id="whole-game-的六个核心环节" class="level3">
+<h3 class="anchored" data-anchor-id="whole-game-的六个核心环节">Whole Game 的六个核心环节</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A[数据导入&lt;br/&gt;Import] --&gt; B[数据整理&lt;br/&gt;Tidy]
+    B --&gt; C[数据转换&lt;br/&gt;Transform]
+    C --&gt; D[数据可视化&lt;br/&gt;Visualize]
+    D --&gt; E[数据建模&lt;br/&gt;Model]
+    E --&gt; F[结果沟通&lt;br/&gt;Communicate]
+    F -.-&gt; A
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>环节</th>
+<th>核心任务</th>
+<th>关键技能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>数据导入</strong></td>
+<td>从各种来源获取数据</td>
+<td>API 调用、文件读取、数据库连接</td>
+</tr>
+<tr class="even">
+<td><strong>数据整理</strong></td>
+<td>将数据转换为整洁格式</td>
+<td>理解 tidy 数据原则、数据重塑</td>
+</tr>
+<tr class="odd">
+<td><strong>数据转换</strong></td>
+<td>清洗、筛选、汇总数据</td>
+<td>条件筛选、分组聚合、数据变换</td>
+</tr>
+<tr class="even">
+<td><strong>数据可视化</strong></td>
+<td>创建图表探索数据</td>
+<td>图形语法、审美设计、交互式图形</td>
+</tr>
+<tr class="odd">
+<td><strong>数据建模</strong></td>
+<td>构建统计或机器学习模型</td>
+<td>模型选择、参数估计、模型评估</td>
+</tr>
+<tr class="even">
+<td><strong>结果沟通</strong></td>
+<td>报告发现并分享洞察</td>
+<td>可复现报告、演示技巧、数据故事化</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="本课程的两个-whole-game-案例" class="level2">
+<h2 class="anchored" data-anchor-id="本课程的两个-whole-game-案例">本课程的两个 Whole Game 案例</h2>
+<p>本课程通过两个真实的 GitHub Issue 数据分析案例，带您完整体验数据科学的工作流程。</p>
+<section id="案例一issue-1-学生信息采集与分析" class="level3">
+<h3 class="anchored" data-anchor-id="案例一issue-1-学生信息采集与分析">案例一：Issue #1 —— 学生信息采集与分析</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[学生在 GitHub Issue 回复] --&gt; B[通过 GitHub API 获取数据]
+    B --&gt; C[解析非结构化文本]
+    C --&gt; D[验证学号格式]
+    D --&gt; E[统计学生信息]
+    E --&gt; F[可视化研究方向分布]
+    F --&gt; G[生成可交互报告]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>通过这个案例，您将学习：</strong></p>
+<ol type="1">
+<li><strong>GitHub 协作基础</strong>：Issue 的使用、Markdown 格式、GitHub Flow</li>
+<li><strong>API 数据获取</strong>：理解 RESTful API、分页机制、认证方式</li>
+<li><strong>正则表达式</strong>：从非结构化文本中提取结构化信息</li>
+<li><strong>数据验证</strong>：建立数据质量检查机制</li>
+<li><strong>描述性统计</strong>：计数、频率、分布分析</li>
+<li><strong>ggplot2 可视化</strong>：条形图、数据分层展示</li>
+</ol>
+</section>
+<section id="案例二issue-2-ai-模型性能投票分析" class="level3">
+<h3 class="anchored" data-anchor-id="案例二issue-2-ai-模型性能投票分析">案例二：Issue #2 —— AI 模型性能投票分析</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[学生对 AI 模型排序投票] --&gt; B[获取 GitHub Issue 数据]
+    B --&gt; C[解析排序信息]
+    C --&gt; D[转换数据格式]
+    D --&gt; E[计算排名统计量]
+    E --&gt; F[多维度可视化]
+    F --&gt; G[解读模型偏好]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>通过这个案例，您将学习：</strong></p>
+<ol type="1">
+<li><strong>排序数据分析</strong>：理解排序数据的特殊性</li>
+<li><strong>数据透视</strong>：长宽格式转换（pivot_longer / pivot_wider）</li>
+<li><strong>多维度可视化</strong>：热力图、箱线图、排名图</li>
+<li><strong>汇总统计</strong>：平均排名、频次分布、一致性检验</li>
+<li><strong>数据导出</strong>：生成结构化 CSV 文件</li>
+</ol>
+</section>
+</section>
+<section id="技术栈详解" class="level2">
+<h2 class="anchored" data-anchor-id="技术栈详解">技术栈详解</h2>
+<p>本项目的核心技术栈基于 R 语言和 Quarto 文档系统，这是现代可复现研究的标准工具组合。</p>
+<section id="核心工具链" class="level3">
+<h3 class="anchored" data-anchor-id="核心工具链">核心工具链</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>工具/包</th>
+<th>用途</th>
+<th>在本项目中的应用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Quarto</strong></td>
+<td>可复现计算文档</td>
+<td>整合代码、输出和 narrative，生成网站</td>
+</tr>
+<tr class="even">
+<td><strong>httr</strong></td>
+<td>HTTP 请求</td>
+<td>调用 GitHub API 获取数据</td>
+</tr>
+<tr class="odd">
+<td><strong>gh</strong></td>
+<td>GitHub API 封装</td>
+<td>更便捷的 GitHub 数据获取</td>
+</tr>
+<tr class="even">
+<td><strong>jsonlite</strong></td>
+<td>JSON 处理</td>
+<td>解析 API 返回的 JSON 数据</td>
+</tr>
+<tr class="odd">
+<td><strong>dplyr</strong></td>
+<td>数据操作</td>
+<td>筛选、分组、聚合、变换</td>
+</tr>
+<tr class="even">
+<td><strong>tidyr</strong></td>
+<td>数据整理</td>
+<td>长宽格式转换、数据清理</td>
+</tr>
+<tr class="odd">
+<td><strong>stringr</strong></td>
+<td>字符串处理</td>
+<td>正则表达式匹配、文本提取</td>
+</tr>
+<tr class="even">
+<td><strong>ggplot2</strong></td>
+<td>数据可视化</td>
+<td>创建各种统计图形</td>
+</tr>
+<tr class="odd">
+<td><strong>DT</strong></td>
+<td>交互式表格</td>
+<td>生成可搜索、可排序的数据表格</td>
+</tr>
+<tr class="even">
+<td><strong>showtext</strong></td>
+<td>字体渲染</td>
+<td>解决中文显示问题</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="quarto可复现研究的利器" class="level3">
+<h3 class="anchored" data-anchor-id="quarto可复现研究的利器">Quarto：可复现研究的利器</h3>
+<p>Quarto 是 RStudio（现 Posit）开发的下一代科学和技术出版系统，它解决了传统数据分析工作流中的一个核心问题：<strong>如何确保分析结果可以被完全复现？</strong></p>
+<section id="quarto-的核心特性" class="level4">
+<h4 class="anchored" data-anchor-id="quarto-的核心特性">Quarto 的核心特性</h4>
+<ol type="1">
+<li><strong>文学编程（Literate Programming）</strong>
+<ul>
+<li>将代码和叙述文本无缝融合</li>
+<li>代码块可以设置执行选项（如 <code>echo: false</code> 隐藏代码，只显示结果）</li>
+<li>支持条件执行和动态内容生成</li>
+</ul></li>
+<li><strong>多语言支持</strong>
+<ul>
+<li>原生支持 R、Python、Julia</li>
+<li>可以在同一文档中混用多种语言</li>
+<li>语言间可以共享数据</li>
+</ul></li>
+<li><strong>多种输出格式</strong>
+<ul>
+<li>HTML 网页（本项目的输出格式）</li>
+<li>PDF 文档（学术写作）</li>
+<li>Word 文档（办公协作）</li>
+<li>演示文稿（beamer、reveal.js）</li>
+<li>交互式仪表盘</li>
+</ul></li>
+<li><strong>网站和书籍生成</strong>
+<ul>
+<li>通过 <code>_quarto.yaml</code> 配置多页面网站</li>
+<li>自动处理导航、交叉引用</li>
+<li>内置搜索功能</li>
+</ul></li>
+</ol>
+</section>
+<section id="quarto.yaml-配置解析" class="level4">
+<h4 class="anchored" data-anchor-id="quarto.yaml-配置解析"><code>_quarto.yaml</code> 配置解析</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span><span class="co">      # 项目类型：生成网站</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> _site</span><span class="co">  # 输出目录</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"D2RS-2026spring 数据分析"</span><span class="co">  # 网站标题</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span><span class="co">                           # 导航栏配置</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span><span class="co">             # 页面链接</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> 首页</span><span class="co">                   # 显示文本</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> issue1_students.qmd</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> 学生名单</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">      # ... 更多页面</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span><span class="co">     # 使用 cosmo 主题</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="数据科学的核心原则" class="level2">
+<h2 class="anchored" data-anchor-id="数据科学的核心原则">数据科学的核心原则</h2>
+<section id="可复现性reproducibility" class="level3">
+<h3 class="anchored" data-anchor-id="可复现性reproducibility">1. 可复现性（Reproducibility）</h3>
+<p>可复现性是科学研究的基石。在数据科学中，这意味着：</p>
+<ul>
+<li><strong>代码可运行</strong>：他人可以在他们的环境中运行您的代码</li>
+<li><strong>环境可重现</strong>：记录所有依赖包及其版本</li>
+<li><strong>数据可获取</strong>：提供数据获取途径或包含数据</li>
+<li><strong>随机性可控</strong>：设置随机种子，确保随机结果可重复</li>
+</ul>
+<p><strong>本项目的可复现性实践：</strong></p>
+<ul>
+<li>使用 Quarto 文档整合代码和说明</li>
+<li>通过 GitHub API 直接获取原始数据</li>
+<li>所有数据处理步骤透明可见</li>
+<li>网站自动部署，结果实时更新</li>
+</ul>
+</section>
+<section id="数据整洁原则tidy-data" class="level3">
+<h3 class="anchored" data-anchor-id="数据整洁原则tidy-data">2. 数据整洁原则（Tidy Data）</h3>
+<p>Hadley Wickham 提出的 tidy data 原则是数据整理的黄金标准：</p>
+<ol type="1">
+<li><strong>每列是一个变量</strong></li>
+<li><strong>每行是一个观测</strong></li>
+<li><strong>每个单元格是一个值</strong></li>
+</ol>
+<p><strong>整洁数据的优势：</strong></p>
+<ul>
+<li>一致的格式便于使用相同的工具处理</li>
+<li>数据结构本身即携带语义信息</li>
+<li>便于进行分组、聚合、变换操作</li>
+</ul>
+<p><strong>本项目的数据整理示例：</strong></p>
+<p>原始数据（非整洁）：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>用户</th>
+<th>投票内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user1</td>
+<td>1. GPT-4o. Claude. Gemini</td>
+</tr>
+<tr class="even">
+<td>user2</td>
+<td>1. Claude. GPT-4o. Kimi</td>
+</tr>
+</tbody>
+</table>
+<p>整理后（整洁）：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>用户</th>
+<th>排名</th>
+<th>模型</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user1</td>
+<td>1</td>
+<td>GPT-4o</td>
+</tr>
+<tr class="even">
+<td>user1</td>
+<td>2</td>
+<td>Claude</td>
+</tr>
+<tr class="odd">
+<td>user1</td>
+<td>3</td>
+<td>Gemini</td>
+</tr>
+<tr class="even">
+<td>user2</td>
+<td>1</td>
+<td>Claude</td>
+</tr>
+<tr class="odd">
+<td>user2</td>
+<td>2</td>
+<td>GPT-4o</td>
+</tr>
+<tr class="even">
+<td>user2</td>
+<td>3</td>
+<td>Kimi</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="版本控制与协作" class="level3">
+<h3 class="anchored" data-anchor-id="版本控制与协作">3. 版本控制与协作</h3>
+<p>Git 和 GitHub 是现代数据科学工作流的标配：</p>
+<ul>
+<li><strong>版本回退</strong>：随时可以回到之前的代码状态</li>
+<li><strong>分支开发</strong>：新功能在独立分支开发，不影响主分支</li>
+<li><strong>协作审查</strong>：通过 Pull Request 进行代码审查</li>
+<li><strong>Issue 追踪</strong>：记录问题、讨论方案、追踪进度</li>
+</ul>
+</section>
+</section>
+<section id="学习路径建议" class="level2">
+<h2 class="anchored" data-anchor-id="学习路径建议">学习路径建议</h2>
+<section id="入门路径完成本项目" class="level3">
+<h3 class="anchored" data-anchor-id="入门路径完成本项目">入门路径（完成本项目）</h3>
+<ol type="1">
+<li><strong>第一周</strong>：熟悉 GitHub 和 Markdown
+<ul>
+<li>注册 GitHub 账号</li>
+<li>在 Issue #1 中回复，练习 Markdown 格式</li>
+<li>学习基本的 Git 操作</li>
+</ul></li>
+<li><strong>第二周</strong>：理解数据获取
+<ul>
+<li>学习 API 基本概念</li>
+<li>了解 GitHub API 的用法</li>
+<li>运行代码获取 Issue 数据</li>
+</ul></li>
+<li><strong>第三周</strong>：数据处理和可视化
+<ul>
+<li>学习 dplyr 基本操作</li>
+<li>理解 ggplot2 的图形语法</li>
+<li>修改代码生成自己的可视化</li>
+</ul></li>
+<li><strong>第四周</strong>：可复现报告
+<ul>
+<li>学习 Quarto 语法</li>
+<li>修改 <code>.qmd</code> 文件</li>
+<li>渲染并发布自己的分析</li>
+</ul></li>
+</ol>
+</section>
+<section id="进阶路径" class="level3">
+<h3 class="anchored" data-anchor-id="进阶路径">进阶路径</h3>
+<ul>
+<li>学习更多的 R 包（purrr、readr、lubridate 等）</li>
+<li>深入了解统计建模</li>
+<li>学习交互式可视化（plotly、shiny）</li>
+<li>探索机器学习工作流（tidymodels）</li>
+</ul>
+</section>
+</section>
+<section id="常见问题" class="level2">
+<h2 class="anchored" data-anchor-id="常见问题">常见问题</h2>
+<section id="q-为什么选择-r-而不是-python" class="level3">
+<h3 class="anchored" data-anchor-id="q-为什么选择-r-而不是-python">Q: 为什么选择 R 而不是 Python？</h3>
+<p>R 和 Python 都是优秀的数据科学工具。选择 R 是因为：</p>
+<ol type="1">
+<li><strong>tidyverse 生态系统</strong>：dplyr、ggplot2 等包提供了优雅、一致的数据处理语法</li>
+<li><strong>统计分析传统</strong>：R 诞生于统计学社区，统计方法实现更全面</li>
+<li><strong>Quarto 的原生支持</strong>：虽然 Quarto 支持多语言，但与 R 的集成最为成熟</li>
+<li><strong>学术出版优势</strong>：R Markdown/Quarto 在学术界被广泛采用</li>
+</ol>
+<p>当然，Python 在深度学习、生产部署等方面有优势，两者并非互斥。</p>
+</section>
+<section id="q-我需要什么先验知识" class="level3">
+<h3 class="anchored" data-anchor-id="q-我需要什么先验知识">Q: 我需要什么先验知识？</h3>
+<p>基础要求：</p>
+<ul>
+<li>基本的计算机操作能力</li>
+<li>高中水平的数学和统计知识</li>
+<li>对编程有基本了解（不限语言）</li>
+</ul>
+<p>不需要：</p>
+<ul>
+<li>深入的 R 语言经验（我们会逐步学习）</li>
+<li>统计学专业知识（本课程侧重实践）</li>
+<li>前端开发技能（Quarto 处理所有界面）</li>
+</ul>
+</section>
+<section id="q-数据更新后如何确保我的分析仍然有效" class="level3">
+<h3 class="anchored" data-anchor-id="q-数据更新后如何确保我的分析仍然有效">Q: 数据更新后，如何确保我的分析仍然有效？</h3>
+<p>这是可复现研究的核心问题。建议：</p>
+<ol type="1">
+<li><strong>防御性编程</strong>：在代码中加入数据验证步骤</li>
+<li><strong>版本锁定</strong>：记录使用的包版本（使用 <code>renv</code> 包）</li>
+<li><strong>单元测试</strong>：对关键数据处理步骤编写测试</li>
+<li><strong>持续集成</strong>：使用 GitHub Actions 自动运行分析并检查错误</li>
+</ol>
+</section>
+</section>
+<section id="下一步" class="level2">
+<h2 class="anchored" data-anchor-id="下一步">下一步</h2>
+<p>现在，您可以选择以下路径继续学习：</p>
+<ol type="1">
+<li><strong><a href="./issue1_students.html">查看 Issue #1 分析</a></strong>：了解如何从 GitHub Issue 中提取和验证学生信息</li>
+<li><strong><a href="./issue2_voting.html">查看 Issue #2 分析</a></strong>：学习排序数据的分析方法</li>
+<li><strong><a href="./members-list.html">查看成员名单</a></strong>：查看实时更新的学生信息表</li>
+<li><strong><a href="./01-tools-reference.html">阅读技术工具详解</a></strong>：深入了解各个 R 包的使用方法</li>
+</ol>
+<hr>
+<p><em>“数据科学不仅仅是关于数据，更是关于提出正确的问题，并用数据来回答它们。” —— Hadley Wickham</em></p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/D2RS-2026spring\.github\.io\/members\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "数据科学的 Whole Game"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "从原始数据到洞察的完整旅程"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## 什么是数据科学的 Whole Game？</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>在 Hadley Wickham 等人的著作《R for Data Science》中，"Whole Game" 是一个核心概念，指的是**数据科学项目的完整生命周期**。与传统的分章节教学方式不同，Whole Game 方法主张让学生先经历一个完整的小型数据科学项目，建立全局视野，然后再深入各个技术细节。</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">### Whole Game 的六个核心环节</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="in">flowchart LR</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="in">    A[数据导入&lt;br/&gt;Import] --&gt; B[数据整理&lt;br/&gt;Tidy]</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="in">    B --&gt; C[数据转换&lt;br/&gt;Transform]</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="in">    C --&gt; D[数据可视化&lt;br/&gt;Visualize]</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="in">    D --&gt; E[数据建模&lt;br/&gt;Model]</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="in">    E --&gt; F[结果沟通&lt;br/&gt;Communicate]</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="in">    F -.-&gt; A</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>| 环节 | 核心任务 | 关键技能 |</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>|------|----------|----------|</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>| **数据导入** | 从各种来源获取数据 | API 调用、文件读取、数据库连接 |</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>| **数据整理** | 将数据转换为整洁格式 | 理解 tidy 数据原则、数据重塑 |</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>| **数据转换** | 清洗、筛选、汇总数据 | 条件筛选、分组聚合、数据变换 |</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>| **数据可视化** | 创建图表探索数据 | 图形语法、审美设计、交互式图形 |</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>| **数据建模** | 构建统计或机器学习模型 | 模型选择、参数估计、模型评估 |</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>| **结果沟通** | 报告发现并分享洞察 | 可复现报告、演示技巧、数据故事化 |</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## 本课程的两个 Whole Game 案例</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>本课程通过两个真实的 GitHub Issue 数据分析案例，带您完整体验数据科学的工作流程。</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### 案例一：Issue #1 —— 学生信息采集与分析</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="in">flowchart TD</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="in">    A[学生在 GitHub Issue 回复] --&gt; B[通过 GitHub API 获取数据]</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="in">    B --&gt; C[解析非结构化文本]</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="in">    C --&gt; D[验证学号格式]</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="in">    D --&gt; E[统计学生信息]</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="in">    E --&gt; F[可视化研究方向分布]</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="in">    F --&gt; G[生成可交互报告]</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>**通过这个案例，您将学习：**</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**GitHub 协作基础**：Issue 的使用、Markdown 格式、GitHub Flow</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**API 数据获取**：理解 RESTful API、分页机制、认证方式</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**正则表达式**：从非结构化文本中提取结构化信息</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**数据验证**：建立数据质量检查机制</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**描述性统计**：计数、频率、分布分析</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**ggplot2 可视化**：条形图、数据分层展示</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="fu">### 案例二：Issue #2 —— AI 模型性能投票分析</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="in">flowchart TD</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="in">    A[学生对 AI 模型排序投票] --&gt; B[获取 GitHub Issue 数据]</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="in">    B --&gt; C[解析排序信息]</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="in">    C --&gt; D[转换数据格式]</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="in">    D --&gt; E[计算排名统计量]</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="in">    E --&gt; F[多维度可视化]</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="in">    F --&gt; G[解读模型偏好]</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>**通过这个案例，您将学习：**</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**排序数据分析**：理解排序数据的特殊性</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**数据透视**：长宽格式转换（pivot_longer / pivot_wider）</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**多维度可视化**：热力图、箱线图、排名图</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**汇总统计**：平均排名、频次分布、一致性检验</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**数据导出**：生成结构化 CSV 文件</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## 技术栈详解</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>本项目的核心技术栈基于 R 语言和 Quarto 文档系统，这是现代可复现研究的标准工具组合。</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="fu">### 核心工具链</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>| 工具/包 | 用途 | 在本项目中的应用 |</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>|---------|------|------------------|</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>| **Quarto** | 可复现计算文档 | 整合代码、输出和 narrative，生成网站 |</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>| **httr** | HTTP 请求 | 调用 GitHub API 获取数据 |</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>| **gh** | GitHub API 封装 | 更便捷的 GitHub 数据获取 |</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>| **jsonlite** | JSON 处理 | 解析 API 返回的 JSON 数据 |</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>| **dplyr** | 数据操作 | 筛选、分组、聚合、变换 |</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>| **tidyr** | 数据整理 | 长宽格式转换、数据清理 |</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>| **stringr** | 字符串处理 | 正则表达式匹配、文本提取 |</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>| **ggplot2** | 数据可视化 | 创建各种统计图形 |</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>| **DT** | 交互式表格 | 生成可搜索、可排序的数据表格 |</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>| **showtext** | 字体渲染 | 解决中文显示问题 |</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quarto：可复现研究的利器</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>Quarto 是 RStudio（现 Posit）开发的下一代科学和技术出版系统，它解决了传统数据分析工作流中的一个核心问题：**如何确保分析结果可以被完全复现？**</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Quarto 的核心特性</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**文学编程（Literate Programming）**</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>将代码和叙述文本无缝融合</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>代码块可以设置执行选项（如 <span class="in">`echo: false`</span> 隐藏代码，只显示结果）</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>支持条件执行和动态内容生成</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**多语言支持**</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>原生支持 R、Python、Julia</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>可以在同一文档中混用多种语言</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>语言间可以共享数据</span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**多种输出格式**</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>HTML 网页（本项目的输出格式）</span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>PDF 文档（学术写作）</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Word 文档（办公协作）</span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>演示文稿（beamer、reveal.js）</span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>交互式仪表盘</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**网站和书籍生成**</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>通过 <span class="in">`_quarto.yaml`</span> 配置多页面网站</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>自动处理导航、交叉引用</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>内置搜索功能</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `_quarto.yaml` 配置解析</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span><span class="co">      # 项目类型：生成网站</span></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> _site</span><span class="co">  # 输出目录</span></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"D2RS-2026spring 数据分析"</span><span class="co">  # 网站标题</span></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span><span class="co">                           # 导航栏配置</span></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span><span class="co">             # 页面链接</span></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> 首页</span><span class="co">                   # 显示文本</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> issue1_students.qmd</span></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> 学生名单</span></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="co">      # ... 更多页面</span></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span><span class="co">     # 使用 cosmo 主题</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a><span class="fu">## 数据科学的核心原则</span></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. 可复现性（Reproducibility）</span></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>可复现性是科学研究的基石。在数据科学中，这意味着：</span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**代码可运行**：他人可以在他们的环境中运行您的代码</span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**环境可重现**：记录所有依赖包及其版本</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**数据可获取**：提供数据获取途径或包含数据</span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**随机性可控**：设置随机种子，确保随机结果可重复</span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>**本项目的可复现性实践：**</span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>使用 Quarto 文档整合代码和说明</span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>通过 GitHub API 直接获取原始数据</span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>所有数据处理步骤透明可见</span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>网站自动部署，结果实时更新</span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. 数据整洁原则（Tidy Data）</span></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>Hadley Wickham 提出的 tidy data 原则是数据整理的黄金标准：</span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**每列是一个变量**</span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**每行是一个观测**</span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**每个单元格是一个值**</span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>**整洁数据的优势：**</span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>一致的格式便于使用相同的工具处理</span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>数据结构本身即携带语义信息</span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>便于进行分组、聚合、变换操作</span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>**本项目的数据整理示例：**</span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>原始数据（非整洁）：</span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>| 用户 | 投票内容 |</span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>|------|----------|</span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>| user1 | 1. GPT-4o\n2. Claude\n3. Gemini |</span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>| user2 | 1. Claude\n2. GPT-4o\n3. Kimi |</span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>整理后（整洁）：</span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>| 用户 | 排名 | 模型 |</span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a>|------|------|------|</span>
+<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a>| user1 | 1 | GPT-4o |</span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a>| user1 | 2 | Claude |</span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a>| user1 | 3 | Gemini |</span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a>| user2 | 1 | Claude |</span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>| user2 | 2 | GPT-4o |</span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a>| user2 | 3 | Kimi |</span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. 版本控制与协作</span></span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a>Git 和 GitHub 是现代数据科学工作流的标配：</span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**版本回退**：随时可以回到之前的代码状态</span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**分支开发**：新功能在独立分支开发，不影响主分支</span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**协作审查**：通过 Pull Request 进行代码审查</span>
+<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Issue 追踪**：记录问题、讨论方案、追踪进度</span>
+<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a><span class="fu">## 学习路径建议</span></span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a><span class="fu">### 入门路径（完成本项目）</span></span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**第一周**：熟悉 GitHub 和 Markdown</span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>注册 GitHub 账号</span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>在 Issue #1 中回复，练习 Markdown 格式</span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>学习基本的 Git 操作</span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**第二周**：理解数据获取</span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>学习 API 基本概念</span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>了解 GitHub API 的用法</span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>运行代码获取 Issue 数据</span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**第三周**：数据处理和可视化</span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>学习 dplyr 基本操作</span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>理解 ggplot2 的图形语法</span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>修改代码生成自己的可视化</span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**第四周**：可复现报告</span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>学习 Quarto 语法</span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>修改 <span class="in">`.qmd`</span> 文件</span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>渲染并发布自己的分析</span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a><span class="fu">### 进阶路径</span></span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>学习更多的 R 包（purrr、readr、lubridate 等）</span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>深入了解统计建模</span>
+<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>学习交互式可视化（plotly、shiny）</span>
+<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>探索机器学习工作流（tidymodels）</span>
+<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a><span class="fu">## 常见问题</span></span>
+<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a><span class="fu">### Q: 为什么选择 R 而不是 Python？</span></span>
+<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>R 和 Python 都是优秀的数据科学工具。选择 R 是因为：</span>
+<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**tidyverse 生态系统**：dplyr、ggplot2 等包提供了优雅、一致的数据处理语法</span>
+<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**统计分析传统**：R 诞生于统计学社区，统计方法实现更全面</span>
+<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Quarto 的原生支持**：虽然 Quarto 支持多语言，但与 R 的集成最为成熟</span>
+<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**学术出版优势**：R Markdown/Quarto 在学术界被广泛采用</span>
+<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>当然，Python 在深度学习、生产部署等方面有优势，两者并非互斥。</span>
+<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a><span class="fu">### Q: 我需要什么先验知识？</span></span>
+<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>基础要求：</span>
+<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>基本的计算机操作能力</span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>高中水平的数学和统计知识</span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>对编程有基本了解（不限语言）</span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>不需要：</span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>深入的 R 语言经验（我们会逐步学习）</span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>统计学专业知识（本课程侧重实践）</span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>前端开发技能（Quarto 处理所有界面）</span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a><span class="fu">### Q: 数据更新后，如何确保我的分析仍然有效？</span></span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>这是可复现研究的核心问题。建议：</span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**防御性编程**：在代码中加入数据验证步骤</span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**版本锁定**：记录使用的包版本（使用 <span class="in">`renv`</span> 包）</span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**单元测试**：对关键数据处理步骤编写测试</span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**持续集成**：使用 GitHub Actions 自动运行分析并检查错误</span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a><span class="fu">## 下一步</span></span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>现在，您可以选择以下路径继续学习：</span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**[查看 Issue #1 分析](issue1_students.qmd)**：了解如何从 GitHub Issue 中提取和验证学生信息</span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**[查看 Issue #2 分析](issue2_voting.qmd)**：学习排序数据的分析方法</span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**[查看成员名单](members-list.qmd)**：查看实时更新的学生信息表</span>
+<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**[阅读技术工具详解](01-tools-reference.qmd)**：深入了解各个 R 包的使用方法</span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a>*"数据科学不仅仅是关于数据，更是关于提出正确的问题，并用数据来回答它们。" —— Hadley Wickham*</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

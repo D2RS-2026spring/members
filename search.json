@@ -1,156 +1,401 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "D2RS-2026spring 数据分析",
+    "objectID": "members-list.html",
+    "href": "members-list.html",
+    "title": "Issue #1 - 申请加入成员名单",
     "section": "",
-    "text": "本项目用于分析 D2RS-2026spring 课程的 GitHub Issue 数据。"
+    "text": "以下名单来自 Issue #1 的回复，数据实时从 GitHub API 拉取。\n共收到 296 条申请（学号格式合规：293 条，不合规：3 条）。"
   },
   {
-    "objectID": "index.html#课程介绍",
-    "href": "index.html#课程介绍",
-    "title": "D2RS-2026spring 数据分析",
+    "objectID": "members-list.html#说明",
+    "href": "members-list.html#说明",
+    "title": "Issue #1 - 申请加入成员名单",
     "section": "",
-    "text": "本项目用于分析 D2RS-2026spring 课程的 GitHub Issue 数据。"
+    "text": "以下名单来自 Issue #1 的回复，数据实时从 GitHub API 拉取。\n共收到 296 条申请（学号格式合规：293 条，不合规：3 条）。"
   },
   {
-    "objectID": "index.html#数据来源",
-    "href": "index.html#数据来源",
-    "title": "D2RS-2026spring 数据分析",
-    "section": "数据来源",
-    "text": "数据来源\n\nIssue #1: 学生加入申请 - 收集学号、姓名和感兴趣方向\nIssue #2: AI模型性能投票 - 收集学生对不同AI模型的排序"
+    "objectID": "members-list.html#不合规申请名单",
+    "href": "members-list.html#不合规申请名单",
+    "title": "Issue #1 - 申请加入成员名单",
+    "section": "不合规申请名单",
+    "text": "不合规申请名单\n以下学号不符合规范（须以 2025 开头、共 13 位数字），请本人修改后重新在 Issue #1 中回复："
   },
   {
-    "objectID": "index.html#分析报告",
-    "href": "index.html#分析报告",
-    "title": "D2RS-2026spring 数据分析",
-    "section": "分析报告",
-    "text": "分析报告\n\n学生名单分析\nAI模型投票分析"
-  },
-  {
-    "objectID": "index.html#数据更新",
-    "href": "index.html#数据更新",
-    "title": "D2RS-2026spring 数据分析",
-    "section": "数据更新",
-    "text": "数据更新\n数据每天自动更新。"
-  },
-  {
-    "objectID": "issue2_voting.html",
-    "href": "issue2_voting.html",
-    "title": "Issue #2 - AI模型性能投票分析",
+    "objectID": "00-introduction.html",
+    "href": "00-introduction.html",
+    "title": "数据科学的 Whole Game",
     "section": "",
-    "text": "本案例展示了一个完整的数据科学工作流程 (Whole Game)，包括：\n\n\n\n数据获取 (Data Acquisition)：从 GitHub Issue 抓取投票数据\n数据解析 (Data Parsing)：从非结构化文本中提取模型排名\n数据统计 (Data Statistics)：计算各模型的投票数和平均排名\n数据可视化 (Data Visualization)：生成多种图表展示分析结果\n数据发布 (Data Publishing)：通过 Quarto 生成可交互报告\n\n\n\n\n\n\n\n工具\n用途\n特点\n\n\n\n\nGitHub API\n数据源\nRESTful 接口，支持分页\n\n\nhttr\nHTTP 请求\nR 语言 HTTP 客户端\n\n\ndplyr\n数据处理\n管道操作，数据转换\n\n\nstringr\n文本处理\n正则表达式，模式匹配\n\n\nggplot2\n可视化\n声明式绘图，图形语法\n\n\ntidyr\n数据整形\n宽表/长表转换\n\n\nQuarto\n文档生成\n可复现计算文档\n\n\n\n\n\n\n\n模式识别：使用正则表达式从文本中提取结构化数据\n数据整形：使用 tidyr 进行数据透视和重塑\n多维度分析：从不同角度（票数、排名）分析数据\n可视化原则：选择合适的图表类型展示数据\n\n\n\n\n在本案例中，每位同学对5个AI模型进行排序（1-5名），这种数据结构常用于：\n\nA/B测试结果分析\n用户偏好调查\n算法性能评估\n\n分析方法包括： - 频次统计：各选项被选为第1名的次数 - 平均排名：计算每个选项的平均排名得分 - 排名分布：分析各选项在不同排名位置的分布\n\n\n\n获取到 258 条投票评论"
+    "text": "在 Hadley Wickham 等人的著作《R for Data Science》中，“Whole Game” 是一个核心概念，指的是数据科学项目的完整生命周期。与传统的分章节教学方式不同，Whole Game 方法主张让学生先经历一个完整的小型数据科学项目，建立全局视野，然后再深入各个技术细节。\n\n\n\n\n\n\n\nflowchart LR\n    A[数据导入&lt;br/&gt;Import] --&gt; B[数据整理&lt;br/&gt;Tidy]\n    B --&gt; C[数据转换&lt;br/&gt;Transform]\n    C --&gt; D[数据可视化&lt;br/&gt;Visualize]\n    D --&gt; E[数据建模&lt;br/&gt;Model]\n    E --&gt; F[结果沟通&lt;br/&gt;Communicate]\n    F -.-&gt; A\n\n\n\n\n\n\n\n\n\n环节\n核心任务\n关键技能\n\n\n\n\n数据导入\n从各种来源获取数据\nAPI 调用、文件读取、数据库连接\n\n\n数据整理\n将数据转换为整洁格式\n理解 tidy 数据原则、数据重塑\n\n\n数据转换\n清洗、筛选、汇总数据\n条件筛选、分组聚合、数据变换\n\n\n数据可视化\n创建图表探索数据\n图形语法、审美设计、交互式图形\n\n\n数据建模\n构建统计或机器学习模型\n模型选择、参数估计、模型评估\n\n\n结果沟通\n报告发现并分享洞察\n可复现报告、演示技巧、数据故事化"
   },
   {
-    "objectID": "issue2_voting.html#whole-game-ai模型投票数据分析",
-    "href": "issue2_voting.html#whole-game-ai模型投票数据分析",
-    "title": "Issue #2 - AI模型性能投票分析",
+    "objectID": "00-introduction.html#什么是数据科学的-whole-game",
+    "href": "00-introduction.html#什么是数据科学的-whole-game",
+    "title": "数据科学的 Whole Game",
     "section": "",
-    "text": "本案例展示了一个完整的数据科学工作流程 (Whole Game)，包括：\n\n\n\n数据获取 (Data Acquisition)：从 GitHub Issue 抓取投票数据\n数据解析 (Data Parsing)：从非结构化文本中提取模型排名\n数据统计 (Data Statistics)：计算各模型的投票数和平均排名\n数据可视化 (Data Visualization)：生成多种图表展示分析结果\n数据发布 (Data Publishing)：通过 Quarto 生成可交互报告\n\n\n\n\n\n\n\n工具\n用途\n特点\n\n\n\n\nGitHub API\n数据源\nRESTful 接口，支持分页\n\n\nhttr\nHTTP 请求\nR 语言 HTTP 客户端\n\n\ndplyr\n数据处理\n管道操作，数据转换\n\n\nstringr\n文本处理\n正则表达式，模式匹配\n\n\nggplot2\n可视化\n声明式绘图，图形语法\n\n\ntidyr\n数据整形\n宽表/长表转换\n\n\nQuarto\n文档生成\n可复现计算文档\n\n\n\n\n\n\n\n模式识别：使用正则表达式从文本中提取结构化数据\n数据整形：使用 tidyr 进行数据透视和重塑\n多维度分析：从不同角度（票数、排名）分析数据\n可视化原则：选择合适的图表类型展示数据\n\n\n\n\n在本案例中，每位同学对5个AI模型进行排序（1-5名），这种数据结构常用于：\n\nA/B测试结果分析\n用户偏好调查\n算法性能评估\n\n分析方法包括： - 频次统计：各选项被选为第1名的次数 - 平均排名：计算每个选项的平均排名得分 - 排名分布：分析各选项在不同排名位置的分布\n\n\n\n获取到 258 条投票评论"
+    "text": "在 Hadley Wickham 等人的著作《R for Data Science》中，“Whole Game” 是一个核心概念，指的是数据科学项目的完整生命周期。与传统的分章节教学方式不同，Whole Game 方法主张让学生先经历一个完整的小型数据科学项目，建立全局视野，然后再深入各个技术细节。\n\n\n\n\n\n\n\nflowchart LR\n    A[数据导入&lt;br/&gt;Import] --&gt; B[数据整理&lt;br/&gt;Tidy]\n    B --&gt; C[数据转换&lt;br/&gt;Transform]\n    C --&gt; D[数据可视化&lt;br/&gt;Visualize]\n    D --&gt; E[数据建模&lt;br/&gt;Model]\n    E --&gt; F[结果沟通&lt;br/&gt;Communicate]\n    F -.-&gt; A\n\n\n\n\n\n\n\n\n\n环节\n核心任务\n关键技能\n\n\n\n\n数据导入\n从各种来源获取数据\nAPI 调用、文件读取、数据库连接\n\n\n数据整理\n将数据转换为整洁格式\n理解 tidy 数据原则、数据重塑\n\n\n数据转换\n清洗、筛选、汇总数据\n条件筛选、分组聚合、数据变换\n\n\n数据可视化\n创建图表探索数据\n图形语法、审美设计、交互式图形\n\n\n数据建模\n构建统计或机器学习模型\n模型选择、参数估计、模型评估\n\n\n结果沟通\n报告发现并分享洞察\n可复现报告、演示技巧、数据故事化"
   },
   {
-    "objectID": "issue2_voting.html#数据解析",
-    "href": "issue2_voting.html#数据解析",
-    "title": "Issue #2 - AI模型性能投票分析",
-    "section": "数据解析",
-    "text": "数据解析\n\n# 定义常见模型名称映射\nmodel_mapping &lt;- c(\n  \"gpt-5\" = \"GPT-5\",\n  \"gpt-4o\" = \"GPT-4o\",\n  \"gpt-4\" = \"GPT-4\",\n  \"gpt-3.5\" = \"GPT-3.5\",\n  \"claude-opus\" = \"Claude Opus\",\n  \"claude-sonnet\" = \"Claude Sonnet\",\n  \"claude-haiku\" = \"Claude Haiku\",\n  \"claude-3\" = \"Claude 3\",\n  \"gemini\" = \"Gemini\",\n  \"deepseek\" = \"DeepSeek\",\n  \"kimi\" = \"Kimi\",\n  \"qwen\" = \"Qwen\",\n  \"glm\" = \"GLM\",\n  \"minimax\" = \"MiniMax\",\n  \"grok\" = \"Grok\"\n)\n\n# 提取模型排名\nextract_models &lt;- function(body) {\n  lines &lt;- str_split(body, \"\\n\")[[1]]\n  lines &lt;- lines[str_detect(lines, \"^\\\\d+[.．、]\")]\n  \n  models &lt;- c()\n  for (i in seq_along(lines)) {\n    line &lt;- lines[i]\n    # 提取模型名称\n    for (model in names(model_mapping)) {\n      if (str_detect(tolower(line), tolower(model))) {\n        models &lt;- c(models, model_mapping[model])\n        break\n      }\n    }\n  }\n  models\n}\n\n# 解析所有投票 - 将数据框转为列表\ncomments_list &lt;- split(all_comments, seq(nrow(all_comments)))\n\nvote_data &lt;- lapply(comments_list, function(x) {\n  models &lt;- extract_models(x$body)\n  if (length(models) &gt; 0) {\n    data.frame(\n      rank = 1:length(models),\n      model = models,\n      stringsAsFactors = FALSE\n    )\n  }\n}) %&gt;% bind_rows()\n\ncat(\"解析到\", nrow(vote_data), \"条模型排名记录\\n\")\n\n解析到 1190 条模型排名记录"
+    "objectID": "00-introduction.html#本课程的两个-whole-game-案例",
+    "href": "00-introduction.html#本课程的两个-whole-game-案例",
+    "title": "数据科学的 Whole Game",
+    "section": "本课程的两个 Whole Game 案例",
+    "text": "本课程的两个 Whole Game 案例\n本课程通过两个真实的 GitHub Issue 数据分析案例，带您完整体验数据科学的工作流程。\n\n案例一：Issue #1 —— 学生信息采集与分析\n\n\n\n\n\nflowchart TD\n    A[学生在 GitHub Issue 回复] --&gt; B[通过 GitHub API 获取数据]\n    B --&gt; C[解析非结构化文本]\n    C --&gt; D[验证学号格式]\n    D --&gt; E[统计学生信息]\n    E --&gt; F[可视化研究方向分布]\n    F --&gt; G[生成可交互报告]\n\n\n\n\n\n\n通过这个案例，您将学习：\n\nGitHub 协作基础：Issue 的使用、Markdown 格式、GitHub Flow\nAPI 数据获取：理解 RESTful API、分页机制、认证方式\n正则表达式：从非结构化文本中提取结构化信息\n数据验证：建立数据质量检查机制\n描述性统计：计数、频率、分布分析\nggplot2 可视化：条形图、数据分层展示\n\n\n\n案例二：Issue #2 —— AI 模型性能投票分析\n\n\n\n\n\nflowchart TD\n    A[学生对 AI 模型排序投票] --&gt; B[获取 GitHub Issue 数据]\n    B --&gt; C[解析排序信息]\n    C --&gt; D[转换数据格式]\n    D --&gt; E[计算排名统计量]\n    E --&gt; F[多维度可视化]\n    F --&gt; G[解读模型偏好]\n\n\n\n\n\n\n通过这个案例，您将学习：\n\n排序数据分析：理解排序数据的特殊性\n数据透视：长宽格式转换（pivot_longer / pivot_wider）\n多维度可视化：热力图、箱线图、排名图\n汇总统计：平均排名、频次分布、一致性检验\n数据导出：生成结构化 CSV 文件"
   },
   {
-    "objectID": "issue2_voting.html#统计分析",
-    "href": "issue2_voting.html#统计分析",
-    "title": "Issue #2 - AI模型性能投票分析",
-    "section": "统计分析",
-    "text": "统计分析\n\n1. 模型排名频次\n\n# 计算每个模型在各排名的频次\nrank_frequency &lt;- vote_data %&gt;%\n  group_by(model, rank) %&gt;%\n  summarise(count = n(), .groups = \"drop\")\n\n# 计算总票数\ntotal_votes &lt;- vote_data %&gt;%\n  count(model, sort = TRUE)\n\nprint(head(total_votes, 15))\n\n           model   n\n1         Gemini 239\n2       DeepSeek 227\n3           Kimi 205\n4  Claude Sonnet 149\n5          GPT-5 145\n6         GPT-4o 119\n7           Qwen  40\n8       Claude 3  19\n9    Claude Opus  17\n10          Grok  13\n11           GLM   8\n12         GPT-4   8\n13  Claude Haiku   1\n\n\n\n\n2. 平均排名\n\n# 计算平均排名\navg_rank &lt;- vote_data %&gt;%\n  group_by(model) %&gt;%\n  summarise(\n    avg_position = mean(rank),\n    total_votes = n(),\n    .groups = \"drop\"\n  ) %&gt;%\n  arrange(avg_position)\n\nprint(avg_rank)\n\n# A tibble: 13 × 3\n   model         avg_position total_votes\n   &lt;chr&gt;                &lt;dbl&gt;       &lt;int&gt;\n 1 Gemini                1.89         239\n 2 GPT-5                 2.41         145\n 3 Claude 3              2.79          19\n 4 GPT-4o                2.84         119\n 5 Claude Opus           3             17\n 6 GLM                   3              8\n 7 GPT-4                 3              8\n 8 DeepSeek              3.26         227\n 9 Kimi                  3.45         205\n10 Grok                  3.62          13\n11 Claude Sonnet         3.64         149\n12 Qwen                  3.75          40\n13 Claude Haiku          4              1"
+    "objectID": "00-introduction.html#技术栈详解",
+    "href": "00-introduction.html#技术栈详解",
+    "title": "数据科学的 Whole Game",
+    "section": "技术栈详解",
+    "text": "技术栈详解\n本项目的核心技术栈基于 R 语言和 Quarto 文档系统，这是现代可复现研究的标准工具组合。\n\n核心工具链\n\n\n\n工具/包\n用途\n在本项目中的应用\n\n\n\n\nQuarto\n可复现计算文档\n整合代码、输出和 narrative，生成网站\n\n\nhttr\nHTTP 请求\n调用 GitHub API 获取数据\n\n\ngh\nGitHub API 封装\n更便捷的 GitHub 数据获取\n\n\njsonlite\nJSON 处理\n解析 API 返回的 JSON 数据\n\n\ndplyr\n数据操作\n筛选、分组、聚合、变换\n\n\ntidyr\n数据整理\n长宽格式转换、数据清理\n\n\nstringr\n字符串处理\n正则表达式匹配、文本提取\n\n\nggplot2\n数据可视化\n创建各种统计图形\n\n\nDT\n交互式表格\n生成可搜索、可排序的数据表格\n\n\nshowtext\n字体渲染\n解决中文显示问题\n\n\n\n\n\nQuarto：可复现研究的利器\nQuarto 是 RStudio（现 Posit）开发的下一代科学和技术出版系统，它解决了传统数据分析工作流中的一个核心问题：如何确保分析结果可以被完全复现？\n\nQuarto 的核心特性\n\n文学编程（Literate Programming）\n\n将代码和叙述文本无缝融合\n代码块可以设置执行选项（如 echo: false 隐藏代码，只显示结果）\n支持条件执行和动态内容生成\n\n多语言支持\n\n原生支持 R、Python、Julia\n可以在同一文档中混用多种语言\n语言间可以共享数据\n\n多种输出格式\n\nHTML 网页（本项目的输出格式）\nPDF 文档（学术写作）\nWord 文档（办公协作）\n演示文稿（beamer、reveal.js）\n交互式仪表盘\n\n网站和书籍生成\n\n通过 _quarto.yaml 配置多页面网站\n自动处理导航、交叉引用\n内置搜索功能\n\n\n\n\n_quarto.yaml 配置解析\nproject:\n  type: website      # 项目类型：生成网站\n  output-dir: _site  # 输出目录\n\nwebsite:\n  title: \"D2RS-2026spring 数据分析\"  # 网站标题\n  navbar:                           # 导航栏配置\n    left:\n      - href: index.qmd             # 页面链接\n        text: 首页                   # 显示文本\n      - href: issue1_students.qmd\n        text: 学生名单\n      # ... 更多页面\n\nformat:\n  html:\n    theme: cosmo     # 使用 cosmo 主题"
   },
   {
-    "objectID": "issue2_voting.html#数据可视化",
-    "href": "issue2_voting.html#数据可视化",
-    "title": "Issue #2 - AI模型性能投票分析",
-    "section": "数据可视化",
-    "text": "数据可视化\n\n1. 模型总投票数\n\nggplot(head(total_votes, 15), aes(x = reorder(model, n), y = n)) +\n  geom_bar(stat = \"identity\", fill = \"steelblue\") +\n  coord_flip() +\n  labs(title = \"AI模型投票总次数 (Top 15)\", x = \"模型\", y = \"投票次数\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n2. 排名热力图\n\n# 排名分布热力图\nrank_matrix &lt;- vote_data %&gt;%\n  filter(rank &lt;= 5) %&gt;%\n  count(model, rank) %&gt;%\n  pivot_wider(names_from = rank, values_from = n, values_fill = 0)\n\n# 选择前10个模型\ntop_models &lt;- head(total_votes$model, 10)\nrank_matrix_filtered &lt;- rank_matrix %&gt;% filter(model %in% top_models)\n\n# 转换为长格式并绘图\nrank_long &lt;- rank_matrix_filtered %&gt;%\n  pivot_longer(cols = -model, names_to = \"rank\", values_to = \"count\") %&gt;%\n  mutate(rank = as.integer(rank))\n\n# 计算每个模型的平均排名用于排序\nmodel_avg_rank &lt;- vote_data %&gt;%\n  group_by(model) %&gt;%\n  summarise(avg_position = mean(rank), .groups = \"drop\")\n\nrank_long &lt;- rank_long %&gt;%\n  left_join(model_avg_rank, by = \"model\")\n\nggplot(rank_long, aes(x = rank, y = reorder(model, avg_position), fill = count)) +\n  geom_tile() +\n  scale_fill_gradient(low = \"white\", high = \"coral\") +\n  labs(title = \"模型排名分布热力图 (Top 10)\", x = \"排名\", y = \"模型\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n3. 平均排名柱状图\n\nggplot(head(avg_rank, 15), aes(x = reorder(model, avg_position), y = avg_position)) +\n  geom_bar(stat = \"identity\", fill = \"coral\") +\n  coord_flip() +\n  labs(title = \"AI模型平均排名 (越低越好)\", x = \"模型\", y = \"平均排名\") +\n  theme_minimal() +\n  scale_y_reverse()\n\n\n\n\n\n\n\n\n\n\n4. 箱线图\n\n# 排名分布箱线图\nggplot(vote_data %&gt;% filter(model %in% top_models), \n       aes(x = reorder(model, rank), y = rank)) +\n  geom_boxplot(fill = \"lightblue\") +\n  coord_flip() +\n  labs(title = \"模型排名分布 (Top 10)\", x = \"模型\", y = \"排名\") +\n  theme_minimal()"
+    "objectID": "00-introduction.html#数据科学的核心原则",
+    "href": "00-introduction.html#数据科学的核心原则",
+    "title": "数据科学的 Whole Game",
+    "section": "数据科学的核心原则",
+    "text": "数据科学的核心原则\n\n1. 可复现性（Reproducibility）\n可复现性是科学研究的基石。在数据科学中，这意味着：\n\n代码可运行：他人可以在他们的环境中运行您的代码\n环境可重现：记录所有依赖包及其版本\n数据可获取：提供数据获取途径或包含数据\n随机性可控：设置随机种子，确保随机结果可重复\n\n本项目的可复现性实践：\n\n使用 Quarto 文档整合代码和说明\n通过 GitHub API 直接获取原始数据\n所有数据处理步骤透明可见\n网站自动部署，结果实时更新\n\n\n\n2. 数据整洁原则（Tidy Data）\nHadley Wickham 提出的 tidy data 原则是数据整理的黄金标准：\n\n每列是一个变量\n每行是一个观测\n每个单元格是一个值\n\n整洁数据的优势：\n\n一致的格式便于使用相同的工具处理\n数据结构本身即携带语义信息\n便于进行分组、聚合、变换操作\n\n本项目的数据整理示例：\n原始数据（非整洁）：\n\n\n\n用户\n投票内容\n\n\n\n\nuser1\n1. GPT-4o. Claude. Gemini\n\n\nuser2\n1. Claude. GPT-4o. Kimi\n\n\n\n整理后（整洁）：\n\n\n\n用户\n排名\n模型\n\n\n\n\nuser1\n1\nGPT-4o\n\n\nuser1\n2\nClaude\n\n\nuser1\n3\nGemini\n\n\nuser2\n1\nClaude\n\n\nuser2\n2\nGPT-4o\n\n\nuser2\n3\nKimi\n\n\n\n\n\n3. 版本控制与协作\nGit 和 GitHub 是现代数据科学工作流的标配：\n\n版本回退：随时可以回到之前的代码状态\n分支开发：新功能在独立分支开发，不影响主分支\n协作审查：通过 Pull Request 进行代码审查\nIssue 追踪：记录问题、讨论方案、追踪进度"
   },
   {
-    "objectID": "issue2_voting.html#保存为csv",
-    "href": "issue2_voting.html#保存为csv",
-    "title": "Issue #2 - AI模型性能投票分析",
-    "section": "保存为CSV",
-    "text": "保存为CSV\n\n# 导出投票数据 - 简化版\nnum_voters &lt;- nrow(all_comments)\nvote_matrix &lt;- matrix(NA, nrow = num_voters, ncol = 5)\ncolnames(vote_matrix) &lt;- paste0(\"第\", 1:5, \"名\")\n\nfor (i in 1:5) {\n  rank_i_data &lt;- vote_data %&gt;% filter(rank == i)\n  vote_matrix[1:nrow(rank_i_data), i] &lt;- rank_i_data$model\n}\n\nvote_export &lt;- as.data.frame(vote_matrix, stringsAsFactors = FALSE)\n\nwrite.csv(vote_export, \"issue2_voting.csv\", row.names = FALSE, fileEncoding = \"UTF-8\")\ncat(\"投票数据已保存到: issue2_voting.csv\\n\")\n\n投票数据已保存到: issue2_voting.csv\n\ncat(\"共\", nrow(vote_export), \"条投票记录\\n\")\n\n共 258 条投票记录"
+    "objectID": "00-introduction.html#学习路径建议",
+    "href": "00-introduction.html#学习路径建议",
+    "title": "数据科学的 Whole Game",
+    "section": "学习路径建议",
+    "text": "学习路径建议\n\n入门路径（完成本项目）\n\n第一周：熟悉 GitHub 和 Markdown\n\n注册 GitHub 账号\n在 Issue #1 中回复，练习 Markdown 格式\n学习基本的 Git 操作\n\n第二周：理解数据获取\n\n学习 API 基本概念\n了解 GitHub API 的用法\n运行代码获取 Issue 数据\n\n第三周：数据处理和可视化\n\n学习 dplyr 基本操作\n理解 ggplot2 的图形语法\n修改代码生成自己的可视化\n\n第四周：可复现报告\n\n学习 Quarto 语法\n修改 .qmd 文件\n渲染并发布自己的分析\n\n\n\n\n进阶路径\n\n学习更多的 R 包（purrr、readr、lubridate 等）\n深入了解统计建模\n学习交互式可视化（plotly、shiny）\n探索机器学习工作流（tidymodels）"
   },
   {
-    "objectID": "issue2_voting.html#总结",
-    "href": "issue2_voting.html#总结",
-    "title": "Issue #2 - AI模型性能投票分析",
-    "section": "总结",
-    "text": "总结\n\n\n=== 投票分析总结 ===\n\n\n总投票人数: 258 \n\n\n有效投票记录: 238 条\n\n\n\n最受欢迎模型 (总票数):\n\n\n          model   n\n1        Gemini 239\n2      DeepSeek 227\n3          Kimi 205\n4 Claude Sonnet 149\n5         GPT-5 145\n\n\n\n综合最佳模型 (平均排名):\n\n\n# A tibble: 5 × 3\n  model       avg_position total_votes\n  &lt;chr&gt;              &lt;dbl&gt;       &lt;int&gt;\n1 Gemini              1.89         239\n2 GPT-5               2.41         145\n3 Claude 3            2.79          19\n4 GPT-4o              2.84         119\n5 Claude Opus         3             17"
+    "objectID": "00-introduction.html#常见问题",
+    "href": "00-introduction.html#常见问题",
+    "title": "数据科学的 Whole Game",
+    "section": "常见问题",
+    "text": "常见问题\n\nQ: 为什么选择 R 而不是 Python？\nR 和 Python 都是优秀的数据科学工具。选择 R 是因为：\n\ntidyverse 生态系统：dplyr、ggplot2 等包提供了优雅、一致的数据处理语法\n统计分析传统：R 诞生于统计学社区，统计方法实现更全面\nQuarto 的原生支持：虽然 Quarto 支持多语言，但与 R 的集成最为成熟\n学术出版优势：R Markdown/Quarto 在学术界被广泛采用\n\n当然，Python 在深度学习、生产部署等方面有优势，两者并非互斥。\n\n\nQ: 我需要什么先验知识？\n基础要求：\n\n基本的计算机操作能力\n高中水平的数学和统计知识\n对编程有基本了解（不限语言）\n\n不需要：\n\n深入的 R 语言经验（我们会逐步学习）\n统计学专业知识（本课程侧重实践）\n前端开发技能（Quarto 处理所有界面）\n\n\n\nQ: 数据更新后，如何确保我的分析仍然有效？\n这是可复现研究的核心问题。建议：\n\n防御性编程：在代码中加入数据验证步骤\n版本锁定：记录使用的包版本（使用 renv 包）\n单元测试：对关键数据处理步骤编写测试\n持续集成：使用 GitHub Actions 自动运行分析并检查错误"
   },
   {
-    "objectID": "issue2_voting.html#结果分析",
-    "href": "issue2_voting.html#结果分析",
-    "title": "Issue #2 - AI模型性能投票分析",
-    "section": "📊 结果分析",
-    "text": "📊 结果分析\n\n数据结构\n从 GitHub Issue 获取的投票数据需要解析为结构化格式：\n\n\n\n字段\n类型\n说明\n\n\n\n\nuser.login\n字符串\nGitHub 用户名\n\n\nbody\n字符串\n投票内容（包含1-5名模型排名）\n\n\n\n\n\n原始数据格式示例\n1. gpt-4o\n2. gemini-pro-2.5\n3. kimi-2.5\n4. deepseek-r1\n5. claude-sonnet-3-6\n\n\n数据解析方法\n\n按行分割：将文本按换行符分割\n提取排名：匹配以数字开头的行（^\\\\d+[.．、]）\n模型识别：通过关键字匹配识别模型名称\n标准化映射：将不同写法统一为标准名称\n\n\n\n分析维度\n\n总票数：各模型被选为第1名的次数\n平均排名：各模型的平均排名得分（越低越好）\n排名分布：各模型在不同排名位置的分布情况\n\n\n\n🎯 教学要点\n\n文本解析：从非结构化文本中提取结构化数据\n模式匹配：使用正则表达式识别和提取信息\n数据透视：使用 tidyr 进行数据整形\n可视化选择：\n\n柱状图：展示频次差异\n热力图：展示多维度分布\n箱线图：展示排名分布\n\n排序分析：理解排序数据的特殊性\n\n\n\n💡 扩展思考\n\n如何处理模型名称的多种写法？\n如何计算加权排名？\n如何进行统计显著性检验？"
+    "objectID": "00-introduction.html#下一步",
+    "href": "00-introduction.html#下一步",
+    "title": "数据科学的 Whole Game",
+    "section": "下一步",
+    "text": "下一步\n现在，您可以选择以下路径继续学习：\n\n查看 Issue #1 分析：了解如何从 GitHub Issue 中提取和验证学生信息\n查看 Issue #2 分析：学习排序数据的分析方法\n查看成员名单：查看实时更新的学生信息表\n阅读技术工具详解：深入了解各个 R 包的使用方法\n\n\n“数据科学不仅仅是关于数据，更是关于提出正确的问题，并用数据来回答它们。” —— Hadley Wickham"
   },
   {
     "objectID": "issue1_students.html",
     "href": "issue1_students.html",
     "title": "Issue #1 - 学生加入申请数据分析",
     "section": "",
-    "text": "本案例展示了一个完整的数据科学工作流程 (Whole Game)，包括：\n\n\n\n数据获取 (Data Acquisition)：从 GitHub API 抓取 Issue 评论数据\n数据清洗 (Data Cleaning)：解析、验证、修正学号格式\n数据分析 (Data Analysis)：统计学生信息和感兴趣方向\n数据可视化 (Data Visualization)：使用 ggplot2 生成图表\n数据发布 (Data Publishing)：通过 Quarto 生成可交互的报告\n\n\n\n\n\n\n\n工具\n用途\n特点\n\n\n\n\nGitHub API\n数据源\nRESTful 接口，支持分页和认证\n\n\nhttr\nHTTP 请求\nR 语言 HTTP 客户端\n\n\ndplyr\n数据处理\n管道操作，语法优雅\n\n\nstringr\n字符串处理\n正则表达式封装\n\n\nggplot2\n数据可视化\n声明式绘图，图形语法\n\n\nQuarto\n文档生成\n混合 R/Python/Julia 的可复现计算文档\n\n\n\n\n\n\n\n数据验证：在分析前检查数据质量\n错误处理：合理设置重试和等待时间\n可复现性：使用 Quarto 确保分析可重复\n版本控制：通过 Git 管理数据和代码"
+    "text": "本案例展示如何从非结构化的 GitHub Issue 评论中提取结构化数据，完整演示数据科学工作流程中的数据获取、清洗、验证、分析和可视化环节。\n\n\n完成本案例学习后，您将能够：\n\n使用 GitHub API 获取数据：理解 RESTful API 的基本概念，掌握 gh 包的使用方法\n解析非结构化文本：使用正则表达式从自由文本中提取结构化信息\n建立数据验证机制：设计数据质量检查规则，识别异常数据\n进行描述性分析：使用 dplyr 进行数据汇总和统计\n创建数据可视化：使用 ggplot2 生成专业的统计图表\n生成可复现报告：使用 Quarto 整合分析流程并发布\n\n\n\n\n\n\n\n字段\n类型\n说明\n示例\n\n\n\n\nstudent_id\ncharacter\n学号（13位数字）\n“2025303110116”\n\n\nname\ncharacter\n姓名（2-4个中文字符）\n“张三”\n\n\ninterest\ncharacter\n感兴趣的研究方向\n“农业遥感”\n\n\ncreated_at\nPOSIXct\n评论创建时间\n“2024-01-15 08:30:00”\n\n\n\n\n\n\n数据来自 GitHub Issue #1，学生在 Issue 中以评论形式提交个人信息，格式如下：\n学号：2025303110116\n姓名：张三\n感兴趣的方向：农业遥感"
   },
   {
-    "objectID": "issue1_students.html#whole-game-从-github-issue-到数据分析",
-    "href": "issue1_students.html#whole-game-从-github-issue-到数据分析",
+    "objectID": "issue1_students.html#案例概述",
+    "href": "issue1_students.html#案例概述",
     "title": "Issue #1 - 学生加入申请数据分析",
     "section": "",
-    "text": "本案例展示了一个完整的数据科学工作流程 (Whole Game)，包括：\n\n\n\n数据获取 (Data Acquisition)：从 GitHub API 抓取 Issue 评论数据\n数据清洗 (Data Cleaning)：解析、验证、修正学号格式\n数据分析 (Data Analysis)：统计学生信息和感兴趣方向\n数据可视化 (Data Visualization)：使用 ggplot2 生成图表\n数据发布 (Data Publishing)：通过 Quarto 生成可交互的报告\n\n\n\n\n\n\n\n工具\n用途\n特点\n\n\n\n\nGitHub API\n数据源\nRESTful 接口，支持分页和认证\n\n\nhttr\nHTTP 请求\nR 语言 HTTP 客户端\n\n\ndplyr\n数据处理\n管道操作，语法优雅\n\n\nstringr\n字符串处理\n正则表达式封装\n\n\nggplot2\n数据可视化\n声明式绘图，图形语法\n\n\nQuarto\n文档生成\n混合 R/Python/Julia 的可复现计算文档\n\n\n\n\n\n\n\n数据验证：在分析前检查数据质量\n错误处理：合理设置重试和等待时间\n可复现性：使用 Quarto 确保分析可重复\n版本控制：通过 Git 管理数据和代码"
+    "text": "本案例展示如何从非结构化的 GitHub Issue 评论中提取结构化数据，完整演示数据科学工作流程中的数据获取、清洗、验证、分析和可视化环节。\n\n\n完成本案例学习后，您将能够：\n\n使用 GitHub API 获取数据：理解 RESTful API 的基本概念，掌握 gh 包的使用方法\n解析非结构化文本：使用正则表达式从自由文本中提取结构化信息\n建立数据验证机制：设计数据质量检查规则，识别异常数据\n进行描述性分析：使用 dplyr 进行数据汇总和统计\n创建数据可视化：使用 ggplot2 生成专业的统计图表\n生成可复现报告：使用 Quarto 整合分析流程并发布\n\n\n\n\n\n\n\n字段\n类型\n说明\n示例\n\n\n\n\nstudent_id\ncharacter\n学号（13位数字）\n“2025303110116”\n\n\nname\ncharacter\n姓名（2-4个中文字符）\n“张三”\n\n\ninterest\ncharacter\n感兴趣的研究方向\n“农业遥感”\n\n\ncreated_at\nPOSIXct\n评论创建时间\n“2024-01-15 08:30:00”\n\n\n\n\n\n\n数据来自 GitHub Issue #1，学生在 Issue 中以评论形式提交个人信息，格式如下：\n学号：2025303110116\n姓名：张三\n感兴趣的方向：农业遥感"
   },
   {
-    "objectID": "issue1_students.html#数据获取",
-    "href": "issue1_students.html#数据获取",
+    "objectID": "issue1_students.html#数据获取连接-github-api",
+    "href": "issue1_students.html#数据获取连接-github-api",
     "title": "Issue #1 - 学生加入申请数据分析",
-    "section": "数据获取",
-    "text": "数据获取\n\n\n获取到 284 条评论"
+    "section": "数据获取：连接 GitHub API",
+    "text": "数据获取：连接 GitHub API\n\nGitHub API 简介\nGitHub 提供了功能完善的 REST API，允许程序化的方式访问平台上的几乎所有数据。对于本项目，我们需要获取特定 Issue 下的所有评论。\nAPI 端点结构：\nGET /repos/{owner}/{repo}/issues/{issue_number}/comments\n其中： - {owner}: 仓库所有者（本例为 D2RS-2026spring） - {repo}: 仓库名称（本例为 members） - {issue_number}: Issue 编号（本例为 1）\n\n\n为什么选择 gh 包？\nR 社区提供了多种访问 GitHub API 的方式：\n\n\n\n\n\n\n\n\n方式\n优点\n缺点\n\n\n\n\nhttr + 手动构建请求\n灵活，完全控制\n需要处理 URL 编码、分页等细节\n\n\ngh 包\n简洁，自动处理分页，智能认证\n功能封装后灵活性略降\n\n\ngh CLI + system()\n利用现有认证\n依赖外部工具\n\n\n\n本项目主要使用 gh 包，因为它：\n\n自动处理分页：当评论数超过 100 条时，自动获取所有页面\n智能认证：自动检测 GITHUB_PAT 环境变量\nR 友好的输出：直接返回 R 列表结构\n\n\n\n数据获取代码\n\n\n显示/隐藏代码\n# 使用 gh CLI 获取数据（避免 API 限流）\n# 先检查本地是否有缓存数据，避免重复调用 API\ncache_file &lt;- \"issue1_comments.json\"\n\nif (!file.exists(cache_file)) {\n  # 获取 Issue 1 评论数据\n  # --paginate 参数会自动处理分页，获取所有评论\n  system(\"gh api repos/D2RS-2026spring/members/issues/1/comments --paginate &gt; issue1_comments.json\")\n  message(\"已从 GitHub API 获取数据并缓存\")\n} else {\n  message(\"使用本地缓存数据\")\n}\n\n# 读取本地缓存数据\n# simplifyVector = TRUE 会将 JSON 数组转换为 R 向量\nall_comments &lt;- fromJSON(cache_file, simplifyVector = TRUE)\n\n# 显示数据概览\ncat(\"获取到\", nrow(all_comments), \"条评论\\n\")\n\n\n获取到 311 条评论\n\n\n显示/隐藏代码\ncat(\"数据包含以下列：\", paste(colnames(all_comments), collapse = \", \"), \"\\n\")\n\n\n数据包含以下列： url, html_url, issue_url, id, node_id, user, created_at, updated_at, body, author_association, pin, reactions, performed_via_github_app \n\n\n\n\n理解 API 返回的数据结构\n让我们查看一条原始评论的结构：\n\n\n显示/隐藏代码\n# 查看第一条评论的结构\ncomment_example &lt;- all_comments[1, ]\ncat(\"评论 ID:\", comment_example$id, \"\\n\")\n\n\n评论 ID: 3997126410 \n\n\n显示/隐藏代码\ncat(\"用户名:\", comment_example$user$login, \"\\n\")\n\n\n用户名: nicek4267-max \n\n\n显示/隐藏代码\ncat(\"创建时间:\", comment_example$created_at, \"\\n\")\n\n\n创建时间: 2026-03-04T12:04:26Z \n\n\n显示/隐藏代码\ncat(\"评论内容（前200字符）:\\n\")\n\n\n评论内容（前200字符）:\n\n\n显示/隐藏代码\ncat(substr(comment_example$body, 1, 200), \"...\\n\")\n\n\n学号：2025303110116\n姓名：于辛铠\n感兴趣方向：农业遥感 ...\n\n\nJSON 结构解析：\nGitHub API 返回的评论对象包含以下关键字段：\n\n\n\n字段\n类型\n说明\n\n\n\n\nid\ninteger\n评论的唯一标识符\n\n\nnode_id\nstring\nGraphQL 节点 ID\n\n\nhtml_url\nstring\n评论的网页链接\n\n\nissue_url\nstring\n所属 Issue 的 API 链接\n\n\nuser\nobject\n包含评论者信息（login, id, avatar_url 等）\n\n\nbody\nstring\n评论的 Markdown 内容\n\n\ncreated_at\nstring\n创建时间（ISO 8601 格式）\n\n\nupdated_at\nstring\n最后更新时间"
   },
   {
-    "objectID": "issue1_students.html#数据解析",
-    "href": "issue1_students.html#数据解析",
+    "objectID": "issue1_students.html#数据解析从文本到结构化数据",
+    "href": "issue1_students.html#数据解析从文本到结构化数据",
     "title": "Issue #1 - 学生加入申请数据分析",
-    "section": "数据解析",
-    "text": "数据解析\n\n# 解析评论数据 - all_comments 现在是数据框\nparse_student_data &lt;- function(body) {\n  # 提取学号 - 匹配各种格式\n  student_id &lt;- NA\n  \n  # 格式1: 学号：2025303110116\n  if (str_detect(body, \"学号[：:][\\\\s]*(\\\\d{10,13})\")) {\n    student_id &lt;- str_extract(body, \"学号[：:][\\\\s]*(\\\\d{10,13})\") %&gt;%\n      str_extract(\"\\\\d{10,13}\")\n  }\n  # 格式2: 2025303110116\n  else if (str_detect(body, \"^(\\\\d{10,13})\")) {\n    student_id &lt;- str_extract(body, \"^(\\\\d{10,13})\")\n  }\n  \n  # 提取姓名\n  name &lt;- NA\n  if (str_detect(body, \"姓名[：:][\\\\s]*([\\\\u4e00-\\\\u9fa5]{2,4})\")) {\n    name &lt;- str_extract(body, \"姓名[：:][\\\\s]*([\\\\u4e00-\\\\u9fa5]{2,4})\") %&gt;%\n      str_replace(\"姓名[：:][\\\\s]*\", \"\")\n  }\n  \n  # 提取感兴趣方向\n  interest &lt;- NA\n  if (str_detect(body, \"感兴趣[的方向方向]*[：:][\\\\s]*([\\\\u4e00-\\\\u9fa5a-zA-Z0-9]+)\")) {\n    interest &lt;- str_extract(body, \"感兴趣[的方向方向]*[：:][\\\\s]*([\\\\u4e00-\\\\u9fa5a-zA-Z0-9]+)\") %&gt;%\n      str_replace(\"感兴趣[的方向方向]*[：:][\\\\s]*\", \"\")\n  }\n  \n  data.frame(\n    student_id = student_id,\n    name = name,\n    interest = interest,\n    stringsAsFactors = FALSE\n  )\n}\n\n# 解析所有评论 - 将数据框转为列表\ncomments_list &lt;- split(all_comments, seq(nrow(all_comments)))\n\nstudent_data &lt;- lapply(comments_list, function(x) {\n  parse_student_data(x$body)\n}) %&gt;% bind_rows()\n\n# 数据清洗\nstudent_data &lt;- student_data %&gt;%\n  filter(!is.na(student_id)) %&gt;%\n  mutate(\n    student_id = str_trim(student_id),\n    # 验证学号格式：必须以2025开头，13位数字\n    valid_id = str_detect(student_id, \"^2025\\\\d{9}$\")\n  )\n\ncat(\"解析后有效记录:\", nrow(student_data), \"条\\n\")\n\n解析后有效记录: 270 条\n\ncat(\"学号格式验证通过(2025开头13位):\", sum(student_data$valid_id), \"条\\n\")\n\n学号格式验证通过(2025开头13位): 267 条"
+    "section": "数据解析：从文本到结构化数据",
+    "text": "数据解析：从文本到结构化数据\n\n解析策略\n学生在 Issue 中的回复格式各异，我们需要设计灵活的解析策略：\n可能的格式变体：\n# 格式 1：标准格式\n学号：2025303110116\n姓名：张三\n感兴趣的方向：农业遥感\n\n# 格式 2：简化格式\n2025303110116\n张三\n农业遥感\n\n# 格式 3：包含额外信息\n大家好！\n学号: 2025303110116\n姓名: 张三\n方向: 农业遥感\n请多关照！\n\n# 格式 4：分隔符变体\n学号：2025303110116\n姓名: 李四（注意冒号不同）\n\n\n正则表达式解析\n\n\n显示/隐藏代码\n#' 解析学生信息\n#'\n#' 从 GitHub Issue 评论正文中提取学号、姓名和感兴趣方向\n#'\n#' @param body 评论正文文本\n#' @return 包含 student_id, name, interest 的数据框\n\nparse_student_data &lt;- function(body) {\n  # 处理 NA 或空值\n  if (is.na(body) || body == \"\") {\n    return(data.frame(\n      student_id = NA_character_,\n      name = NA_character_,\n      interest = NA_character_,\n      stringsAsFactors = FALSE\n    ))\n  }\n\n  # 提取学号 - 匹配各种格式\n  student_id &lt;- NA_character_\n\n  # 格式1: \"学号：2025303110116\" 或 \"学号: 2025303110116\"\n  # (?&lt;=...) 是正向后行断言，匹配前面是特定模式的位置\n  # [\\u4e00-\\u9fa5] 是中文字符范围\n  if (str_detect(body, \"学号[\\uff1a:][\\\\s]*(\\\\d{10,13})\")) {\n    student_id &lt;- str_extract(body, \"学号[\\uff1a:][\\\\s]*(\\\\d{10,13})\") %&gt;%\n      str_extract(\"\\\\d{10,13}\")\n  }\n  # 格式2: 直接以数字开头的行\n  else if (str_detect(body, \"^(\\\\d{10,13})\")) {\n    student_id &lt;- str_extract(body, \"^(\\\\d{10,13})\")\n  }\n\n  # 提取姓名 - 匹配 \"姓名：张三\" 或 \"姓名: 张三\"\n  name &lt;- NA_character_\n  if (str_detect(body, \"姓名[\\uff1a:][\\\\s]*([\\\\u4e00-\\\\u9fa5]{2,4})\")) {\n    name &lt;- str_extract(body, \"姓名[\\uff1a:][\\\\s]*([\\\\u4e00-\\\\u9fa5]{2,4})\") %&gt;%\n      str_replace(\"姓名[\\uff1a:][\\\\s]*\", \"\")\n  }\n\n  # 提取感兴趣方向\n  interest &lt;- NA_character_\n\n  # 匹配 \"感兴趣[的方向方向]*：xxx\"\n  interest_pattern &lt;- \"感兴趣[的方向方向]*[\\uff1a:][\\\\s]*([\\\\u4e00-\\\\u9fa5a-zA-Z0-9]+)\"\n  if (str_detect(body, interest_pattern)) {\n    interest &lt;- str_extract(body, interest_pattern) %&gt;%\n      str_replace(\"感兴趣[的方向方向]*[\\uff1a:][\\\\s]*\", \"\") %&gt;%\n      str_trim()\n  }\n\n  # 清理兴趣字段中的常见无效值\n  if (!is.na(interest) && interest %in% c(\"无\", \"NA\", \"暂无\", \"没有\", \"\")) {\n    interest &lt;- NA_character_\n  }\n\n  data.frame(\n    student_id = student_id,\n    name = name,\n    interest = interest,\n    stringsAsFactors = FALSE\n  )\n}\n\n# 测试解析函数\ntest_cases &lt;- c(\n  \"学号：2025303110116\\n姓名：张三\\n感兴趣的方向：农业遥感\",\n  \"2025303110116\\n李四\\n环境科学\",\n  \"学号:2025303110116 姓名:王五\"\n)\n\nfor (test in test_cases) {\n  cat(\"\\n测试文本：\\n\", test, \"\\n\")\n  cat(\"解析结果：\\n\")\n  print(parse_student_data(test))\n}\n\n\n\n测试文本：\n 学号：2025303110116\n姓名：张三\n感兴趣的方向：农业遥感 \n解析结果：\n     student_id name interest\n1 2025303110116 张三 农业遥感\n\n测试文本：\n 2025303110116\n李四\n环境科学 \n解析结果：\n     student_id name interest\n1 2025303110116 &lt;NA&gt;     &lt;NA&gt;\n\n测试文本：\n 学号:2025303110116 姓名:王五 \n解析结果：\n     student_id name interest\n1 2025303110116 王五     &lt;NA&gt;\n\n\n\n\n批量解析所有评论\n\n\n显示/隐藏代码\n# 将数据框转换为列表以便遍历\n# split() 函数按行分割数据框\ncomments_list &lt;- split(all_comments, seq(nrow(all_comments)))\n\n# 使用 lapply 批量解析每条评论\n# 结果是一个列表，每个元素是一个数据框\nstudent_data_list &lt;- lapply(comments_list, function(x) {\n  parse_student_data(x$body)\n})\n\n# 使用 bind_rows 将所有数据框合并为一个\nstudent_data &lt;- bind_rows(student_data_list)\n\n# 添加原始数据中的其他字段\nstudent_data &lt;- student_data %&gt;%\n  mutate(\n    user_login = all_comments$user$login,\n    created_at = all_comments$created_at,\n    html_url = all_comments$html_url\n  )\n\n# 数据质量概览\ncat(\"解析结果概览：\\n\")\n\n\n解析结果概览：\n\n\n显示/隐藏代码\ncat(\"总评论数:\", nrow(all_comments), \"\\n\")\n\n\n总评论数: 311 \n\n\n显示/隐藏代码\ncat(\"成功解析学号:\", sum(!is.na(student_data$student_id)), \"\\n\")\n\n\n成功解析学号: 296 \n\n\n显示/隐藏代码\ncat(\"成功解析姓名:\", sum(!is.na(student_data$name)), \"\\n\")\n\n\n成功解析姓名: 299 \n\n\n显示/隐藏代码\ncat(\"成功解析兴趣方向:\", sum(!is.na(student_data$interest)), \"\\n\")\n\n\n成功解析兴趣方向: 167"
   },
   {
-    "objectID": "issue1_students.html#数据验证与清洗",
-    "href": "issue1_students.html#数据验证与清洗",
+    "objectID": "issue1_students.html#数据验证确保数据质量",
+    "href": "issue1_students.html#数据验证确保数据质量",
     "title": "Issue #1 - 学生加入申请数据分析",
-    "section": "数据验证与清洗",
-    "text": "数据验证与清洗\n\n\n不合规学号数量: 3 条"
+    "section": "数据验证：确保数据质量",
+    "text": "数据验证：确保数据质量\n\n验证规则设计\n数据验证是数据分析中至关重要的一步。我们需要定义明确的规则来检查数据的完整性和正确性。\n学号验证规则：\n\n格式规则：必须以 2025 开头（华农 2025 级学生）\n长度规则：必须是 13 位数字\n字符规则：只能包含数字，不能有字母或符号\n\n验证的重要性：\n\n数据完整性：确保后续分析基于正确的数据\n异常检测：识别可能的输入错误或恶意数据\n反馈机制：帮助数据提供者纠正错误\n\n\n\n实现数据验证\n\n\n显示/隐藏代码\n# 添加验证字段\nstudent_data &lt;- student_data %&gt;%\n  mutate(\n    # 去除首尾空白\n    student_id = str_trim(student_id),\n\n    # 验证学号格式：2025开头 + 9位数字 = 13位\n    valid_id = str_detect(student_id, \"^2025\\\\d{9}$\"),\n\n    # 记录验证失败原因（用于调试和反馈）\n    validation_note = case_when(\n      is.na(student_id) ~ \"学号缺失\",\n      !str_detect(student_id, \"^\\\\d+$\") ~ \"包含非数字字符\",\n      nchar(student_id) != 13 ~ paste0(\"长度错误（\", nchar(student_id), \"位，应为13位）\"),\n      !str_detect(student_id, \"^2025\") ~ \"非2025开头\",\n      TRUE ~ NA_character_\n    )\n  )\n\n# 统计验证结果\ncat(\"=== 数据验证报告 ===\\n\")\n\n\n=== 数据验证报告 ===\n\n\n显示/隐藏代码\ncat(\"总记录数:\", nrow(student_data), \"\\n\")\n\n\n总记录数: 311 \n\n\n显示/隐藏代码\ncat(\"验证通过:\", sum(student_data$valid_id, na.rm = TRUE), \"\\n\")\n\n\n验证通过: 293 \n\n\n显示/隐藏代码\ncat(\"验证失败:\", sum(!student_data$valid_id | is.na(student_data$valid_id), na.rm = TRUE), \"\\n\")\n\n\n验证失败: 18 \n\n\n\n\n不合规数据展示\n\n\n显示/隐藏代码\n# 筛选不合规记录\ninvalid_data &lt;- student_data %&gt;%\n  filter(!valid_id | is.na(valid_id)) %&gt;%\n  select(student_id, name, validation_note, user_login, created_at) %&gt;%\n  arrange(created_at)\n\nif (nrow(invalid_data) &gt; 0) {\n  cat(\"不合规数据明细：\\n\")\n  knitr::kable(invalid_data,\n               caption = \"学号验证失败记录\",\n               col.names = c(\"学号\", \"姓名\", \"失败原因\", \"GitHub账号\", \"提交时间\"))\n} else {\n  cat(\"✅ 所有学号均通过验证！\\n\")\n}\n\n\n不合规数据明细：\n\n\n\n学号验证失败记录\n\n\n\n\n\n\n\n\n\n学号\n姓名\n失败原因\nGitHub账号\n提交时间\n\n\n\n\nNA\nNA\n学号缺失\nyisar\n2026-03-04T12:05:30Z\n\n\nNA\nNA\n学号缺失\nxihongshi2021\n2026-03-04T12:07:17Z\n\n\nNA\nNA\n学号缺失\nZHGlory\n2026-03-04T12:11:57Z\n\n\nNA\nNA\n学号缺失\nxiaozz-zl\n2026-03-04T12:27:22Z\n\n\n2026303110120\n刘小梅\n非2025开头\nCANGSU-mei\n2026-03-04T13:34:20Z\n\n\nNA\n刘壮壮\n学号缺失\nLeo-hub123\n2026-03-04T14:53:22Z\n\n\nNA\nNA\n学号缺失\ncyx-coco\n2026-03-04T15:50:59Z\n\n\nNA\nNA\n学号缺失\nlsh1221\n2026-03-05T01:11:32Z\n\n\nNA\n王力辉\n学号缺失\ndilikelei01\n2026-03-05T02:25:10Z\n\n\nNA\n梅若男\n学号缺失\nMei0416\n2026-03-05T02:26:14Z\n\n\n2022309210608\n张子安\n非2025开头\nzhangzane001\n2026-03-05T11:07:00Z\n\n\nNA\n王硕\n学号缺失\nwangxuan24\n2026-03-05T12:38:32Z\n\n\nNA\nNA\n学号缺失\nAPFSDS-HE\n2026-03-05T12:40:44Z\n\n\nNA\n沐禹廷\n学号缺失\nyuting-Mu\n2026-03-05T12:42:24Z\n\n\nNA\nNA\n学号缺失\nYangjiahao1234\n2026-03-05T13:59:34Z\n\n\nNA\nNA\n学号缺失\ngaospecial\n2026-03-06T02:02:40Z\n\n\n2393146307\n马文静\n长度错误（10位，应为13位）\nunique520521\n2026-03-06T08:12:29Z\n\n\nNA\n贠梦茹\n学号缺失\nymr10\n2026-03-06T13:47:52Z"
   },
   {
-    "objectID": "issue1_students.html#不合法学号表格",
-    "href": "issue1_students.html#不合法学号表格",
+    "objectID": "issue1_students.html#数据保存导出结构化数据",
+    "href": "issue1_students.html#数据保存导出结构化数据",
     "title": "Issue #1 - 学生加入申请数据分析",
-    "section": "不合法学号表格",
-    "text": "不合法学号表格\n以下学号不符合规范（必须以2025开头，共13位），请修改后重新提交：\n\n# 显示不合法学号表格\nif (nrow(invalid_ids) &gt; 0) {\n  knitr::kable(invalid_ids, caption = \"不合规学号清单\")\n} else {\n  cat(\"所有学号均符合规范！\\n\")\n}\n\n\n不合规学号清单\n\n\n原始学号\n姓名\n\n\n\n\n20253031201\n欧阳权\n\n\n2026303110120\n刘小梅\n\n\n2022309210608\n张子安"
+    "section": "数据保存：导出结构化数据",
+    "text": "数据保存：导出结构化数据\n\nCSV 导出\n将清洗后的数据保存为 CSV 格式，便于后续使用：\n\n\n显示/隐藏代码\n# 准备导出数据 - 只包含有效学号\nexport_data &lt;- student_data %&gt;%\n  filter(valid_id) %&gt;%\n  select(\n    学号 = student_id,\n    姓名 = name,\n    感兴趣方向 = interest\n  )\n\n# 保存为 CSV\n# row.names = FALSE: 不添加行号列\n# fileEncoding = \"UTF-8\": 确保中文正确编码\nwrite.csv(export_data, \"issue1_students.csv\",\n          row.names = FALSE,\n          fileEncoding = \"UTF-8\")\n\ncat(\"数据已保存到: issue1_students.csv\\n\")\n\n\n数据已保存到: issue1_students.csv\n\n\n显示/隐藏代码\ncat(\"共\", nrow(export_data), \"条有效记录\\n\")\n\n\n共 293 条有效记录\n\n\n显示/隐藏代码\n# 显示前10条记录作为预览\nhead(export_data, 10)\n\n\n            学号   姓名                         感兴趣方向\n1  2025303110116 于辛铠                           农业遥感\n2  2025303110143 王培正 基于遥感影像的土壤盐渍化识别与提取\n3  2025303110085   黄跃                           合成菌群\n4  2025303110123 李嘉睿                               &lt;NA&gt;\n5  2025303110115 丁红俊                               &lt;NA&gt;\n6  2025303120081   吴蕾                               &lt;NA&gt;\n7  2025303110076   邹毅                               &lt;NA&gt;\n8  2025303120033 欧阳环                               &lt;NA&gt;\n9  2025303110141 黄子凯                               &lt;NA&gt;\n10 2025303120093 常东颖                               &lt;NA&gt;"
   },
   {
-    "objectID": "issue1_students.html#保存为csv",
-    "href": "issue1_students.html#保存为csv",
+    "objectID": "issue1_students.html#数据分析描述性统计",
+    "href": "issue1_students.html#数据分析描述性统计",
     "title": "Issue #1 - 学生加入申请数据分析",
-    "section": "保存为CSV",
-    "text": "保存为CSV\n\n# 准备导出数据 - 只包含有效学号\nexport_data &lt;- student_data %&gt;%\n  filter(valid_id) %&gt;%\n  mutate(\n    姓名 = name,\n    感兴趣方向 = ifelse(is.na(interest) | interest == \"无\", NA, interest)\n  ) %&gt;%\n  select(\n    学号 = student_id,\n    姓名,\n    感兴趣方向\n  )\n\n# 保存CSV\nwrite.csv(export_data, \"issue1_students.csv\", row.names = FALSE, fileEncoding = \"UTF-8\")\ncat(\"数据已保存到: issue1_students.csv\\n\")\n\n数据已保存到: issue1_students.csv\n\ncat(\"共\", nrow(export_data), \"条有效记录\\n\")\n\n共 267 条有效记录"
+    "section": "数据分析：描述性统计",
+    "text": "数据分析：描述性统计\n\n1. 学号前缀分析\n学号的前几位通常编码了年份和专业信息。让我们分析学生的分布：\n\n\n显示/隐藏代码\n# 提取学号前缀（前4位）\nprefix_analysis &lt;- student_data %&gt;%\n  filter(valid_id) %&gt;%\n  mutate(\n    prefix = substr(student_id, 1, 4),\n    # 尝试解读前缀含义\n    prefix_label = case_when(\n      prefix == \"2025\" ~ \"2025级\",\n      TRUE ~ prefix\n    )\n  )\n\n# 统计前缀分布\nprefix_count &lt;- prefix_analysis %&gt;%\n  count(prefix, sort = TRUE) %&gt;%\n  head(10)\n\n# 可视化\nggplot(prefix_count, aes(x = reorder(prefix, n), y = n)) +\n  geom_bar(stat = \"identity\", fill = \"steelblue\", alpha = 0.8) +\n  geom_text(aes(label = n), hjust = -0.3, size = 3) +\n  coord_flip() +\n  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +\n  labs(\n    title = \"学号年份/专业前缀分布\",\n    subtitle = \"基于有效的学生记录\",\n    x = \"学号前缀\",\n    y = \"学生人数\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(size = 14, face = \"bold\"),\n    text = element_text(family = \"WenQuanYi\")\n  )\n\n\n\n\n\n\n\n\n\n\n\n2. 感兴趣方向分析\n分析学生的研究兴趣分布：\n\n\n显示/隐藏代码\n# 清洗和统计感兴趣方向\ninterest_analysis &lt;- student_data %&gt;%\n  filter(valid_id, !is.na(interest)) %&gt;%\n  mutate(\n    # 标准化方向名称（处理大小写、空格等）\n    interest_clean = interest %&gt;%\n      str_trim() %&gt;%\n      str_to_lower() %&gt;%\n      str_replace_all(\"[[:space:]]+\", \" \")\n  )\n\n# 统计方向频次\ninterest_count &lt;- interest_analysis %&gt;%\n  count(interest, sort = TRUE) %&gt;%\n  head(20)\n\n# 可视化\nggplot(interest_count, aes(x = reorder(interest, n), y = n)) +\n  geom_bar(stat = \"identity\", fill = \"coral\", alpha = 0.8) +\n  geom_text(aes(label = n), hjust = -0.3, size = 3) +\n  coord_flip() +\n  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +\n  labs(\n    title = \"学生感兴趣方向分布 (Top 20)\",\n    subtitle = paste0(\"共分析 \", nrow(interest_analysis), \" 条有效兴趣数据\"),\n    x = \"研究方向\",\n    y = \"学生人数\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(size = 14, face = \"bold\"),\n    text = element_text(family = \"WenQuanYi\")\n  )\n\n\n\n\n\n\n\n\n\n\n\n3. 数据完整性分析\n\n\n显示/隐藏代码\n# 计算各项数据的完整率\ncompleteness &lt;- student_data %&gt;%\n  filter(valid_id) %&gt;%\n  summarise(\n    总记录数 = n(),\n    有学号 = sum(!is.na(student_id)),\n    有姓名 = sum(!is.na(name)),\n    有兴趣方向 = sum(!is.na(interest)),\n    全部完整 = sum(!is.na(student_id) & !is.na(name) & !is.na(interest))\n  ) %&gt;%\n  mutate(\n    学号完整率 = round(有学号 / 总记录数 * 100, 1),\n    姓名完整率 = round(有姓名 / 总记录数 * 100, 1),\n    兴趣完整率 = round(有兴趣方向 / 总记录数 * 100, 1),\n    全部完整率 = round(全部完整 / 总记录数 * 100, 1)\n  )\n\nknitr::kable(completeness, caption = \"数据完整性统计\")\n\n\n\n数据完整性统计\n\n\n\n\n\n\n\n\n\n\n\n\n\n总记录数\n有学号\n有姓名\n有兴趣方向\n全部完整\n学号完整率\n姓名完整率\n兴趣完整率\n全部完整率\n\n\n\n\n293\n293\n290\n161\n160\n100\n99\n54.9\n54.6"
   },
   {
-    "objectID": "issue1_students.html#数据可视化",
-    "href": "issue1_students.html#数据可视化",
+    "objectID": "issue1_students.html#完整数据质量报告",
+    "href": "issue1_students.html#完整数据质量报告",
     "title": "Issue #1 - 学生加入申请数据分析",
+    "section": "完整数据质量报告",
+    "text": "完整数据质量报告\n\n\n========================================\n\n\n       Issue #1 数据质量报告\n\n\n========================================\n\n\n【数据获取】\n\n\n- 总评论数: 311 \n\n\n- 数据获取时间: 2026-03-09 11:56:06 \n\n\n【数据解析】\n\n\n- 成功解析学号: 296 \n\n\n- 成功解析姓名: 299 \n\n\n- 成功解析兴趣: 167 \n\n\n【数据验证】\n\n\n- 有效学号: 293 \n\n\n- 无效学号: 3 \n\n\n- 验证通过率: 94.2 %\n\n\n【导出数据】\n\n\n- 有效记录已保存至: issue1_students.csv\n\n\n========================================"
+  },
+  {
+    "objectID": "issue1_students.html#教学要点总结",
+    "href": "issue1_students.html#教学要点总结",
+    "title": "Issue #1 - 学生加入申请数据分析",
+    "section": "教学要点总结",
+    "text": "教学要点总结\n\n1. API 数据获取的最佳实践\n\n缓存策略：将 API 响应缓存到本地文件，避免重复请求\n错误处理：检查响应状态码，优雅处理网络错误\n分页处理：使用 --paginate 或 .limit = Inf 获取完整数据\n\n\n\n2. 正则表达式的应用技巧\n\n多模式匹配：为常见的格式变体准备多个正则表达式\n非贪婪匹配：使用 *? 和 +? 进行最小匹配\n后行断言：使用 (?&lt;=...) 提取特定位置之后的内容\n\n\n\n3. 数据验证的重要性\n\n前置验证：在分析开始前检查数据质量\n规则明确：验证规则应该清晰、可测试\n反馈机制：向数据提供者提供清晰的错误信息\n\n\n\n4. dplyr 管道操作的工作流\ndata %&gt;%\n  filter(条件) %&gt;%      # 筛选有效数据\n  mutate(新列 = 计算) %&gt;%  # 添加派生列\n  group_by(分组变量) %&gt;%   # 设置分组\n  summarise(汇总统计) %&gt;%  # 计算汇总值\n  arrange(排序变量)        # 排序结果\n\n\n5. ggplot2 的可视化原则\n\n数据映射：明确将数据变量映射到视觉属性\n图层叠加：使用 + 连接多个图层\n主题定制：使用 theme_*() 和 theme() 调整外观"
+  },
+  {
+    "objectID": "issue1_students.html#扩展思考",
+    "href": "issue1_students.html#扩展思考",
+    "title": "Issue #1 - 学生加入申请数据分析",
+    "section": "扩展思考",
+    "text": "扩展思考\n\n如何处理更复杂的文本格式？\n\n考虑使用专门的解析包如 readr::read_delim() 处理表格格式文本\n对于非结构化文本，可以探索 NLP 技术\n\n如何自动化数据验证？\n\n使用 assertr 包进行管道式数据验证\n设置持续集成（CI）自动检查数据质量\n\n如何处理数据更新？\n\n使用时间戳跟踪数据变化\n实现增量更新机制，只处理新评论\n\n如何保护学生隐私？\n\n学号脱敏处理（如本例中的中间位替换）\n控制数据访问权限\n遵守数据保护法规（如 GDPR）\n\n\n\n本案例分析展示了从原始数据到结构化输出的完整流程，体现了数据科学工作中数据获取、清洗、验证、分析和可视化的核心技能。"
+  },
+  {
+    "objectID": "01-tools-reference.html",
+    "href": "01-tools-reference.html",
+    "title": "技术工具详解",
+    "section": "",
+    "text": "本项目作为数据科学入门教学案例，采用了经过业界验证的现代化工具链。本章将详细介绍每个工具的设计哲学、核心功能和使用方法，帮助您不仅知其然，更知其所以然。"
+  },
+  {
+    "objectID": "01-tools-reference.html#概述",
+    "href": "01-tools-reference.html#概述",
+    "title": "技术工具详解",
+    "section": "",
+    "text": "本项目作为数据科学入门教学案例，采用了经过业界验证的现代化工具链。本章将详细介绍每个工具的设计哲学、核心功能和使用方法，帮助您不仅知其然，更知其所以然。"
+  },
+  {
+    "objectID": "01-tools-reference.html#github-api数据的源头",
+    "href": "01-tools-reference.html#github-api数据的源头",
+    "title": "技术工具详解",
+    "section": "GitHub API：数据的源头",
+    "text": "GitHub API：数据的源头\n\n什么是 API？\nAPI（Application Programming Interface，应用程序编程接口）是软件系统之间交互的桥梁。可以把 API 想象成餐厅的服务员：您（客户端）向服务员（API）点餐（发送请求），服务员将订单传递给厨房（服务器），然后将做好的菜（数据）送回给您。\nRESTful API 是目前最流行的 API 设计风格，它基于 HTTP 协议，使用统一的接口来操作资源。\n\n\nGitHub API 的核心概念\nGitHub API 遵循 REST 设计原则，通过 HTTP 请求来操作 GitHub 上的资源（仓库、Issue、评论等）。\n\n端点（Endpoint）结构\nhttps://api.github.com/{资源类型}/{所有者}/{仓库}/{操作}\n常用端点示例：\n\n\n\n\n\n\n\n\n端点\n方法\n说明\n\n\n\n\n/repos/:owner/:repo/issues\nGET\n获取仓库的所有 Issue\n\n\n/repos/:owner/:repo/issues/:number/comments\nGET\n获取指定 Issue 的评论\n\n\n/repos/:owner/:repo/issues/:number/comments\nPOST\n在 Issue 下添加评论\n\n\n/orgs/:org/members\nGET\n获取组织成员列表\n\n\n/orgs/:org/invitations\nPOST\n邀请用户加入组织\n\n\n\n\n\n认证机制\nGitHub API 对未认证请求有严格的频率限制（每小时 60 次），认证后限制提高到每小时 5000 次。\n本项目的认证方式：\n# 使用 gh CLI 的 Token\nSys.setenv(GITHUB_PAT = system(\"gh auth token\", intern = TRUE))\n这种认证方式的优点：\n\n安全性：Token 不直接写在代码中\n便捷性：利用已有的 gh CLI 认证\n可移植性：在不同机器上无需修改代码\n\n\n\n分页机制\n当数据量较大时，GitHub API 会分页返回结果。处理分页有两种方式：\n方式一：使用 --paginate 参数（gh CLI）\ngh api repos/D2RS-2026spring/members/issues/1/comments --paginate\n方式二：使用 R 的 gh 包（自动处理分页）\ncomments &lt;- gh::gh(\n  \"/repos/{owner}/{repo}/issues/{issue_number}/comments\",\n  owner = \"D2RS-2026spring\",\n  repo = \"members\",\n  issue_number = 1,\n  per_page = 100,    # 每页 100 条\n  .limit = Inf       # 获取所有页面\n)\n\n\n\nAPI 响应数据结构\nGitHub API 返回 JSON 格式的数据。在 R 中，我们通常将其转换为列表或数据框：\n# JSON 示例结构\n{\n  \"id\": 123456,\n  \"user\": {\n    \"login\": \"username\",\n    \"id\": 789\n  },\n  \"body\": \"评论内容\",\n  \"created_at\": \"2024-01-15T08:30:00Z\"\n}\n\n# 在 R 中访问\ncomment &lt;- comments[[1]]\ncomment$body           # 访问评论内容\ncomment$user$login     # 访问用户名"
+  },
+  {
+    "objectID": "01-tools-reference.html#httr-包r-的-http-客户端",
+    "href": "01-tools-reference.html#httr-包r-的-http-客户端",
+    "title": "技术工具详解",
+    "section": "httr 包：R 的 HTTP 客户端",
+    "text": "httr 包：R 的 HTTP 客户端\n\n设计哲学\nhttr 是 R 语言中用于 HTTP 请求的基础包，由 Hadley Wickham 开发。它的设计目标是提供简洁、一致的 API 来处理 HTTP 请求，同时保持足够的灵活性。\n\n\n核心函数\n\n\n\n函数\n用途\n示例\n\n\n\n\nGET()\n发送 GET 请求\nGET(url)\n\n\nPOST()\n发送 POST 请求\nPOST(url, body = data)\n\n\ncontent()\n提取响应内容\ncontent(response, \"text\")\n\n\nstatus_code()\n获取状态码\nstatus_code(response)\n\n\nheaders()\n获取响应头\nheaders(response)\n\n\n\n\n\n使用示例\nlibrary(httr)\n\n# 发送 GET 请求\nresponse &lt;- GET(\"https://api.github.com/repos/D2RS-2026spring/members/issues/1/comments\")\n\n# 检查状态码\nstatus_code(response)  # 200 表示成功\n\n# 提取内容\ncontent_text &lt;- content(response, \"text\")\n\n# 解析 JSON\nlibrary(jsonlite)\ndata &lt;- fromJSON(content_text)\n\n\n错误处理\nHTTP 请求可能失败，良好的错误处理是必要的：\nresponse &lt;- GET(url)\n\nif (status_code(response) == 200) {\n  # 处理成功响应\n  data &lt;- content(response, \"parsed\")\n} else if (status_code(response) == 404) {\n  # 资源不存在\n  stop(\"请求的资源不存在\")\n} else if (status_code(response) == 403) {\n  # 频率限制\n  stop(\"API 频率限制，请稍后再试\")\n} else {\n  # 其他错误\n  stop(paste(\"请求失败，状态码:\", status_code(response)))\n}"
+  },
+  {
+    "objectID": "01-tools-reference.html#gh-包github-api-的-r-封装",
+    "href": "01-tools-reference.html#gh-包github-api-的-r-封装",
+    "title": "技术工具详解",
+    "section": "gh 包：GitHub API 的 R 封装",
+    "text": "gh 包：GitHub API 的 R 封装\n\n为什么选择 gh？\ngh 是 r-lib 团队开发的 GitHub API 专用客户端，相比直接使用 httr，它提供了：\n\n更简洁的语法：自动处理 URL 构建\n内置分页：自动获取所有页面的数据\n智能认证：自动检测和使用 GitHub Token\n错误提示：更友好的错误信息\n\n\n\n核心用法\nlibrary(gh)\n\n# 基本请求\nresult &lt;- gh(\"/repos/D2RS-2026spring/members/issues/1/comments\")\n\n# 带参数的请求\nresult &lt;- gh(\n  \"/repos/{owner}/{repo}/issues/{issue}/comments\",\n  owner = \"D2RS-2026spring\",\n  repo = \"members\",\n  issue = 1,\n  per_page = 100\n)\n\n# POST 请求（创建资源）\ngh(\n  \"POST /repos/{owner}/{repo}/issues\",\n  owner = \"D2RS-2026spring\",\n  repo = \"members\",\n  title = \"新 Issue\",\n  body = \"Issue 内容\"\n)\n\n\n与 gh CLI 的集成\ngh 包可以与 GitHub CLI（命令行工具）共享认证：\n# 在 R 中使用 gh CLI 的 token\nSys.setenv(GITHUB_PAT = system(\"gh auth token\", intern = TRUE))\n\n# 现在 gh 包会自动使用这个 token\n这种集成方式的优势：\n\n避免在多处管理 Token\n利用 gh CLI 的安全存储\n便于在脚本和命令行之间切换"
+  },
+  {
+    "objectID": "01-tools-reference.html#jsonlite-包json-数据处理",
+    "href": "01-tools-reference.html#jsonlite-包json-数据处理",
+    "title": "技术工具详解",
+    "section": "jsonlite 包：JSON 数据处理",
+    "text": "jsonlite 包：JSON 数据处理\n\nJSON 简介\nJSON（JavaScript Object Notation）是一种轻量级的数据交换格式，易于人类阅读和编写，也易于机器解析和生成。它是现代 Web API 的事实标准。\nJSON 的基本数据类型：\n\n\n\n类型\n示例\nR 中的对应\n\n\n\n\n对象\n{\"name\": \"张三\", \"age\": 25}\n命名列表\n\n\n数组\n[1, 2, 3, 4]\n向量\n\n\n字符串\n\"hello\"\ncharacter\n\n\n数字\n42, 3.14\nnumeric\n\n\n布尔\ntrue, false\nlogical\n\n\n空值\nnull\nNULL\n\n\n\n\n\njsonlite 核心函数\nlibrary(jsonlite)\n\n# 解析 JSON 字符串 → R 对象\njson_str &lt;- '{\"name\": \"张三\", \"age\": 25}'\ndata &lt;- fromJSON(json_str)\n# 结果：list(name = \"张三\", age = 25)\n\n# R 对象 → JSON 字符串\nobj &lt;- list(name = \"李四\", scores = c(85, 90, 78))\njson &lt;- toJSON(obj, pretty = TRUE, auto_unbox = TRUE)\n\n# 从文件/URL 解析\ndata &lt;- fromJSON(\"data.json\")  # 本地文件\ndata &lt;- fromJSON(\"https://api.example.com/data\")  # URL\n\n\n关键参数详解\n\n\n\n参数\n作用\n推荐值\n\n\n\n\nsimplifyVector\n是否将单元素数组简化为向量\nTRUE（默认）\n\n\nsimplifyDataFrame\n是否将结构化数据转换为数据框\nTRUE\n\n\nflatten\n是否展平嵌套结构\nTRUE\n\n\n\n示例：简化数据结构\n# 原始 JSON\njson &lt;- '[\n  {\"user\": {\"login\": \"alice\"}, \"body\": \"hello\"},\n  {\"user\": {\"login\": \"bob\"}, \"body\": \"hi\"}\n]'\n\n# 默认解析（保留嵌套列表结构）\ndata1 &lt;- fromJSON(json, simplifyDataFrame = FALSE)\n# 结果：列表的列表，需要 data[[1]]$user$login 访问\n\n# 转换为数据框（推荐）\ndata2 &lt;- fromJSON(json, simplifyDataFrame = TRUE)\n# 结果：数据框，可直接 data$body 访问"
+  },
+  {
+    "objectID": "01-tools-reference.html#dplyr-包数据操作的艺术",
+    "href": "01-tools-reference.html#dplyr-包数据操作的艺术",
+    "title": "技术工具详解",
+    "section": "dplyr 包：数据操作的艺术",
+    "text": "dplyr 包：数据操作的艺术\n\n设计理念\ndplyr 是 tidyverse 的核心组件，提供了一套”动词”（verbs）来进行数据操作。它的设计哲学是：\n\n每个函数只做一件事：清晰、可组合\n函数名是动词：直观表达操作意图\n管道操作 %&gt;%：将多个操作串联成可读的工作流\n惰性求值：只在需要时执行计算\n\n\n\n核心”动词”\n\n1. filter()：筛选行\n根据条件筛选满足条件的行：\nlibrary(dplyr)\n\n# 筛选有效学号\nstudents %&gt;%\n  filter(valid_id == TRUE)\n\n# 多条件筛选\nstudents %&gt;%\n  filter(valid_id == TRUE, !is.na(interest))\n\n# 复杂条件\nstudents %&gt;%\n  filter(str_detect(student_id, \"^2025\"))\n\n\n2. select()：选择列\n选择或排除特定的列：\n# 选择特定列\nstudents %&gt;%\n  select(student_id, name, interest)\n\n# 使用辅助函数\nstudents %&gt;%\n  select(starts_with(\"student\"))  # 选择以 student 开头的列\nstudents %&gt;%\n  select(-created_at)             # 排除某列\nstudents %&gt;%\n  select(where(is.numeric))       # 选择数值型列\n\n\n3. mutate()：添加或修改列\n创建新列或修改现有列：\n# 添加新列\nstudents %&gt;%\n  mutate(\n    prefix = substr(student_id, 1, 4),\n    valid_id = str_detect(student_id, \"^2025\\\\d{9}$\")\n  )\n\n# 基于现有列计算\nstudents %&gt;%\n  mutate(interest_clean = ifelse(interest == \"无\", NA, interest))\n\n\n4. arrange()：排序\n按一个或多个列排序：\n# 升序排列\nstudents %&gt;%\n  arrange(created_at)\n\n# 降序排列\nstudents %&gt;%\n  arrange(desc(created_at))\n\n# 多列排序\nstudents %&gt;%\n  arrange(prefix, desc(created_at))\n\n\n5. summarise() / summarize()：汇总\n对数据进行汇总统计：\n# 基本汇总\nstudents %&gt;%\n  summarise(\n    total = n(),                           # 计数\n    valid_count = sum(valid_id, na.rm = TRUE),\n    avg_length = mean(nchar(student_id), na.rm = TRUE)\n  )\n\n# 与分组结合使用\nstudents %&gt;%\n  group_by(prefix) %&gt;%\n  summarise(count = n())\n\n\n6. group_by()：分组\n为后续操作设置分组：\n# 分组统计\nvotes %&gt;%\n  group_by(model) %&gt;%\n  summarise(\n    total_votes = n(),\n    avg_rank = mean(rank)\n  ) %&gt;%\n  arrange(avg_rank)\n\n\n\n管道操作符 %&gt;%\n管道操作符将左侧的结果作为右侧函数的第一个参数：\n# 传统写法（嵌套，难以阅读）\narrange(\n  summarise(\n    group_by(students, prefix),\n    count = n()\n  ),\n  desc(count)\n)\n\n# 管道写法（线性，从左到右）\nstudents %&gt;%\n  group_by(prefix) %&gt;%\n  summarise(count = n()) %&gt;%\n  arrange(desc(count))\n管道的好处：\n\n代码可读性：操作顺序与阅读顺序一致\n易于修改：在中间插入或删除步骤方便\n减少临时变量：不需要创建多个中间对象"
+  },
+  {
+    "objectID": "01-tools-reference.html#tidyr-包数据整理专家",
+    "href": "01-tools-reference.html#tidyr-包数据整理专家",
+    "title": "技术工具详解",
+    "section": "tidyr 包：数据整理专家",
+    "text": "tidyr 包：数据整理专家\n\n整洁数据原则\ntidyr 用于将数据转换为”整洁”（tidy）格式，遵循三个原则：\n\n每列是一个变量\n每行是一个观测\n每个单元格是一个值\n\n\n\n核心函数\n\n1. pivot_longer()：宽格式 → 长格式\n将多列合并为一列，适用于：\n\n时间序列数据（多时间点为列）\n重复测量数据\n本项目的排名数据\n\nlibrary(tidyr)\n\n# 原始数据（宽格式）\nvote_wide &lt;- data.frame(\n  user = c(\"A\", \"B\"),\n  rank_1 = c(\"GPT-4o\", \"Claude\"),\n  rank_2 = c(\"Claude\", \"GPT-4o\"),\n  rank_3 = c(\"Gemini\", \"Kimi\")\n)\n\n# 转换（长格式）\nvote_long &lt;- vote_wide %&gt;%\n  pivot_longer(\n    cols = starts_with(\"rank\"),\n    names_to = \"rank_col\",\n    values_to = \"model\"\n  ) %&gt;%\n  mutate(rank = as.numeric(str_extract(rank_col, \"\\\\d+\")))\n\n# 结果：\n# user  rank_col  model   rank\n# A     rank_1    GPT-4o  1\n# A     rank_2    Claude  2\n# ...\n\n\n2. pivot_wider()：长格式 → 宽格式\n将一列展开为多列，适用于：\n\n创建透视表\n宽格式展示\n矩阵型数据\n\n# 从长格式转回宽格式\nvote_long %&gt;%\n  pivot_wider(\n    names_from = rank,\n    values_from = model,\n    names_prefix = \"第\",\n    names_suffix = \"名\"\n  )\n\n\n3. separate() 和 unite()：列的拆分与合并\n# 拆分一列为多列\ndata %&gt;%\n  separate(col = date, into = c(\"year\", \"month\", \"day\"), sep = \"-\")\n\n# 合并多列为一列\ndata %&gt;%\n  unite(col = \"full_name\", first_name, last_name, sep = \" \")\n\n\n4. drop_na() 和 replace_na()：处理缺失值\n# 删除含 NA 的行\ndata %&gt;% drop_na()\n\n# 替换 NA\ndata %&gt;% replace_na(list(interest = \"未填写\"))"
+  },
+  {
+    "objectID": "01-tools-reference.html#stringr-包字符串处理的优雅方案",
+    "href": "01-tools-reference.html#stringr-包字符串处理的优雅方案",
+    "title": "技术工具详解",
+    "section": "stringr 包：字符串处理的优雅方案",
+    "text": "stringr 包：字符串处理的优雅方案\n\n为什么用 stringr？\n相比 R 基础的正则函数（grep(), gsub(), strsplit() 等），stringr 提供：\n\n一致的命名：所有函数以 str_ 开头\n一致的参数顺序：string 总是第一个参数\n向量化操作：自动处理向量输入\n统一的正则语法：基于 ICU 正则表达式\n\n\n\n核心函数分类\n\n1. 检测与匹配\nlibrary(stringr)\n\n# 检测模式是否存在\nstr_detect(c(\"apple\", \"banana\", \"cherry\"), \"a\")\n# [1] TRUE TRUE TRUE\n\n# 查找匹配位置\nstr_locate(\"hello world\", \"world\")\n#      start end\n# [1,]     7  11\n\n# 提取匹配内容\nstr_extract(\"学号：2025303110116\", \"\\\\d{13}\")\n# [1] \"2025303110116\"\n\n# 提取所有匹配\nstr_extract_all(\"1, 2, 3\", \"\\\\d\", simplify = TRUE)\n\n\n2. 替换与删除\n# 替换匹配内容\ntext &lt;- \"学号：2025303110116，姓名：张三\"\nstr_replace(text, \"学号[：:]\\\\s*\", \"\")\n# [1] \"2025303110116，姓名：张三\"\n\n# 替换所有匹配\nstr_replace_all(text, \"[：:]\", \"=\")\n\n# 删除匹配内容（替换为空）\nstr_remove(text, \"学号[：:]\\\\s*\")\n\n\n3. 拆分与连接\n# 拆分字符串\nstr_split(\"a,b,c\", \",\")\n# [[1]]\n# [1] \"a\" \"b\" \"c\"\n\n# 固定元素数拆分\nstr_split(\"2025-03-15\", \"-\", n = 2)\n\n# 连接字符串\nstr_c(\"Hello\", \"World\", sep = \" \")\n# [1] \"Hello World\"\n\nstr_c(\"Prefix\", c(\"A\", \"B\", \"C\"), sep = \"-\")\n# [1] \"Prefix-A\" \"Prefix-B\" \"Prefix-C\"\n\n\n4. 子字符串操作\ntext &lt;- \"华中农业大学\"\n\n# 提取子串\nstr_sub(text, 1, 3)\n# [1] \"华中农\"\n\n# 修改子串（R 中字符串不可变，实际是创建新字符串）\nstr_sub(text, 1, 2) &lt;- \"湖南\"\n# [1] \"湖南农业大学\"\n\n\n\n正则表达式速查\n\n\n\n模式\n含义\n示例\n\n\n\n\n.\n任意字符\na.c 匹配 “abc”, “a_c”\n\n\n^\n行首\n^2025 匹配以 2025 开头\n\n\n$\n行尾\n\\\\d$ 匹配以数字结尾\n\n\n\\\\d\n数字\n\\\\d{13} 匹配 13 位数字\n\n\n\\\\w\n单词字符\n[a-zA-Z0-9_]\n\n\n\\\\s\n空白字符\n空格、制表符、换行\n\n\n*\n零次或多次\na* 匹配 ““,”a”, “aaa”\n\n\n+\n一次或多次\na+ 匹配 “a”, “aaa”\n\n\n?\n零次或一次\ncolou?r 匹配 “color”, “colour”\n\n\n{n}\n恰好 n 次\n\\\\d{4} 匹配 4 位数字\n\n\n{n,m}\nn 到 m 次\n\\\\d{1,3} 匹配 1-3 位数字\n\n\n[]\n字符集\n[abc] 匹配 a、b 或 c\n\n\n[^]\n否定字符集\n[^0-9] 匹配非数字\n\n\n\\u007c\n或\ncat\\u007cdog 匹配 “cat” 或 “dog”\n\n\n()\n分组\n(ab)+ 匹配 “ab”, “abab”\n\n\n\n本项目的正则应用：\n# 学号提取（以学号：或学号:开头，后跟数字）\nstr_extract(body, \"(?&lt;&lt;=学号[：:]\\\\s{0,5})\\\\d{13}\")\n\n# 姓名提取（2-4个中文字符）\nstr_extract(body, \"[\\\\u4e00-\\\\u9fa5]{2,4}\")\n\n# 排名行匹配（以数字开头，后跟分隔符）\nstr_detect(lines, \"^\\\\d+[.．、]\")"
+  },
+  {
+    "objectID": "01-tools-reference.html#ggplot2-包数据可视化的语法",
+    "href": "01-tools-reference.html#ggplot2-包数据可视化的语法",
+    "title": "技术工具详解",
+    "section": "ggplot2 包：数据可视化的语法",
+    "text": "ggplot2 包：数据可视化的语法\n\n图形语法（Grammar of Graphics）\nggplot2 基于 Leland Wilkinson 的《图形语法》，将图形分解为独立的组件：\n\n\n\n\n\n\n\n\n组件\n作用\n示例\n\n\n\n\n数据（Data）\n要可视化的数据集\ndata = students\n\n\n映射（Aesthetics）\n数据到视觉属性的映射\naes(x = interest, y = count)\n\n\n几何对象（Geoms）\n图形的基本元素\ngeom_bar(), geom_point()\n\n\n统计变换（Stats）\n数据汇总计算\nstat_count(), stat_smooth()\n\n\n坐标系（Coordinates）\n数据的定位系统\ncoord_flip(), coord_polar()\n\n\n分面（Facets）\n多子图展示\nfacet_wrap(), facet_grid()\n\n\n主题（Theme）\n非数据视觉元素\ntheme_minimal(), theme_bw()\n\n\n\n\n\n基本结构\nlibrary(ggplot2)\n\n# 基本模板\nggplot(data = &lt;DATA&gt;) +\n  &lt;GEOM_FUNCTION&gt;(\n    mapping = aes(&lt;MAPPINGS&gt;),\n    stat = &lt;STAT&gt;,\n    position = &lt;POSITION&gt;\n  ) +\n  &lt;COORDINATE_FUNCTION&gt; +\n  &lt;FACET_FUNCTION&gt; +\n  &lt;THEME_FUNCTION&gt;\n\n\n常用几何对象\n\n1. geom_bar()：条形图\n# 基础条形图\nstudents %&gt;%\n  count(interest) %&gt;%\n  ggplot(aes(x = interest, y = n)) +\n  geom_bar(stat = \"identity\", fill = \"steelblue\")\n\n# 水平条形图\nggplot(interest_count, aes(x = reorder(interest, n), y = n)) +\n  geom_bar(stat = \"identity\", fill = \"steelblue\") +\n  coord_flip() +\n  labs(title = \"学生感兴趣方向分布\", x = \"方向\", y = \"人数\")\n\n\n2. geom_tile()：热力图\n# 排名热力图\nrank_long %&gt;%\n  ggplot(aes(x = rank, y = reorder(model, avg_position), fill = count)) +\n  geom_tile() +\n  scale_fill_gradient(low = \"white\", high = \"coral\") +\n  labs(title = \"模型排名分布热力图\", x = \"排名\", y = \"模型\")\n\n\n3. geom_boxplot()：箱线图\n# 排名分布箱线图\nvote_data %&gt;%\n  ggplot(aes(x = reorder(model, rank), y = rank)) +\n  geom_boxplot(fill = \"lightblue\") +\n  coord_flip() +\n  labs(title = \"模型排名分布\", x = \"模型\", y = \"排名\")\n\n\n\n美学映射（Aesthetics）\n# x, y：位置映射\n# color：边框颜色\n# fill：填充颜色\n# size：点的大小\n# alpha：透明度\n# shape：点的形状\n# linetype：线型\n\nggplot(data, aes(x = x, y = y, color = group, size = value)) +\n  geom_point()\n\n\n主题系统\n# 内置主题\ntheme_gray()      # 默认灰色背景\ntheme_bw()        # 黑白主题\ntheme_minimal()   # 极简主题\ntheme_classic()   # 经典主题（无网格线）\n\n# 自定义主题\ntheme(\n  plot.title = element_text(size = 16, face = \"bold\"),\n  axis.text = element_text(size = 10),\n  panel.background = element_rect(fill = \"white\"),\n  panel.grid.major = element_line(color = \"gray90\")\n)"
+  },
+  {
+    "objectID": "01-tools-reference.html#showtext-包解决中文显示问题",
+    "href": "01-tools-reference.html#showtext-包解决中文显示问题",
+    "title": "技术工具详解",
+    "section": "showtext 包：解决中文显示问题",
+    "text": "showtext 包：解决中文显示问题\n\n中文字体的挑战\nR 的图形设备默认使用系统字体，在 macOS 和 Linux 上可能无法正确显示中文。showtext 包通过将文本渲染为图形路径来解决这个问题。\n\n\n使用方法\nlibrary(showtext)\n\n# 添加中文字体\n# macOS 常见路径\nfont_add(\"WenQuanYi\", \"/System/Library/Fonts/wqy-microhei.ttc\")\n\n# 也可以使用 Google Fonts\nfont_add_google(\"Noto Sans SC\", \"noto\")\n\n# 自动启用\nshowtext_auto()\n\n# 在 ggplot2 中使用\nggplot(data, aes(x, y)) +\n  geom_bar() +\n  labs(title = \"中文标题\") +\n  theme(text = element_text(family = \"WenQuanYi\"))"
+  },
+  {
+    "objectID": "01-tools-reference.html#各包之间的关系",
+    "href": "01-tools-reference.html#各包之间的关系",
+    "title": "技术工具详解",
+    "section": "各包之间的关系",
+    "text": "各包之间的关系\n                    ┌─────────────────┐\n                    │   Quarto        │  ← 文档整合与发布\n                    │   (输出层)      │\n                    └────────┬────────┘\n                             │\n         ┌───────────────────┼───────────────────┐\n         │                   │                   │\n         ▼                   ▼                   ▼\n┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐\n│   ggplot2       │ │   dplyr         │ │   tidyr         │\n│   (可视化)      │ │   (数据操作)    │ │   (数据整理)    │\n└────────┬────────┘ └────────┬────────┘ └────────┬────────┘\n         │                   │                   │\n         └───────────────────┼───────────────────┘\n                             │\n                             ▼\n                    ┌─────────────────┐\n                    │   stringr       │  ← 文本处理\n                    │   (字符串处理)  │\n                    └────────┬────────┘\n                             │\n                             ▼\n                    ┌─────────────────┐\n                    │   jsonlite      │  ← 数据解析\n                    │   httr / gh     │  ← 数据获取\n                    └─────────────────┘"
+  },
+  {
+    "objectID": "01-tools-reference.html#延伸阅读",
+    "href": "01-tools-reference.html#延伸阅读",
+    "title": "技术工具详解",
+    "section": "延伸阅读",
+    "text": "延伸阅读\n\nR for Data Science (Hadley Wickham) - 数据科学的完整指南\nggplot2: Elegant Graphics for Data Analysis - 可视化的深度解析\nQuarto 官方文档 (quarto.org) - 最新的文档特性\nGitHub API 文档 (docs.github.com/rest) - API 的完整参考\n\n\n掌握这些工具，您就拥有了进行专业数据科学分析所需的核心技能。"
+  },
+  {
+    "objectID": "issue2_voting.html",
+    "href": "issue2_voting.html",
+    "title": "Issue #2 - AI模型性能投票分析",
+    "section": "",
+    "text": "本案例展示如何分析排序数据（Ranked Data），通过对学生投票的不同 AI 模型排名进行多维度分析，理解排序数据的特性和分析方法。\n\n\n完成本案例学习后，您将能够：\n\n理解排序数据特性：掌握排序数据与普通分类数据的区别\n数据格式转换：使用 tidyr 进行长宽格式转换\n多维度统计分析：从票数、排名、分布等角度分析数据\n高级可视化：创建热力图、箱线图等复杂图形\n结果解读：从数据中提取有意义的洞察\n\n\n\n\n排序数据（Ranked Data）是指受访者对一组选项进行排序后产生的数据。与简单的投票（选择最喜欢的）不同，排序数据包含了更丰富的信息：\n\n\n\n数据类型\n示例\n信息量\n\n\n\n\n单一选择\n最喜欢的模型：GPT-4o\n低：只知道第一名\n\n\n多选\n喜欢的模型：GPT-4o, Claude\n中：知道喜欢哪些\n\n\n排序\n1.GPT-4o 2.Claude 3.Gemini\n高：知道相对偏好\n\n\n\n排序数据的优势：\n\n捕获选项间的相对偏好强度\n允许进行更细致的统计分析\n减少”策略性投票”（只选第一名）的影响\n\n\n\n\n\n\n\n字段\n类型\n说明\n示例\n\n\n\n\nuser\ncharacter\n投票者 GitHub 用户名\n“alice”\n\n\nrank\ninteger\n排名（1-5）\n1\n\n\nmodel\ncharacter\nAI 模型名称\n“GPT-4o”"
+  },
+  {
+    "objectID": "issue2_voting.html#案例概述",
+    "href": "issue2_voting.html#案例概述",
+    "title": "Issue #2 - AI模型性能投票分析",
+    "section": "",
+    "text": "本案例展示如何分析排序数据（Ranked Data），通过对学生投票的不同 AI 模型排名进行多维度分析，理解排序数据的特性和分析方法。\n\n\n完成本案例学习后，您将能够：\n\n理解排序数据特性：掌握排序数据与普通分类数据的区别\n数据格式转换：使用 tidyr 进行长宽格式转换\n多维度统计分析：从票数、排名、分布等角度分析数据\n高级可视化：创建热力图、箱线图等复杂图形\n结果解读：从数据中提取有意义的洞察\n\n\n\n\n排序数据（Ranked Data）是指受访者对一组选项进行排序后产生的数据。与简单的投票（选择最喜欢的）不同，排序数据包含了更丰富的信息：\n\n\n\n数据类型\n示例\n信息量\n\n\n\n\n单一选择\n最喜欢的模型：GPT-4o\n低：只知道第一名\n\n\n多选\n喜欢的模型：GPT-4o, Claude\n中：知道喜欢哪些\n\n\n排序\n1.GPT-4o 2.Claude 3.Gemini\n高：知道相对偏好\n\n\n\n排序数据的优势：\n\n捕获选项间的相对偏好强度\n允许进行更细致的统计分析\n减少”策略性投票”（只选第一名）的影响\n\n\n\n\n\n\n\n字段\n类型\n说明\n示例\n\n\n\n\nuser\ncharacter\n投票者 GitHub 用户名\n“alice”\n\n\nrank\ninteger\n排名（1-5）\n1\n\n\nmodel\ncharacter\nAI 模型名称\n“GPT-4o”"
+  },
+  {
+    "objectID": "issue2_voting.html#数据获取与解析",
+    "href": "issue2_voting.html#数据获取与解析",
+    "title": "Issue #2 - AI模型性能投票分析",
+    "section": "数据获取与解析",
+    "text": "数据获取与解析\n\n数据来源\n数据来自 GitHub Issue #2，学生以评论形式提交对 AI 模型的排序投票：\n1. GPT-4o\n2. Claude Sonnet 3.5\n3. Gemini Pro\n4. Kimi\n5. DeepSeek\n\n\n数据获取\n\n\n显示/隐藏代码\n# 检查并使用缓存数据\ncache_file &lt;- \"issue2_comments.json\"\nif (!file.exists(cache_file)) {\n  system(\"gh api repos/D2RS-2026spring/members/issues/2/comments --paginate &gt; issue2_comments.json\")\n  message(\"已从 GitHub API 获取数据\")\n} else {\n  message(\"使用本地缓存数据\")\n}\n\n# 读取数据\nall_comments &lt;- fromJSON(cache_file, simplifyVector = TRUE)\ncat(\"获取到\", nrow(all_comments), \"条投票评论\\n\")\n\n\n获取到 292 条投票评论\n\n\n\n\n模型名称标准化\n在解析之前，我们需要定义模型名称的映射规则，以处理同一模型的不同写法：\n\n\n显示/隐藏代码\n# 定义模型名称映射表\n# 键：可能的输入形式（小写，用于匹配）\n# 值：标准化后的显示名称\nmodel_mapping &lt;- c(\n  # OpenAI 模型\n  \"gpt-5\" = \"GPT-5\",\n  \"gpt-4o\" = \"GPT-4o\",\n  \"gpt-4\" = \"GPT-4\",\n  \"gpt-3.5\" = \"GPT-3.5\",\n  \"gpt-3.5-turbo\" = \"GPT-3.5\",\n\n  # Anthropic 模型\n  \"claude-opus\" = \"Claude Opus\",\n  \"claude-sonnet\" = \"Claude Sonnet\",\n  \"claude-haiku\" = \"Claude Haiku\",\n  \"claude-3\" = \"Claude 3\",\n  \"claude-3.5\" = \"Claude 3.5\",\n  \"claude-3.5-sonnet\" = \"Claude 3.5 Sonnet\",\n\n  # Google 模型\n  \"gemini\" = \"Gemini\",\n  \"gemini-pro\" = \"Gemini Pro\",\n  \"gemini-ultra\" = \"Gemini Ultra\",\n\n  # 中国厂商模型\n  \"deepseek\" = \"DeepSeek\",\n  \"deepseek-r1\" = \"DeepSeek-R1\",\n  \"kimi\" = \"Kimi\",\n  \"kimi-k1.5\" = \"Kimi K1.5\",\n  \"qwen\" = \"Qwen\",\n  \"qwen-max\" = \"Qwen Max\",\n  \"glm\" = \"GLM\",\n  \"chatglm\" = \"ChatGLM\",\n  \"minimax\" = \"MiniMax\",\n\n  # 其他\n  \"grok\" = \"Grok\",\n  \"grok-2\" = \"Grok 2\"\n)\n\ncat(\"定义了\", length(model_mapping), \"个模型名称映射\\n\")\n\n\n定义了 25 个模型名称映射\n\n\n\n\n排序数据解析\n解析排序数据的关键是识别以数字开头的行，并提取其中的模型名称：\n\n\n显示/隐藏代码\n#' 从文本中提取模型排名\n#'\n#' @param body 评论正文\n#' @return 数据框，包含 rank 和 model 两列\n\nextract_models &lt;- function(body) {\n  # 按行分割\n  lines &lt;- str_split(body, \"\\n\")[[1]]\n\n  # 筛选以数字开头的行（排名行）\n  # 匹配模式：数字 + [.．、] + 任意内容\n  rank_lines &lt;- lines[str_detect(lines, \"^\\\\d+[.．、]\")]\n\n  if (length(rank_lines) == 0) {\n    return(NULL)\n  }\n\n  models &lt;- c()\n  ranks &lt;- c()\n\n  for (i in seq_along(rank_lines)) {\n    line &lt;- rank_lines[i]\n\n    # 提取排名数字\n    rank &lt;- as.numeric(str_extract(line, \"^\\\\d+\"))\n\n    # 尝试匹配模型名称\n    matched_model &lt;- NA_character_\n    line_lower &lt;- tolower(line)\n\n    for (pattern in names(model_mapping)) {\n      if (str_detect(line_lower, pattern)) {\n        matched_model &lt;- model_mapping[pattern]\n        break\n      }\n    }\n\n    if (!is.na(matched_model)) {\n      models &lt;- c(models, matched_model)\n      ranks &lt;- c(ranks, rank)\n    }\n  }\n\n  if (length(models) == 0) {\n    return(NULL)\n  }\n\n  data.frame(\n    rank = ranks,\n    model = models,\n    stringsAsFactors = FALSE\n  )\n}\n\n# 测试解析函数\ntest_vote &lt;- \"1. gpt-4o\\n2. claude-sonnet\\n3. gemini\\n4. kimi\\n5. deepseek\"\ncat(\"测试文本：\\n\", test_vote, \"\\n\\n解析结果：\\n\")\n\n\n测试文本：\n 1. gpt-4o\n2. claude-sonnet\n3. gemini\n4. kimi\n5. deepseek \n\n解析结果：\n\n\n显示/隐藏代码\nprint(extract_models(test_vote))\n\n\n              rank         model\ngpt-4o           1        GPT-4o\nclaude-sonnet    2 Claude Sonnet\ngemini           3        Gemini\nkimi             4          Kimi\ndeepseek         5      DeepSeek\n\n\n\n\n批量解析所有投票\n\n\n显示/隐藏代码\n# 遍历所有评论并解析\ncomments_list &lt;- split(all_comments, seq(nrow(all_comments)))\n\nvote_data_list &lt;- lapply(seq_along(comments_list), function(i) {\n  comment &lt;- comments_list[[i]]\n  parsed &lt;- extract_models(comment$body)\n\n  if (!is.null(parsed) && nrow(parsed) &gt; 0) {\n    parsed$user &lt;- comment$user$login\n    parsed$comment_id &lt;- comment$id\n    parsed$created_at &lt;- comment$created_at\n    return(parsed)\n  }\n  return(NULL)\n})\n\n# 合并所有解析结果\nvote_data &lt;- bind_rows(vote_data_list)\n\ncat(\"解析结果：\\n\")\n\n\n解析结果：\n\n\n显示/隐藏代码\ncat(\"- 有效投票人数:\", length(unique(vote_data$user)), \"\\n\")\n\n\n- 有效投票人数: 280 \n\n\n显示/隐藏代码\ncat(\"- 排名记录总数:\", nrow(vote_data), \"\\n\")\n\n\n- 排名记录总数: 1332 \n\n\n显示/隐藏代码\ncat(\"- 识别到的模型数:\", length(unique(vote_data$model)), \"\\n\")\n\n\n- 识别到的模型数: 14"
+  },
+  {
+    "objectID": "issue2_voting.html#排序数据的统计分析方法",
+    "href": "issue2_voting.html#排序数据的统计分析方法",
+    "title": "Issue #2 - AI模型性能投票分析",
+    "section": "排序数据的统计分析方法",
+    "text": "排序数据的统计分析方法\n\n排序数据的特性\n排序数据与普通连续数据不同，具有以下特点：\n\n序数性：排名只表示顺序，不表示差距（第1名和第2名的差距不一定等于第2名和第3名的差距）\n有界性：排名在一定范围内（如1-5）\n互斥性：同一投票者的排名中，每个排名位置只有一个选项\n\n\n\n分析维度\n对于排序数据，我们可以从多个维度进行分析：\n\n\n\n维度\n指标\n说明\n\n\n\n\n频次分析\n总票数\n各模型被提及的总次数\n\n\n位置分析\n第一名次数\n各模型被选为第1名的频次\n\n\n集中趋势\n平均排名\n各模型的平均排名位置（越小越好）\n\n\n离散程度\n排名分布\n各模型在不同排名位置的分布\n\n\n一致性\n标准差\n排名的一致程度"
+  },
+  {
+    "objectID": "issue2_voting.html#数据统计与汇总",
+    "href": "issue2_voting.html#数据统计与汇总",
+    "title": "Issue #2 - AI模型性能投票分析",
+    "section": "数据统计与汇总",
+    "text": "数据统计与汇总\n\n1. 基础频次统计\n\n\n显示/隐藏代码\n# 计算各模型的总票数\ntotal_votes &lt;- vote_data %&gt;%\n  count(model, sort = TRUE, name = \"total_votes\")\n\n# 计算各模型获得第一名的次数\nfirst_place &lt;- vote_data %&gt;%\n  filter(rank == 1) %&gt;%\n  count(model, sort = TRUE, name = \"first_place_votes\")\n\n# 合并统计结果\nmodel_stats &lt;- total_votes %&gt;%\n  left_join(first_place, by = \"model\") %&gt;%\n  mutate(\n    first_place_votes = replace_na(first_place_votes, 0),\n    first_place_rate = round(first_place_votes / total_votes * 100, 1)\n  )\n\nknitr::kable(head(model_stats, 10),\n             caption = \"模型投票基础统计 (Top 10)\",\n             col.names = c(\"模型\", \"总票数\", \"第一名次数\", \"第一名占比%\"))\n\n\n\n模型投票基础统计 (Top 10)\n\n\n模型\n总票数\n第一名次数\n第一名占比%\n\n\n\n\nGemini\n270\n121\n44.8\n\n\nDeepSeek\n255\n21\n8.2\n\n\nKimi\n229\n10\n4.4\n\n\nClaude Sonnet\n162\n12\n7.4\n\n\nGPT-5\n156\n55\n35.3\n\n\nGPT-4o\n134\n30\n22.4\n\n\nQwen\n45\n5\n11.1\n\n\nClaude 3\n25\n2\n8.0\n\n\nClaude Opus\n18\n4\n22.2\n\n\nGrok\n14\n2\n14.3\n\n\n\n\n\n\n\n2. 平均排名计算\n\n\n显示/隐藏代码\n# 计算各模型的平均排名\navg_rank &lt;- vote_data %&gt;%\n  group_by(model) %&gt;%\n  summarise(\n    avg_position = mean(rank),\n    median_position = median(rank),\n    std_dev = sd(rank),\n    total_votes = n(),\n    .groups = \"drop\"\n  ) %&gt;%\n  # 只统计被投票次数较多的模型（避免样本量太小）\n  filter(total_votes &gt;= 3) %&gt;%\n  arrange(avg_position)\n\nknitr::kable(head(avg_rank, 10),\n             caption = \"模型平均排名统计 (平均排名越小越好)\")\n\n\n\n模型平均排名统计 (平均排名越小越好)\n\n\nmodel\navg_position\nmedian_position\nstd_dev\ntotal_votes\n\n\n\n\nGemini\n1.911111\n2\n1.052288\n270\n\n\nGPT-5\n2.448718\n2\n1.438166\n156\n\n\nGPT-4o\n2.880597\n2\n1.517045\n134\n\n\nGPT-4\n2.909091\n2\n2.022600\n11\n\n\nClaude 3\n3.120000\n3\n1.268858\n25\n\n\nClaude Opus\n3.166667\n4\n1.617914\n18\n\n\nGLM\n3.181818\n3\n1.470930\n11\n\n\nDeepSeek\n3.333333\n3\n1.102372\n255\n\n\nKimi\n3.510917\n4\n1.168337\n229\n\n\nGrok\n3.714286\n4\n1.437336\n14\n\n\n\n\n\n解读平均排名：\n\n平均排名 &lt; 2：普遍被认为是顶级模型\n平均排名 2-3：中上水平的模型\n平均排名 &gt; 3：被认为相对较弱的模型\n\n\n\n3. 排名分布矩阵\n\n\n显示/隐藏代码\n# 创建排名分布矩阵\nrank_matrix &lt;- vote_data %&gt;%\n  filter(rank &lt;= 5) %&gt;%\n  count(model, rank) %&gt;%\n  pivot_wider(\n    names_from = rank,\n    values_from = n,\n    values_fill = 0,\n    names_prefix = \"Rank_\"\n  )\n\n# 合并统计数据\nrank_matrix_full &lt;- avg_rank %&gt;%\n  select(model, avg_position) %&gt;%\n  left_join(rank_matrix, by = \"model\") %&gt;%\n  arrange(avg_position)\n\nknitr::kable(head(rank_matrix_full, 8),\n             caption = \"模型排名分布矩阵\")\n\n\n\n模型排名分布矩阵\n\n\nmodel\navg_position\nRank_1\nRank_2\nRank_3\nRank_4\nRank_5\n\n\n\n\nGemini\n1.911111\n121\n83\n45\n11\n10\n\n\nGPT-5\n2.448718\n55\n41\n16\n23\n21\n\n\nGPT-4o\n2.880597\n30\n42\n6\n26\n30\n\n\nGPT-4\n2.909091\n5\n1\n0\n0\n5\n\n\nClaude 3\n3.120000\n2\n7\n7\n4\n5\n\n\nClaude Opus\n3.166667\n4\n4\n0\n5\n5\n\n\nGLM\n3.181818\n2\n1\n4\n1\n3\n\n\nDeepSeek\n3.333333\n21\n31\n77\n94\n32"
+  },
+  {
+    "objectID": "issue2_voting.html#数据可视化",
+    "href": "issue2_voting.html#数据可视化",
+    "title": "Issue #2 - AI模型性能投票分析",
     "section": "数据可视化",
-    "text": "数据可视化\n\n1. 感兴趣方向分布\n\n# 清洗感兴趣方向数据\ninterest_clean &lt;- student_data %&gt;%\n  filter(!is.na(interest), interest != \"无\", interest != \"NA\") %&gt;%\n  mutate(interest = str_trim(interest))\n\n# 统计方向频次\ninterest_count &lt;- interest_clean %&gt;%\n  count(interest, sort = TRUE) %&gt;%\n  head(20)\n\n# 可视化\nggplot(interest_count, aes(x = reorder(interest, n), y = n)) +\n  geom_bar(stat = \"identity\", fill = \"steelblue\") +\n  coord_flip() +\n  labs(title = \"学生感兴趣方向分布 (Top 20)\", x = \"方向\", y = \"人数\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n2. 学号统计\n\n# 学号前缀分析\nstudent_data_prefix &lt;- student_data %&gt;%\n  filter(valid_id) %&gt;%\n  mutate(prefix = substr(student_id, 1, 4))\n\nprefix_count &lt;- student_data_prefix %&gt;%\n  count(prefix, sort = TRUE)\n\nggplot(head(prefix_count, 10), aes(x = reorder(prefix, n), y = n)) +\n  geom_bar(stat = \"identity\", fill = \"coral\") +\n  coord_flip() +\n  labs(title = \"学号年份/专业分布\", x = \"学号前缀\", y = \"人数\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n3. 数据质量报告\n\n\n=== 数据质量报告 ===\n\n\n总评论数: 284 \n\n\n解析成功: 270 \n\n\n有效学号: 267 \n\n\n有姓名: 267 \n\n\n有感兴趣方向: 163"
+    "text": "数据可视化\n\n1. 总票数排名\n\n\n显示/隐藏代码\ntop_models &lt;- head(total_votes$model, 15)\n\nvote_data %&gt;%\n  filter(model %in% top_models) %&gt;%\n  count(model) %&gt;%\n  ggplot(aes(x = reorder(model, n), y = n)) +\n  geom_bar(stat = \"identity\", fill = \"steelblue\", alpha = 0.8) +\n  geom_text(aes(label = n), hjust = -0.3, size = 3.5) +\n  coord_flip() +\n  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +\n  labs(\n    title = \"AI 模型投票总次数 (Top 15)\",\n    subtitle = \"反映模型的总体关注度\",\n    x = \"模型\",\n    y = \"被投票次数\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(size = 14, face = \"bold\"),\n    text = element_text(family = \"WenQuanYi\")\n  )\n\n\n\n\n\n\n\n\n\n\n\n2. 平均排名对比\n\n\n显示/隐藏代码\navg_rank %&gt;%\n  head(15) %&gt;%\n  ggplot(aes(x = reorder(model, avg_position), y = avg_position)) +\n  geom_bar(stat = \"identity\", fill = \"coral\", alpha = 0.8) +\n  geom_text(aes(label = sprintf(\"%.2f\", avg_position)),\n            hjust = 1.3, size = 3.5, color = \"white\") +\n  coord_flip() +\n  scale_y_reverse() +  # 排名越小越好，所以反转Y轴\n  labs(\n    title = \"AI 模型平均排名 (越低越好)\",\n    subtitle = \"综合反映模型的整体评价\",\n    x = \"模型\",\n    y = \"平均排名\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(size = 14, face = \"bold\"),\n    text = element_text(family = \"WenQuanYi\")\n  )\n\n\n\n\n\n\n\n\n\n\n\n3. 排名分布热力图\n热力图可以直观展示各模型在不同排名位置的分布情况：\n\n\n显示/隐藏代码\n# 选择 Top 10 模型进行展示\ntop_10_models &lt;- head(total_votes$model, 10)\n\n# 准备热力图数据\nheatmap_data &lt;- vote_data %&gt;%\n  filter(model %in% top_10_models, rank &lt;= 5) %&gt;%\n  count(model, rank) %&gt;%\n  left_join(\n    avg_rank %&gt;% select(model, avg_position),\n    by = \"model\"\n  )\n\n# 绘制热力图\nggplot(heatmap_data,\n       aes(x = factor(rank, labels = paste0(\"第\", 1:5, \"名\")),\n           y = reorder(model, avg_position),\n           fill = n)) +\n  geom_tile(color = \"white\", size = 0.5) +\n  geom_text(aes(label = n), color = \"white\", size = 4, fontface = \"bold\") +\n  scale_fill_gradient(\n    low = \"#E8F4F8\",\n    high = \"#D63031\",\n    name = \"票数\"\n  ) +\n  labs(\n    title = \"模型排名分布热力图 (Top 10)\",\n    subtitle = \"颜色越深表示在该排名位置获得的票数越多\",\n    x = \"排名位置\",\n    y = \"模型\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(size = 14, face = \"bold\"),\n    text = element_text(family = \"WenQuanYi\"),\n    panel.grid = element_blank()\n  )\n\n\n\n\n\n\n\n\n\n热力图解读：\n\n横向观察：可以看到一个模型在不同排名位置的分布\n纵向观察：可以比较同一排名位置上不同模型的表现\n对角线：如果数据理想，优秀模型应该在左侧（高排名）颜色深\n\n\n\n4. 排名分布箱线图\n箱线图展示排名的分布特征（中位数、四分位数、异常值）：\n\n\n显示/隐藏代码\nvote_data %&gt;%\n  filter(model %in% top_10_models) %&gt;%\n  left_join(avg_rank %&gt;% select(model, avg_position), by = \"model\") %&gt;%\n  ggplot(aes(x = reorder(model, avg_position), y = rank)) +\n  geom_boxplot(fill = \"lightblue\", alpha = 0.7, outlier.colour = \"red\") +\n  geom_jitter(width = 0.2, alpha = 0.3, size = 1) +  # 添加原始数据点\n  coord_flip() +\n  scale_y_continuous(breaks = 1:5) +\n  labs(\n    title = \"模型排名分布箱线图 (Top 10)\",\n    subtitle = \"箱体显示四分位范围，点表示异常值\",\n    x = \"模型\",\n    y = \"排名位置\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(size = 14, face = \"bold\"),\n    text = element_text(family = \"WenQuanYi\")\n  )\n\n\n\n\n\n\n\n\n\n箱线图解读：\n\n箱体：第25百分位到第75百分位（IQR）\n箱内横线：中位数排名\n** whiskers**：延伸到 1.5 × IQR 范围内的最极端数据点\n点：超出 whiskers 范围的异常值"
   },
   {
-    "objectID": "issue1_students.html#结果分析",
-    "href": "issue1_students.html#结果分析",
-    "title": "Issue #1 - 学生加入申请数据分析",
-    "section": "📊 结果分析",
-    "text": "📊 结果分析\n\n数据结构\n从 GitHub Issue 获取的原始数据包含以下字段：\n\n\n\n字段名\n类型\n说明\n\n\n\n\nuser.login\n字符串\nGitHub 用户名\n\n\nbody\n字符串\n评论内容（包含学号、姓名、方向）\n\n\ncreated_at\n时间戳\n评论创建时间\n\n\n\n\n\n数据清洗规则\n\n学号提取：通过正则表达式匹配多种格式\n\n学号：2025303110116\n学号 2025303110116\n\n学号验证：必须满足以下条件\n\n以 2025 开头（华农2025级学生）\n共 13 位数字\n\n数据修正：对长度不足的学号进行补齐\n\n\n\n分析结论\n\n共有 281 条学生申请记录\n有效学号（符合规范）：277 条\n不合规学号：4 条（已在 Issue 中提醒修改）\n学生研究方向分布反映了课程吸引力\n\n\n\n🎯 教学要点\n\nAPI 数据获取：理解 RESTful API 和分页机制\n正则表达式：灵活处理非结构化文本数据\n数据验证：确保数据质量是分析的前提\n管道操作：使用 %&gt;% 实现清晰的代码流程"
+    "objectID": "issue2_voting.html#数据导出",
+    "href": "issue2_voting.html#数据导出",
+    "title": "Issue #2 - AI模型性能投票分析",
+    "section": "数据导出",
+    "text": "数据导出\n将分析结果保存为 CSV 文件：\n\n\n显示/隐藏代码\n# 创建宽格式的投票矩阵\n# 注意：由于同一用户可能对同一排名有多个模型（去重后），\n# 我们需要确保每个(user, rank)组合只有一个模型\nvote_matrix &lt;- vote_data %&gt;%\n  # 每个用户只保留前5名\n  filter(rank &lt;= 5) %&gt;%\n  # 按用户和排名排序，确保稳定性\n  arrange(user, rank) %&gt;%\n  # 去重：每个用户每个排名只保留一个模型\n  distinct(user, rank, .keep_all = TRUE) %&gt;%\n  # 转换为宽格式\n  pivot_wider(\n    id_cols = user,\n    names_from = rank,\n    values_from = model,\n    names_glue = \"第{rank}名\"\n  )\n\n# 保存为 CSV\nwrite.csv(vote_matrix, \"issue2_voting.csv\",\n          row.names = FALSE,\n          fileEncoding = \"UTF-8\")\n\ncat(\"投票数据已保存到: issue2_voting.csv\\n\")\n\n\n投票数据已保存到: issue2_voting.csv\n\n\n显示/隐藏代码\ncat(\"包含\", nrow(vote_matrix), \"位投票者的完整排名\\n\")\n\n\n包含 280 位投票者的完整排名\n\n\n显示/隐藏代码\n# 显示前几行\nhead(vote_matrix, 5)\n\n\n# A tibble: 5 × 6\n  user                   第1名  第2名    第3名         第4名    第5名        \n  &lt;chr&gt;                  &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;        \n1 1-dj                   Gemini GPT-5    Claude Sonnet Kimi     DeepSeek     \n2 111222333xxxx          GPT-4o DeepSeek Kimi          Gemini   Claude Sonnet\n3 1122333666jjj          GPT-5  Gemini   Kimi          DeepSeek Claude Sonnet\n4 159368qwe              GPT-5  DeepSeek Gemini        Kimi     GLM          \n5 1613208672lilei-dotcom GPT-5  Gemini   DeepSeek      Kimi     Claude Sonnet"
+  },
+  {
+    "objectID": "issue2_voting.html#综合分析总结",
+    "href": "issue2_voting.html#综合分析总结",
+    "title": "Issue #2 - AI模型性能投票分析",
+    "section": "综合分析总结",
+    "text": "综合分析总结\n\n\n========================================\n\n\n      Issue #2 投票分析总结\n\n\n========================================\n\n\n【数据概况】\n\n\n- 总投票人数: 280 \n\n\n- 有效排名记录: 1332 \n\n\n- 涉及模型数: 14 \n\n\n【最受欢迎模型】（按总票数）\n\n\n1. Gemini (270 票)\n2. DeepSeek (255 票)\n3. Kimi (229 票)\n\n\n\n【综合评价最佳】（按平均排名）\n\n\n1. Gemini (平均排名 1.91)\n2. GPT-5 (平均排名 2.45)\n3. GPT-4o (平均排名 2.88)\n\n\n\n========================================"
+  },
+  {
+    "objectID": "issue2_voting.html#教学要点总结",
+    "href": "issue2_voting.html#教学要点总结",
+    "title": "Issue #2 - AI模型性能投票分析",
+    "section": "教学要点总结",
+    "text": "教学要点总结\n\n1. 排序数据的分析方法\n\n\n\n分析目标\n推荐方法\n注意事项\n\n\n\n\n总体偏好\n平均排名\n样本量要足够大\n\n\n头部表现\n第一名次数\n反映”最受欢迎”程度\n\n\n分布特征\n热力图/箱线图\n展示排名的离散程度\n\n\n两两比较\n配对检验\n需要更复杂的统计方法\n\n\n\n\n\n2. tidyr 数据转换技巧\n# 长格式 → 宽格式（展示用）\ndata %&gt;%\n  pivot_wider(\n    names_from = rank,\n    values_from = model,\n    names_prefix = \"Rank_\"\n  )\n\n# 宽格式 → 长格式（分析用）\ndata %&gt;%\n  pivot_longer(\n    cols = starts_with(\"Rank\"),\n    names_to = \"rank\",\n    values_to = \"model\"\n  )\n\n\n3. 可视化选择指南\n\n\n\n场景\n推荐图表\n原因\n\n\n\n\n展示总量\n条形图\n直观比较数值大小\n\n\n展示分布\n箱线图\n显示中位数、离散程度\n\n\n展示矩阵\n热力图\n二维数据的颜色编码\n\n\n展示趋势\n折线图\n显示随时间变化\n\n\n\n\n\n4. 排序数据的统计注意事项\n\n不要直接使用参数检验：排序数据不满足正态分布假设\n考虑使用非参数检验：如 Mann-Whitney U 检验、Kruskal-Wallis 检验\n注意样本量：小众模型的排名可能受样本量影响\n考虑策略性投票：人们可能不显示真实的弱偏好"
+  },
+  {
+    "objectID": "issue2_voting.html#扩展思考",
+    "href": "issue2_voting.html#扩展思考",
+    "title": "Issue #2 - AI模型性能投票分析",
+    "section": "扩展思考",
+    "text": "扩展思考\n\n如何处理缺失排名？\n\n有些投票者可能没有排满5个模型\n可以使用加权方法或对缺失值进行插补\n\n如何计算加权排名？\n\n第一名得5分，第二名得4分… 这样计算总分\n或使用指数权重（第一名得 2^4 分，第二名得 2^3 分…）\n\n如何进行统计显著性检验？\n\n使用 Friedman 检验比较多个相关样本\n使用 Nemenyi 检验进行事后比较\n\n如何可视化投票者偏好的一致性？\n\n使用聚类分析识别投票者群体\n绘制偏好网络图\n\n\n\n本案例展示了排序数据的完整分析流程，从数据采集到多维度可视化，体现了数据科学中处理复杂数据结构的核心技能。"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "D2RS-2026spring 数据分析",
+    "section": "",
+    "text": "本项目是《数据驱动的可重复性研究》课程的教学实践平台，通过两个真实的数据分析案例，带您完整体验数据科学的 Whole Game——从原始数据获取到洞察生成的完整流程。"
+  },
+  {
+    "objectID": "index.html#欢迎来到-d2rs-课程",
+    "href": "index.html#欢迎来到-d2rs-课程",
+    "title": "D2RS-2026spring 数据分析",
+    "section": "",
+    "text": "本项目是《数据驱动的可重复性研究》课程的教学实践平台，通过两个真实的数据分析案例，带您完整体验数据科学的 Whole Game——从原始数据获取到洞察生成的完整流程。"
+  },
+  {
+    "objectID": "index.html#项目概览",
+    "href": "index.html#项目概览",
+    "title": "D2RS-2026spring 数据分析",
+    "section": "项目概览",
+    "text": "项目概览\n\n什么是 Whole Game？\n“Whole Game” 是数据科学教育中的重要概念，强调先让学生经历一个完整的数据科学项目，建立全局视野，再深入各个技术细节。这种方法比传统的分章教学更能帮助学生理解数据科学的全貌。\n了解更多 →\n\n\n两个核心案例\n\n\n\n案例\n数据来源\n核心技能\n\n\n\n\nIssue #1 - 学生申请分析\nGitHub Issue 评论\nAPI 调用、正则表达式、数据验证、描述性统计\n\n\nIssue #2 - AI 模型投票分析\nGitHub Issue 评论\n排序数据分析、数据透视、多维度可视化"
+  },
+  {
+    "objectID": "index.html#课程学习目标",
+    "href": "index.html#课程学习目标",
+    "title": "D2RS-2026spring 数据分析",
+    "section": "课程学习目标",
+    "text": "课程学习目标\n完成本课程学习后，您将掌握以下核心能力：\n\n技术技能\n\nGitHub 协作基础\n\nIssue 的使用与 Markdown 格式\nGit 版本控制基础\nGitHub Flow 工作流\n\nAPI 数据获取\n\n理解 RESTful API 概念\n使用 gh 包访问 GitHub API\n处理分页和认证\n\n数据清洗与处理\n\n正则表达式文本解析\ndplyr 管道操作\n数据验证与质量控制\n\n数据可视化\n\nggplot2 图形语法\n选择合适的图表类型\n解决中文显示问题\n\n可复现报告\n\nQuarto 文档编写\n整合代码与叙述\n自动化报告生成\n\n\n\n\n思维方法\n\n数据驱动决策：用数据而非直觉做判断\n可复现研究：确保分析过程和结果可以被复现\n迭代式探索：通过可视化不断探索数据\n批判性思维：质疑数据来源、质量和潜在偏差"
+  },
+  {
+    "objectID": "index.html#网站导航",
+    "href": "index.html#网站导航",
+    "title": "D2RS-2026spring 数据分析",
+    "section": "网站导航",
+    "text": "网站导航\n\n📚 学习路径\n\n课程导论 —— 理解数据科学的 Whole Game 概念，了解学习路径\n技术工具详解 —— 深入了解本项目使用的 R 包和技术栈\nIssue #1 分析 —— 学习从非结构化文本中提取结构化数据\nIssue #2 分析 —— 学习排序数据的分析方法\n\n\n\n📊 实时数据\n\n成员名单 —— 实时更新的学生申请信息表"
+  },
+  {
+    "objectID": "index.html#技术栈",
+    "href": "index.html#技术栈",
+    "title": "D2RS-2026spring 数据分析",
+    "section": "技术栈",
+    "text": "技术栈\n本项目采用现代化的数据科学工具链：\n\n\n\n类别\n工具/包\n用途\n\n\n\n\n文档系统\nQuarto\n可复现计算文档\n\n\n编程语言\nR\n数据分析和可视化\n\n\n数据处理\ndplyr, tidyr\n数据操作和整理\n\n\n文本处理\nstringr\n正则表达式和字符串处理\n\n\n可视化\nggplot2\n统计图形\n\n\n表格展示\nDT\n交互式数据表格\n\n\nAPI 访问\ngh\nGitHub API 封装\n\n\n字体渲染\nshowtext\n中文显示支持\n\n\n\n查看详细工具说明 →"
+  },
+  {
+    "objectID": "index.html#课程特色",
+    "href": "index.html#课程特色",
+    "title": "D2RS-2026spring 数据分析",
+    "section": "课程特色",
+    "text": "课程特色\n\n🎯 实践导向\n\n真实数据：所有数据来自真实的 GitHub Issue 互动\n完整流程：覆盖数据获取、清洗、分析、可视化、报告的全流程\n即时反馈：代码修改后可立即看到结果\n\n\n\n📖 循序渐进\n\n先见森林，再见树木：先理解整体流程，再深入技术细节\n知识点详解：每个技术点都有详细的概念解释和代码注释\n最佳实践：展示数据科学的专业规范\n\n\n\n🔗 互联互通\n\nGitHub 集成：与课程组织的 GitHub 仓库紧密集成\n自动化更新：数据每天自动从 GitHub API 获取\n可交互报告：生成的网站支持交互式表格和搜索"
+  },
+  {
+    "objectID": "index.html#快速开始",
+    "href": "index.html#快速开始",
+    "title": "D2RS-2026spring 数据分析",
+    "section": "快速开始",
+    "text": "快速开始\n\n对于学生\n\n在 Issue #1 中回复，提交您的学号和感兴趣方向\n在 Issue #2 中回复，投票选出您认为最优秀的 AI 模型\n阅读 课程导论，了解数据科学的基本概念\n跟随 Issue #1 分析，学习数据获取和清洗\n探索 Issue #2 分析，了解排序数据的分析\n\n\n\n对于开发者\n# 克隆仓库\ngit clone https://github.com/D2RS-2026spring/members.git\ncd members\n\n# 本地预览\nquarto preview\n\n# 渲染网站\nquarto render"
+  },
+  {
+    "objectID": "index.html#延伸阅读",
+    "href": "index.html#延伸阅读",
+    "title": "D2RS-2026spring 数据分析",
+    "section": "延伸阅读",
+    "text": "延伸阅读\n\nR for Data Science —— 数据科学的完整指南\nQuarto 官方文档 —— 学习 Quarto 的全部功能\nGitHub API 文档 —— API 参考手册\nggplot2: Elegant Graphics —— 可视化深度指南\n\n\n“数据科学不仅仅是关于数据，更是关于提出正确的问题，并用数据来回答它们。”\n准备好了吗？让我们开始数据科学之旅！ → 课程导论"
+  },
+  {
+    "objectID": "invite-issue1-replyers.html",
+    "href": "invite-issue1-replyers.html",
+    "title": "",
+    "section": "",
+    "text": "CodeShow All CodeHide All CodeView Source"
+  },
+  {
+    "objectID": "invite-issue1-replyers.html#实施思路",
+    "href": "invite-issue1-replyers.html#实施思路",
+    "title": "",
+    "section": "实施思路",
+    "text": "实施思路\ngh R 包是 GitHub CLI 的 R 语言封装，它允许您直接在 R 中调用 gh CLI 的功能，并以更 R 友好的方式处理返回的数据（通常是 JSON ）。"
+  },
+  {
+    "objectID": "invite-issue1-replyers.html#前提条件",
+    "href": "invite-issue1-replyers.html#前提条件",
+    "title": "",
+    "section": "前提条件",
+    "text": "前提条件\n\nGit：版本控制工具。\nR 和 RStudio：用于编写和运行 R 脚本。\nGitHub CLI (gh)：确保您已经安装并配置了 gh CLI，并且已经通过 gh auth login 进行了身份验证。\ngh R 包：您需要安装 gh R 包。\ninstall.packages(\"gh\")"
+  },
+  {
+    "objectID": "invite-issue1-replyers.html#脚本实现",
+    "href": "invite-issue1-replyers.html#脚本实现",
+    "title": "",
+    "section": "脚本实现",
+    "text": "脚本实现\n\n\n显示/隐藏代码\n# 加载必要的库\nlibrary(gh)\nlibrary(dplyr)\nlibrary(purrr) # 用于函数式编程，例如 map_chr\n\n# --- 配置您的 GitHub 信息 ---\nORG_NAME &lt;- \"D2RS-2026spring\"\nREPO_NAME &lt;- \"members\"\nISSUE_NUM = 1\n# -----------------------------\n\n# 1. 获取指定 Issue 的所有回复者（Replyers）\n# gh 包会自动解析 JSON 响应为 R 列表或数据框\nget_issue_replyers_gh &lt;- function(org, repo, issue_number) {\n  message(sprintf(\"正在使用 gh 包获取组织 %s 仓库 %s 的 Issue #%d 的回复者...\", org, repo, issue_number))\n  \n  # 使用 gh::gh() 函数调用 GitHub API\n  # /repos/:owner/:repo/issues/:issue_number/comments 是获取指定 Issue 评论的 API 路径\n  # .send_headers = c(Accept = \"application/vnd.github.v3+json\") 确保获取 JSON 格式\n  # per_page = 100 提高每页获取的数量，减少请求次数\n  # .limit = Inf 表示获取所有页的数据\n  comments &lt;- gh::gh(\n    \"/repos/{owner}/{repo}/issues/{issue_number}/comments\",\n    owner = org,\n    repo = repo,\n    issue_number = issue_number,\n    .send_headers = c(Accept = \"application/vnd.github.v3+json\"),\n    per_page = 100,\n    .limit = Inf\n  )\n  \n  if (length(comments) == 0) {\n    message(\"未找到任何回复。\")\n    return(character(0))\n  }\n  \n  # 提取每条评论的作者登录名\n  replyers &lt;- comments %&gt;%\n    map_chr(~ .x$user$login) %&gt;%\n    unique()\n  \n  return(replyers)\n}\n\n# 2. 获取组织成员列表\nget_organization_members_gh &lt;- function(org) {\n  message(sprintf(\"正在使用 gh 包获取组织 %s 的成员列表...\", org))\n  \n  members &lt;- gh::gh(\n    \"/orgs/{org}/members\",\n    org = org,\n    .send_headers = c(Accept = \"application/vnd.github.v3+json\"),\n    per_page = 100,\n    .limit = Inf\n  )\n  \n  if (length(members) == 0) {\n    message(\"未找到任何组织成员。\")\n    return(character(0))\n  }\n  \n  # 提取每个成员的登录名\n  member_logins &lt;- members %&gt;%\n    map_chr(~ .x$login) %&gt;%\n    unique()\n  \n  return(member_logins)\n}\n\n# 3. 获取组织中待处理的邀请列表\nget_pending_invitations_gh &lt;- function(org) {\n  message(sprintf(\"正在使用 gh 包获取组织 %s 的待处理邀请列表...\", org))\n  \n  invitations &lt;- gh::gh(\n    \"/orgs/{org}/invitations\",\n    org = org,\n    .send_headers = c(Accept = \"application/vnd.github.v3+json\"),\n    per_page = 100,\n    .limit = Inf\n  )\n  \n  if (length(invitations) == 0) {\n    message(\"当前没有待处理的邀请。\")\n    return(character(0))\n  }\n  \n  # 提取每个待定受邀用户的登录名（login 可能为 NULL，需过滤）\n  pending_logins &lt;- invitations %&gt;%\n    map(~ .x$login) %&gt;%\n    keep(~ !is.null(.x)) %&gt;%\n    map_chr(~ .x) %&gt;%\n    unique()\n  \n  return(pending_logins)\n}\n\n# 4. 邀请用户加入组织\ninvite_user_to_org_gh &lt;- function(org, username) {\n  message(sprintf(\"正在邀请用户 %s 加入组织 %s...\", username, org))\n\n  tryCatch({\n    # 1. 先获取用户的数字 ID\n    user_info &lt;- gh::gh(\n      \"/users/{username}\",\n      username = username,\n      .send_headers = c(Accept = \"application/vnd.github.v3+json\")\n    )\n    user_id &lt;- user_info$id\n\n    gh::gh(\n      \"POST /orgs/{org}/invitations\",\n      org = org,\n      invitee_id = user_id,\n      role = \"direct_member\", # 设置角色为成员\n      .send_headers = c(Accept = \"application/vnd.github.v3+json\")\n    )\n    message(sprintf(\"成功邀请 %s 加入组织 %s。\", username, org))\n  }, error = function(e) {\n    stop(sprintf(\"未能邀请 %s 加入组织 %s。错误信息: %s\", username, org, e$message))\n  })\n}\n\n\n\n\n显示/隐藏代码\n# --- 执行脚本 ---\n# 让 R 的 gh 包使用 gh CLI 的 Token\nSys.setenv(GITHUB_PAT = system(\"gh auth token\", intern = TRUE))\n\n\n# 1. 获取 Issue 1 的所有回复者\nissue_replyers &lt;- get_issue_replyers_gh(ORG_NAME, REPO_NAME, ISSUE_NUM)\n\nif (length(issue_replyers) == 0) {\n  message(\"没有找到任何 Issue 回复者，或者获取失败。脚本结束。\")\n} else {\n  message(sprintf(\"找到以下 Issue #%d 回复者: %s\", ISSUE_NUM, paste(issue_replyers, collapse = \", \")))\n  \n  # 2. 获取组织成员\n  org_members &lt;- get_organization_members_gh(ORG_NAME)\n  message(sprintf(\"当前组织成员: %s\", paste(org_members, collapse = \", \")))\n  \n  # 3. 获取待处理的邀请列表\n  pending_invitees &lt;- get_pending_invitations_gh(ORG_NAME)\n  if (length(pending_invitees) &gt; 0) {\n    message(sprintf(\"已有待处理邀请的用户: %s\", paste(pending_invitees, collapse = \", \")))\n  }\n  \n  # 4. 筛选出未在组织内且没有待处理邀请的回复者\n  already_handled &lt;- union(org_members, pending_invitees)\n  replyers_to_invite &lt;- setdiff(issue_replyers, already_handled)\n  \n  if (length(replyers_to_invite) == 0) {\n    message(\"所有 Issue 回复者都已是组织成员或已有待处理邀请。无需邀请。\")\n  } else {\n    message(sprintf(\"需要邀请以下回复者加入组织: %s\", paste(replyers_to_invite, collapse = \", \")))\n    \n    # 5. 邀请这些回复者\n    for (replyer in replyers_to_invite) {\n      invite_user_to_org_gh(ORG_NAME, replyer)\n      Sys.sleep(1) # 稍作延迟，避免请求频率过高\n    }\n    message(\"邀请过程完成。\")\n  }\n}\n\nmessage(\"脚本运行结束。\")"
   }
 ]
