@@ -1,0 +1,77 @@
+# pr-rubric-review.yml
+# LLM-powered rubric review for beginner-DS student PRs.
+#
+# SECURITY MODEL
+# ==============
+# Triggered by pull_request_target so that the workflow has access to
+# repository secrets (GITHUB_TOKEN) even when the PR comes from a fork.
+#
+# CRITICAL SAFETY CONSTRAINTS:
+#   - We do NOT check out the PR branch code.
+#   - We do NOT execute any code from the PR.
+#   - We only fetch the PR diff text via the GitHub REST API and pass it
+#     as plain text to the LLM.  No untrusted code ever runs.
+
+name: PR Rubric Review (LLM)
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+# Cancel superseded runs for the same PR so students see the latest feedback.
+concurrency:
+  group: pr-rubric-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  # Read-only access to repository contents (for reading the rubric file).
+  contents: read
+  # Needed to post / update PR comments.
+  pull-requests: write
+  # Needed for GitHub Models / Copilot API access.
+  models: read
+
+jobs:
+  rubric-review:
+    name: LLM Rubric Review
+    runs-on: ubuntu-latest
+
+    steps:
+      # ----------------------------------------------------------------
+      # 1. Check out only the BASE branch (main) to access the rubric.
+      #    This NEVER touches the PR contributor's code.
+      # ----------------------------------------------------------------
+      - name: Checkout base branch (rubric file only)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          sparse-checkout: |
+            beginner-ds-pr-review-rubric.txt
+            scripts/pr_review_agent/pr_review.py
+          sparse-checkout-cone-mode: false
+
+      # ----------------------------------------------------------------
+      # 2. Set up Python for the review script.
+      # ----------------------------------------------------------------
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      # ----------------------------------------------------------------
+      # 3. Run the review agent.
+      #    All sensitive data flows through env vars; no fork code runs.
+      # ----------------------------------------------------------------
+      - name: Run PR Review Agent
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_REPO: ${{ github.repository }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          python scripts/pr_review_agent/pr_review.py

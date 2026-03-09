@@ -1,0 +1,178 @@
+# pr-checks.yml
+# Deterministic, lightweight checks for beginner-DS student PRs.
+# Triggered by pull_request (safe for forks – no secrets used).
+
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [main]
+
+# Cancel superseded runs for the same PR branch so students don't wait for stale jobs.
+concurrency:
+  group: pr-checks-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ------------------------------------------------------------------
+  # 1. Python checks (ruff lint + compile)
+  # ------------------------------------------------------------------
+  python-checks:
+    name: Python – lint & compile
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    # Only run if the PR contains Python files.
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Find changed Python files
+        id: py_files
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- '*.py' | tr '\n' ' ')
+          echo "files=${FILES}" >> "$GITHUB_OUTPUT"
+          echo "Changed Python files: ${FILES}"
+
+      - name: Ruff lint (style – non-blocking)
+        if: steps.py_files.outputs.files != ''
+        # We run with --exit-zero so style issues are reported but don't fail the PR.
+        # Remove --exit-zero if you want hard failures on lint errors.
+        run: |
+          echo "Running ruff on: ${{ steps.py_files.outputs.files }}"
+          ruff check --exit-zero ${{ steps.py_files.outputs.files }}
+
+      - name: Compile-check Python files (syntax errors are hard failures)
+        if: steps.py_files.outputs.files != ''
+        run: |
+          for f in ${{ steps.py_files.outputs.files }}; do
+            echo "Checking syntax: $f"
+            python -m compileall -q "$f"
+          done
+
+      - name: Run pytest (if tests/ folder exists)
+        if: steps.py_files.outputs.files != '' && hashFiles('tests/**/*.py') != ''
+        run: |
+          pip install pytest
+          pytest tests/ -q
+
+  # ------------------------------------------------------------------
+  # 2. R checks (lintr style + parse check)
+  # ------------------------------------------------------------------
+  r-checks:
+    name: R – lint & parse
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.3"
+          use-public-rspm: true
+
+      - name: Find changed R / Rmd / qmd files
+        id: r_files
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
+            -- '*.R' '*.Rmd' '*.qmd' | tr '\n' ' ')
+          echo "files=${FILES}" >> "$GITHUB_OUTPUT"
+          echo "Changed R/Rmd/qmd files: ${FILES}"
+        shell: bash
+
+      - name: Parse-check R / Rmd files (syntax errors are hard failures)
+        if: steps.r_files.outputs.files != ''
+        run: |
+          set -e
+          for f in ${{ steps.r_files.outputs.files }}; do
+            ext="${f##*.}"
+            echo "Checking syntax: $f"
+            if [ "$ext" = "R" ] || [ "$ext" = "Rmd" ]; then
+              Rscript -e "
+                tryCatch(
+                  parse(file='$f'),
+                  error = function(e) {
+                    cat('PARSE ERROR in $f:\n', conditionMessage(e), '\n')
+                    quit(status=1)
+                  }
+                )
+              "
+            fi
+            # .qmd files may contain R chunks; run a basic text check only.
+            if [ "$ext" = "qmd" ]; then
+              file --mime-encoding "$f" | grep -qE 'utf-8|us-ascii' \
+                || { echo "WARNING: $f does not appear to be UTF-8"; }
+            fi
+          done
+        shell: bash
+
+      - name: Lintr style check (non-blocking – R files)
+        if: steps.r_files.outputs.files != ''
+        run: |
+          Rscript -e '
+            if (!requireNamespace("lintr", quietly=TRUE)) {
+              install.packages("lintr", repos="https://cloud.r-project.org", quiet=TRUE)
+            }
+            files <- strsplit(trimws("${{ steps.r_files.outputs.files }}"), " ")[[1]]
+            r_files <- files[grepl("\\.(R|Rmd)$", files)]
+            if (length(r_files) == 0) quit(status=0)
+            lints <- lintr::lint_dir(getwd(), pattern = paste(r_files, collapse="|"))
+            print(lints)
+            # Non-blocking: always exit 0 (change to quit(status=length(lints)>0) to harden)
+            quit(status=0)
+          '
+        shell: bash
+
+  # ------------------------------------------------------------------
+  # 3. Markdown / text checks (encoding & basic structure)
+  # ------------------------------------------------------------------
+  markdown-checks:
+    name: Markdown & text – encoding check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Find changed Markdown / text files
+        id: md_files
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
+            -- '*.md' '*.txt' | tr '\n' ' ')
+          echo "files=${FILES}" >> "$GITHUB_OUTPUT"
+          echo "Changed Markdown/text files: ${FILES}"
+
+      - name: Check UTF-8 encoding
+        if: steps.md_files.outputs.files != ''
+        run: |
+          FAILED=0
+          for f in ${{ steps.md_files.outputs.files }}; do
+            if [ -f "$f" ]; then
+              ENC=$(file --mime-encoding "$f")
+              echo "$ENC"
+              echo "$ENC" | grep -qE 'utf-8|us-ascii' \
+                || { echo "ERROR: $f is not UTF-8"; FAILED=1; }
+            fi
+          done
+          exit $FAILED
