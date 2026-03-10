@@ -1,7 +1,0 @@
-/.quarto/
-/_site/
-
-__pycache__/
-
-*_files/$
-.DS_Store
