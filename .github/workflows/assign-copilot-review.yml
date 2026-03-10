@@ -1,0 +1,23 @@
+name: Assign Copilot PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  assign-copilot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Copilot as reviewer
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            /repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/requested_reviewers \
+            -f "reviewers[]=copilot-pull-request-reviewer" \
+            || echo "⚠️ Copilot reviewer assignment failed (feature may not be enabled for this repo)"
