@@ -1,0 +1,44 @@
+步骤 4：克隆仓库到 D:\Program Files（详细版）
+我会教你如何精准地把仓库克隆到 D:\Program Files 目录，同时避开权限和路径空格的坑，步骤如下：
+第一步：确认 Git 已安装并验证（回顾）
+先确保你已经安装好 Git，打开「Git Bash」（不要用 cmd，Git Bash 对路径空格支持更好），输入：
+bash
+运行
+git --version
+能显示版本号（如 git version 2.45.1.windows.1）说明安装成功。
+第二步：切换到 D:\Program Files 目录
+打开 Git Bash（开始菜单搜「Git Bash」，右键以管理员身份运行—— 因为 Program Files 是系统目录，普通权限可能无法写入）。
+输入以下命令切换到目标目录（注意 Git Bash 中路径格式是 /d/Program Files，不是 Windows 格式的 D:\Program Files）：
+bash
+运行
+cd /d/Program\ Files  # 空格前加反斜杠转义，或用引号包裹：cd "/d/Program Files"
+✅ 验证是否切换成功：输入 pwd 按回车，显示 /d/Program Files 就说明路径正确。
+第三步：克隆仓库到该目录
+先复制你 Fork 后的仓库 HTTPS 地址（比如 https://github.com/你的用户名/members.git）。
+在 Git Bash 中输入克隆命令（直接粘贴地址即可）：
+bash
+运行
+git clone https://github.com/你的用户名/members.git
+按回车执行，等待克隆完成：
+成功的标志：显示 Cloning into 'members'...，最后无报错，且提示 Receiving objects: 100%。
+此时 D:\Program Files 目录下会多出一个 members 文件夹，里面就是仓库所有文件。
+避坑提醒（关键）
+权限问题：如果克隆时提示「Permission denied」（权限拒绝），一定要右键 Git Bash 选择「以管理员身份运行」，再重新执行命令。
+路径空格问题：Program Files 中间有空格，Git Bash 中必须用 Program\ Files（反斜杠转义）或 "Program Files"（双引号包裹），否则会识别成两个目录。
+备选方案（如果 Program Files 写入仍有问题）：
+可以在 D 盘新建一个无空格的目录（如 D:\GitRepos），再克隆到这里，命令如下：
+bash
+运行
+# 先创建目录
+mkdir /d/GitRepos
+# 切换到新目录
+cd /d/GitRepos
+# 克隆仓库
+git clone https://github.com/你的用户名/members.git
+验证克隆结果
+打开文件资源管理器，进入 D:\Program Files\members（或你新建的 D:\GitRepos\members），能看到仓库里的文件（如 README.md 等），就说明克隆成功。
+总结
+必须以管理员身份打开 Git Bash，避免 Program Files 目录的写入权限问题；
+Git Bash 中切换路径要用 /d/Program\ Files 格式（转义空格），而非 Windows 原生路径；
+执行 git clone 仓库地址 即可将文件克隆到目标目录，全程不占用 C 盘空间；
+若 Program Files 写入失败，可在 D 盘新建无空格目录（如 D:\GitRepos）作为替代。
