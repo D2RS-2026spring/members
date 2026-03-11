@@ -1,5 +1,4 @@
 /.quarto/
-__pycache__/
 *.pyc
 *.pyo
-.github/instructions/*.instructions.md
+!github_instructions/Instructions.md
