@@ -1,0 +1,17 @@
+# 学号: 2025303110117
+# 姓名: 余娟
+
+## 模型比较结果
+1. gpt-5-chat-latest - 综合能力最强，回答最详尽
+2. gemini-3-pro-preview - 响应速度极快
+3. claude-sonnet-4-6 - 长文本处理能力强
+4. deepseek-r1 - 代码与数学推理精准
+5. kimi-k2.5 - 中文理解流畅，长文档总结高效
+
+## 存储与备份策略
+1.核心课程作业与仓库文件：本地电脑 C 盘 \Users\Administrator\members 目录
+2.100% 可恢复：已通过 git push 推送到 GitHub 远程仓库的所有文件
+3.备份方案：
+主工作目录：D:\Software\GIT\members（将原 C 盘仓库迁移至 D 盘，避免系统盘故障丢失）
+本地备份：1 个移动硬盘，每次课后复制主目录所有文件；1 个 U 盘，仅备份核心作业与学号 MD 文件，方便随身携带
+云端备份：GitHub（日常作业文件通过git commit/push实时同步）
