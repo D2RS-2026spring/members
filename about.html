@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - 万雨捷</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f4f7fb;
+            padding: 0 20px 40px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .navbar {
+            background: #1e3c72;
+            padding: 15px 30px;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffd966;
+        }
+        .content {
+            padding: 40px 35px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #1e3c72;
+            border-left: 6px solid #4a90e2;
+            padding-left: 18px;
+            margin: 35px 0 20px;
+        }
+        h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin: 25px 0 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+        .date {
+            font-weight: normal;
+            font-size: 1rem;
+            color: #6c7a8e;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 24px;
+        }
+        li::before {
+            content: "•";
+            color: #4a90e2;
+            font-weight: bold;
+            font-size: 1.4rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        .card {
+            background: #f8fafd;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 35px;
+            background: #f0f4fa;
+            color: #5a6e85;
+            font-size: 0.9rem;
+            border-top: 1px solid #d9e2ef;
+        }
+        @media (max-width: 600px) {
+            h3 {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="index.html">🏠 首页</a>
+            <a href="about.html">📄 关于我</a>
+        </div>
+
+        <div class="content">
+            <h1>关于我</h1>
+
+            <h2>📌 在校经历</h2>
+            <div class="card">
+                <h3>22级新生副班主任 <span class="date">2023.09 - 2024.06</span></h3>
+                <p>负责班级日常指导、新生入学引导、学习生活问题协调等事务，助力新生顺利适应大学生活。</p>
+            </div>
+
+            <h2>🔬 科研经历</h2>
+            <div class="card">
+                <h3>《混凝与铁碳内电解联合去除染料废水》大型水处理实验课 <span class="date">2023.11 - 2023.12</span></h3>
+                <p>研究将混凝和铁碳内电解技术相结合，混凝技术可快速去除水中的悬浮物和部分易絮凝的有机物，为后续铁碳内电解处理减轻负荷；铁碳内电解技术则能进一步深度处理经混凝后的废水，降解难降解的有机物，二者相辅相成，提高处理效果，降低成本。</p>
+            </div>
+            <div class="card">
+                <h3>毕业实习 <span class="date">2024.07 - 2024.08</span></h3>
+                <p>审查湖北省内部分建材企业所排放出的污染固液气的各项环境数据，熟悉建材行业运作、了解企业环保措施，通过逻辑验证、标准比对等对排放的污染源进行核查，以此分析企业是否遵循环境标准或有无填写疏忽。</p>
+            </div>
+            <div class="card">
+                <h3>《环氧氯丙烷改性甘蔗渣吸附水中铅离子的研究》毕业论文 <span class="date">2025.01 - 至今</span></h3>
+                <p>采用化学改性、原子吸收光谱法和多组对比实验等方法，以探究环氧氯丙烷改性甘蔗渣对水中Pb²⁺的吸附特性、影响因素及机理，实现高效处理含铅废水，最终确定最佳吸附条件、明确影响因素、揭示吸附机理并证实改性甘蔗渣可重复利用。</p>
+            </div>
+
+            <h2>🏃 跑步与阅读</h2>
+            <div class="card">
+                <p><strong>马拉松经历：</strong></p>
+                <ul>
+                    <li>2023 武汉马拉松（半程）</li>
+                    <li>2024 宜昌马拉松（全程）</li>
+                    <li>2025 重庆马拉松（全程）</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>阅读偏好：</strong>社科、传记类，最近在读《人类群星闪耀时》《埃隆·马斯克传》。</p>
+            </div>
+
+            <h2>📖 读研规划</h2>
+            <div class="card">
+                <p>善于团队合作，易与团队成员形成默契，提高工作效率。</p>
+                <ul>
+                    <li><strong>研一：</strong>尽快完善知识储备和实验技能，遇到困难积极克服，多与师兄导师沟通，尽早解决问题。</li>
+                    <li><strong>研二：</strong>针对所选研究方向进行深入研究，发扬探索精神，对待问题多角度思考。</li>
+                    <li><strong>研三：</strong>争取发表更加高质量的论文，并为工作或深造积极准备。</li>
+                </ul>
+            </div>
+
+            <h2>📞 联系方式</h2>
+            <div class="card">
+                <p>📧 邮箱：3074313543@qq.com</p>
+                <p>📱 电话：18062609273</p>
+                <p>📍 地址：湖北省武汉市</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2026 万雨捷 · 个人网站
+        </div>
+    </div>
+</body>
+</html>
