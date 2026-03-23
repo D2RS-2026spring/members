@@ -75,16 +75,7 @@ extract_student_id <- function(comment) {
   student_id <- NA_character_
   
   # 格式: "学号：2025303110116" 或 "学号: 2025303110116"
-  m <- str_extract(body, "\\d{13}")
-  if (!is.na(m)) {
-    student_id <- str_extract(m, "\\d{13}")
-  } else {
-    # 尝试直接匹配13位数字
-    m <- str_extract(body, "\\b(2025\\d{9})\\b")
-    if (!is.na(m)) {
-      student_id <- m
-    }
-  }
+  student_id <- str_extract(body, "\\d{13}")
   
   data.frame(
     github_user = user,
