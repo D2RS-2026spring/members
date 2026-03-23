@@ -283,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Issue #1 共有"</span>, <span class="fu">length</span>(issue1_comments), <span class="st">"条评论</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Issue #1 共有 321 条评论</code></pre>
+<pre><code>Issue #1 共有 323 条评论</code></pre>
 </div>
 <details open="" class="code-fold">
 <summary>显示/隐藏代码</summary>
@@ -296,26 +296,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  student_id <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 格式: "学号：2025303110116" 或 "学号: 2025303110116"</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(body, <span class="st">"</span><span class="sc">\\</span><span class="st">d{13}"</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(m)) {</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    student_id <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(m, <span class="st">"</span><span class="sc">\\</span><span class="st">d{13}"</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 尝试直接匹配13位数字</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(body, <span class="st">"</span><span class="sc">\\</span><span class="st">b(2025</span><span class="sc">\\</span><span class="st">d{9})</span><span class="sc">\\</span><span class="st">b"</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(m)) {</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      student_id <span class="ot">&lt;-</span> m</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">github_user =</span> user,</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    学号 <span class="ot">=</span> student_id,</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 批量提取映射关系</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>id_mapping <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(issue1_comments, extract_student_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  student_id <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(body, <span class="st">"</span><span class="sc">\\</span><span class="st">d{13}"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">github_user =</span> user,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    学号 <span class="ot">=</span> student_id,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 批量提取映射关系</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>id_mapping <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(issue1_comments, extract_student_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
@@ -329,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"成功建立"</span>, <span class="fu">nrow</span>(id_mapping), <span class="st">"个学号-GitHub用户名映射</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>成功建立 307 个学号-GitHub用户名映射</code></pre>
+<pre><code>成功建立 309 个学号-GitHub用户名映射</code></pre>
 </div>
 </div>
 <p>目前还没有建立映射的同学。</p>
@@ -339,17 +330,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>学号 <span class="sc">%in%</span> id_mapping[[<span class="st">"学号"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>            学号   姓名             学院
-1  2025301110128 杨舒桓 植物科学技术学院
-2  2025303110066 李健萍   资源与环境学院
-3  2025303110094 方立堃   资源与环境学院
-4  2025303110098 李龙溪   资源与环境学院
-5  2025303120042 王浩哲   资源与环境学院
-6  2025303120110   李迁   资源与环境学院
-7  2025303120122 涂雨涵   资源与环境学院
-8  2025303120135   王胜   资源与环境学院
-9  2025303120147 郑永琪   资源与环境学院
-10 2025303121001 栾业辉   资源与环境学院</code></pre>
+<pre><code>           学号   姓名             学院
+1 2025301110128 杨舒桓 植物科学技术学院
+2 2025303110066 李健萍   资源与环境学院
+3 2025303120042 王浩哲   资源与环境学院
+4 2025303120110   李迁   资源与环境学院
+5 2025303120135   王胜   资源与环境学院
+6 2025303120147 郑永琪   资源与环境学院
+7 2025303121001 栾业辉   资源与环境学院</code></pre>
 </div>
 </div>
 </section>
@@ -519,27 +507,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">作业1 入学报到</td>
-<td style="text-align: right;">302</td>
+<td style="text-align: right;">303</td>
 <td style="text-align: right;">312</td>
-<td style="text-align: left;">96.8%</td>
+<td style="text-align: left;">97.1%</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">作业2 模型性能</td>
-<td style="text-align: right;">290</td>
+<td style="text-align: right;">293</td>
 <td style="text-align: right;">312</td>
-<td style="text-align: left;">92.9%</td>
+<td style="text-align: left;">93.9%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">作业3 练习协作</td>
-<td style="text-align: right;">288</td>
+<td style="text-align: right;">291</td>
 <td style="text-align: right;">312</td>
-<td style="text-align: left;">92.3%</td>
+<td style="text-align: left;">93.3%</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">作业4 我的主页</td>
-<td style="text-align: right;">244</td>
+<td style="text-align: right;">247</td>
 <td style="text-align: right;">312</td>
-<td style="text-align: left;">78.2%</td>
+<td style="text-align: left;">79.2%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">作业5 计划项目</td>
@@ -1486,11 +1474,11 @@ Table&nbsp;1: 学生作业完成情况明细表
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110094</td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">❌</td>
-<td style="text-align: left;">❌</td>
-<td style="text-align: left;">❌</td>
-<td style="text-align: left;">❌</td>
+<td style="text-align: left;"><a href="https://github.com/xihongshi2021">xihongshi2021</a></td>
+<td style="text-align: left;">✅</td>
+<td style="text-align: left;">✅</td>
+<td style="text-align: left;">✅</td>
+<td style="text-align: left;">✅</td>
 <td style="text-align: left;">❌</td>
 </tr>
 <tr class="odd">
@@ -1522,11 +1510,11 @@ Table&nbsp;1: 学生作业完成情况明细表
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110098</td>
-<td style="text-align: left;">—</td>
+<td style="text-align: left;"><a href="https://github.com/longxi112">longxi112</a></td>
 <td style="text-align: left;">❌</td>
-<td style="text-align: left;">❌</td>
-<td style="text-align: left;">❌</td>
-<td style="text-align: left;">❌</td>
+<td style="text-align: left;">✅</td>
+<td style="text-align: left;">✅</td>
+<td style="text-align: left;">✅</td>
 <td style="text-align: left;">✅</td>
 </tr>
 <tr class="odd">
@@ -2845,11 +2833,11 @@ Table&nbsp;1: 学生作业完成情况明细表
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120122</td>
-<td style="text-align: left;">—</td>
+<td style="text-align: left;"><a href="https://github.com/Tuyuhan">Tuyuhan</a></td>
 <td style="text-align: left;">❌</td>
-<td style="text-align: left;">❌</td>
-<td style="text-align: left;">❌</td>
-<td style="text-align: left;">❌</td>
+<td style="text-align: left;">✅</td>
+<td style="text-align: left;">✅</td>
+<td style="text-align: left;">✅</td>
 <td style="text-align: left;">❌</td>
 </tr>
 <tr class="even">
@@ -3426,7 +3414,7 @@ Table&nbsp;1: 学生作业完成情况明细表
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>共有 7 名学生未完成任何作业：</code></pre>
+<pre><code>共有 5 名学生未完成任何作业：</code></pre>
 </div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -3450,18 +3438,8 @@ Table&nbsp;1: 学生作业完成情况明细表
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2025303110094</td>
-<td style="text-align: left;">方立堃</td>
-<td style="text-align: left;">资源与环境学院</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">2025303120042</td>
 <td style="text-align: left;">王浩哲</td>
-<td style="text-align: left;">资源与环境学院</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2025303120122</td>
-<td style="text-align: left;">涂雨涵</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="even">
@@ -3539,12 +3517,12 @@ Table&nbsp;1: 学生作业完成情况明细表
 <tr class="even">
 <td style="text-align: left;">资源与环境学院</td>
 <td style="text-align: right;">306</td>
-<td style="text-align: right;">297</td>
-<td style="text-align: right;">285</td>
-<td style="text-align: right;">283</td>
-<td style="text-align: right;">242</td>
+<td style="text-align: right;">298</td>
+<td style="text-align: right;">288</td>
+<td style="text-align: right;">286</td>
+<td style="text-align: right;">245</td>
 <td style="text-align: right;">158</td>
-<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">4.2</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">信息学院</td>
@@ -3722,7 +3700,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/D2RS-2026spring\.github\.io\/members\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -4127,229 +4105,220 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-81"><a href="#cb28-81" aria-hidden="true" tabindex="-1"></a>  student_id <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
 <span id="cb28-82"><a href="#cb28-82" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb28-83"><a href="#cb28-83" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 格式: "学号：2025303110116" 或 "学号: 2025303110116"</span></span>
-<span id="cb28-84"><a href="#cb28-84" aria-hidden="true" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(body, <span class="st">"</span><span class="sc">\\</span><span class="st">d{13}"</span>)</span>
-<span id="cb28-85"><a href="#cb28-85" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(m)) {</span>
-<span id="cb28-86"><a href="#cb28-86" aria-hidden="true" tabindex="-1"></a>    student_id <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(m, <span class="st">"</span><span class="sc">\\</span><span class="st">d{13}"</span>)</span>
-<span id="cb28-87"><a href="#cb28-87" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb28-88"><a href="#cb28-88" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 尝试直接匹配13位数字</span></span>
-<span id="cb28-89"><a href="#cb28-89" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(body, <span class="st">"</span><span class="sc">\\</span><span class="st">b(2025</span><span class="sc">\\</span><span class="st">d{9})</span><span class="sc">\\</span><span class="st">b"</span>)</span>
-<span id="cb28-90"><a href="#cb28-90" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(m)) {</span>
-<span id="cb28-91"><a href="#cb28-91" aria-hidden="true" tabindex="-1"></a>      student_id <span class="ot">&lt;-</span> m</span>
-<span id="cb28-92"><a href="#cb28-92" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb28-93"><a href="#cb28-93" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb28-94"><a href="#cb28-94" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-95"><a href="#cb28-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
-<span id="cb28-96"><a href="#cb28-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">github_user =</span> user,</span>
-<span id="cb28-97"><a href="#cb28-97" aria-hidden="true" tabindex="-1"></a>    学号 <span class="ot">=</span> student_id,</span>
-<span id="cb28-98"><a href="#cb28-98" aria-hidden="true" tabindex="-1"></a>    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb28-99"><a href="#cb28-99" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb28-100"><a href="#cb28-100" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb28-101"><a href="#cb28-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-102"><a href="#cb28-102" aria-hidden="true" tabindex="-1"></a><span class="co"># 批量提取映射关系</span></span>
-<span id="cb28-103"><a href="#cb28-103" aria-hidden="true" tabindex="-1"></a>id_mapping <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(issue1_comments, extract_student_id)</span>
-<span id="cb28-104"><a href="#cb28-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-105"><a href="#cb28-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-84"><a href="#cb28-84" aria-hidden="true" tabindex="-1"></a>  student_id <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(body, <span class="st">"</span><span class="sc">\\</span><span class="st">d{13}"</span>)</span>
+<span id="cb28-85"><a href="#cb28-85" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-86"><a href="#cb28-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb28-87"><a href="#cb28-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">github_user =</span> user,</span>
+<span id="cb28-88"><a href="#cb28-88" aria-hidden="true" tabindex="-1"></a>    学号 <span class="ot">=</span> student_id,</span>
+<span id="cb28-89"><a href="#cb28-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb28-90"><a href="#cb28-90" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-91"><a href="#cb28-91" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb28-92"><a href="#cb28-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-93"><a href="#cb28-93" aria-hidden="true" tabindex="-1"></a><span class="co"># 批量提取映射关系</span></span>
+<span id="cb28-94"><a href="#cb28-94" aria-hidden="true" tabindex="-1"></a>id_mapping <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(issue1_comments, extract_student_id)</span>
+<span id="cb28-95"><a href="#cb28-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-96"><a href="#cb28-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-97"><a href="#cb28-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-98"><a href="#cb28-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-101"><a href="#cb28-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-102"><a href="#cb28-102" aria-hidden="true" tabindex="-1"></a><span class="co"># 去重：同一学号可能有多条评论，取第一条</span></span>
+<span id="cb28-103"><a href="#cb28-103" aria-hidden="true" tabindex="-1"></a>id_mapping <span class="ot">&lt;-</span> id_mapping <span class="sc">|&gt;</span></span>
+<span id="cb28-104"><a href="#cb28-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(学号)) <span class="sc">|&gt;</span></span>
+<span id="cb28-105"><a href="#cb28-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(学号, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb28-106"><a href="#cb28-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-107"><a href="#cb28-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-110"><a href="#cb28-110" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-111"><a href="#cb28-111" aria-hidden="true" tabindex="-1"></a><span class="co"># 去重：同一学号可能有多条评论，取第一条</span></span>
-<span id="cb28-112"><a href="#cb28-112" aria-hidden="true" tabindex="-1"></a>id_mapping <span class="ot">&lt;-</span> id_mapping <span class="sc">|&gt;</span></span>
-<span id="cb28-113"><a href="#cb28-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(学号)) <span class="sc">|&gt;</span></span>
-<span id="cb28-114"><a href="#cb28-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(学号, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-115"><a href="#cb28-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-116"><a href="#cb28-116" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"成功建立"</span>, <span class="fu">nrow</span>(id_mapping), <span class="st">"个学号-GitHub用户名映射</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb28-117"><a href="#cb28-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-118"><a href="#cb28-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-119"><a href="#cb28-119" aria-hidden="true" tabindex="-1"></a>目前还没有建立映射的同学。</span>
-<span id="cb28-120"><a href="#cb28-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-123"><a href="#cb28-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-124"><a href="#cb28-124" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>学号 <span class="sc">%in%</span> id_mapping[[<span class="st">"学号"</span>]])</span>
-<span id="cb28-125"><a href="#cb28-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-126"><a href="#cb28-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-127"><a href="#cb28-127" aria-hidden="true" tabindex="-1"></a><span class="fu">### 获取各作业数据</span></span>
-<span id="cb28-128"><a href="#cb28-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-131"><a href="#cb28-131" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-132"><a href="#cb28-132" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fetch-homework-data</span></span>
-<span id="cb28-133"><a href="#cb28-133" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
-<span id="cb28-134"><a href="#cb28-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-135"><a href="#cb28-135" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 作业1: Issue #1 回复者 ---</span></span>
-<span id="cb28-136"><a href="#cb28-136" aria-hidden="true" tabindex="-1"></a>hw1_users <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(issue1_comments, <span class="sc">~</span> .x<span class="sc">$</span>user<span class="sc">$</span>login) <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
-<span id="cb28-137"><a href="#cb28-137" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业1（Issue #1）回复人数："</span>, <span class="fu">length</span>(hw1_users), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb28-138"><a href="#cb28-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-139"><a href="#cb28-139" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 作业2: Issue #2 回复者 ---</span></span>
-<span id="cb28-140"><a href="#cb28-140" aria-hidden="true" tabindex="-1"></a>issue2_comments <span class="ot">&lt;-</span> <span class="fu">gh</span>(</span>
-<span id="cb28-141"><a href="#cb28-141" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GET /repos/{owner}/{repo}/issues/{issue_number}/comments"</span>,</span>
-<span id="cb28-142"><a href="#cb28-142" aria-hidden="true" tabindex="-1"></a>  <span class="at">owner =</span> <span class="st">"D2RS-2026spring"</span>,</span>
-<span id="cb28-143"><a href="#cb28-143" aria-hidden="true" tabindex="-1"></a>  <span class="at">repo =</span> <span class="st">"members"</span>,</span>
-<span id="cb28-144"><a href="#cb28-144" aria-hidden="true" tabindex="-1"></a>  <span class="at">issue_number =</span> <span class="dv">2</span>,</span>
-<span id="cb28-145"><a href="#cb28-145" aria-hidden="true" tabindex="-1"></a>  <span class="at">per_page =</span> <span class="dv">100</span>,</span>
-<span id="cb28-146"><a href="#cb28-146" aria-hidden="true" tabindex="-1"></a>  <span class="at">.limit =</span> <span class="cn">Inf</span></span>
-<span id="cb28-147"><a href="#cb28-147" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb28-148"><a href="#cb28-148" aria-hidden="true" tabindex="-1"></a>hw2_users <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(issue2_comments, <span class="sc">~</span> .x<span class="sc">$</span>user<span class="sc">$</span>login) <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
-<span id="cb28-149"><a href="#cb28-149" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业2（Issue #2）回复人数："</span>, <span class="fu">length</span>(hw2_users), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb28-150"><a href="#cb28-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-151"><a href="#cb28-151" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 作业3: PR 发起者（含 closed） ---</span></span>
-<span id="cb28-152"><a href="#cb28-152" aria-hidden="true" tabindex="-1"></a>prs <span class="ot">&lt;-</span> <span class="fu">gh</span>(</span>
-<span id="cb28-153"><a href="#cb28-153" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GET /repos/{owner}/{repo}/pulls"</span>,</span>
-<span id="cb28-154"><a href="#cb28-154" aria-hidden="true" tabindex="-1"></a>  <span class="at">owner =</span> <span class="st">"D2RS-2026spring"</span>,</span>
-<span id="cb28-155"><a href="#cb28-155" aria-hidden="true" tabindex="-1"></a>  <span class="at">repo =</span> <span class="st">"members"</span>,</span>
-<span id="cb28-156"><a href="#cb28-156" aria-hidden="true" tabindex="-1"></a>  <span class="at">state =</span> <span class="st">"all"</span>,</span>
-<span id="cb28-157"><a href="#cb28-157" aria-hidden="true" tabindex="-1"></a>  <span class="at">per_page =</span> <span class="dv">100</span>,</span>
-<span id="cb28-158"><a href="#cb28-158" aria-hidden="true" tabindex="-1"></a>  <span class="at">.limit =</span> <span class="cn">Inf</span></span>
-<span id="cb28-159"><a href="#cb28-159" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb28-160"><a href="#cb28-160" aria-hidden="true" tabindex="-1"></a>hw3_users <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(prs, <span class="sc">~</span> .x<span class="sc">$</span>user<span class="sc">$</span>login) <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
-<span id="cb28-161"><a href="#cb28-161" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业3（PR）发起人数："</span>, <span class="fu">length</span>(hw3_users), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb28-162"><a href="#cb28-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-163"><a href="#cb28-163" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 作业4: Issue #99 回复者 ---</span></span>
-<span id="cb28-164"><a href="#cb28-164" aria-hidden="true" tabindex="-1"></a>issue99_comments <span class="ot">&lt;-</span> <span class="fu">gh</span>(</span>
-<span id="cb28-165"><a href="#cb28-165" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GET /repos/{owner}/{repo}/issues/{issue_number}/comments"</span>,</span>
-<span id="cb28-166"><a href="#cb28-166" aria-hidden="true" tabindex="-1"></a>  <span class="at">owner =</span> <span class="st">"D2RS-2026spring"</span>,</span>
-<span id="cb28-167"><a href="#cb28-167" aria-hidden="true" tabindex="-1"></a>  <span class="at">repo =</span> <span class="st">"members"</span>,</span>
-<span id="cb28-168"><a href="#cb28-168" aria-hidden="true" tabindex="-1"></a>  <span class="at">issue_number =</span> <span class="dv">99</span>,</span>
-<span id="cb28-169"><a href="#cb28-169" aria-hidden="true" tabindex="-1"></a>  <span class="at">per_page =</span> <span class="dv">100</span>,</span>
-<span id="cb28-170"><a href="#cb28-170" aria-hidden="true" tabindex="-1"></a>  <span class="at">.limit =</span> <span class="cn">Inf</span></span>
-<span id="cb28-171"><a href="#cb28-171" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb28-172"><a href="#cb28-172" aria-hidden="true" tabindex="-1"></a>hw4_users <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(issue99_comments, <span class="sc">~</span> .x<span class="sc">$</span>user<span class="sc">$</span>login) <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
-<span id="cb28-173"><a href="#cb28-173" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业4（Issue #99）回复人数："</span>, <span class="fu">length</span>(hw4_users), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb28-174"><a href="#cb28-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-175"><a href="#cb28-175" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 作业5: projects 仓库的 Issues ---</span></span>
-<span id="cb28-176"><a href="#cb28-176" aria-hidden="true" tabindex="-1"></a>project_issues <span class="ot">&lt;-</span> <span class="fu">gh</span>(</span>
-<span id="cb28-177"><a href="#cb28-177" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GET /repos/{owner}/{repo}/issues"</span>,</span>
-<span id="cb28-178"><a href="#cb28-178" aria-hidden="true" tabindex="-1"></a>  <span class="at">owner =</span> <span class="st">"D2RS-2026spring"</span>,</span>
-<span id="cb28-179"><a href="#cb28-179" aria-hidden="true" tabindex="-1"></a>  <span class="at">repo =</span> <span class="st">"projects"</span>,</span>
-<span id="cb28-180"><a href="#cb28-180" aria-hidden="true" tabindex="-1"></a>  <span class="at">state =</span> <span class="st">"all"</span>,</span>
-<span id="cb28-181"><a href="#cb28-181" aria-hidden="true" tabindex="-1"></a>  <span class="at">per_page =</span> <span class="dv">100</span>,</span>
-<span id="cb28-182"><a href="#cb28-182" aria-hidden="true" tabindex="-1"></a>  <span class="at">.limit =</span> <span class="cn">Inf</span></span>
-<span id="cb28-183"><a href="#cb28-183" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb28-184"><a href="#cb28-184" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业5（projects Issues）数量："</span>, <span class="fu">length</span>(project_issues), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb28-185"><a href="#cb28-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-186"><a href="#cb28-186" aria-hidden="true" tabindex="-1"></a><span class="co"># 从 project issues 的 body 中提取所有学号</span></span>
-<span id="cb28-187"><a href="#cb28-187" aria-hidden="true" tabindex="-1"></a>hw5_student_ids <span class="ot">&lt;-</span> <span class="fu">character</span>(<span class="dv">0</span>)</span>
-<span id="cb28-188"><a href="#cb28-188" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (issue <span class="cf">in</span> project_issues) {</span>
-<span id="cb28-189"><a href="#cb28-189" aria-hidden="true" tabindex="-1"></a>  body <span class="ot">&lt;-</span> issue<span class="sc">$</span>body <span class="sc">%||%</span> <span class="st">""</span></span>
-<span id="cb28-190"><a href="#cb28-190" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 提取所有13位学号</span></span>
-<span id="cb28-191"><a href="#cb28-191" aria-hidden="true" tabindex="-1"></a>  ids <span class="ot">&lt;-</span> <span class="fu">str_extract_all</span>(body, <span class="st">"</span><span class="sc">\\</span><span class="st">d{13}"</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb28-192"><a href="#cb28-192" aria-hidden="true" tabindex="-1"></a>  hw5_student_ids <span class="ot">&lt;-</span> <span class="fu">c</span>(hw5_student_ids, ids)</span>
-<span id="cb28-193"><a href="#cb28-193" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb28-194"><a href="#cb28-194" aria-hidden="true" tabindex="-1"></a>hw5_student_ids <span class="ot">&lt;-</span> <span class="fu">unique</span>(hw5_student_ids)</span>
-<span id="cb28-195"><a href="#cb28-195" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业5 提取到学号数："</span>, <span class="fu">length</span>(hw5_student_ids), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb28-196"><a href="#cb28-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-197"><a href="#cb28-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-198"><a href="#cb28-198" aria-hidden="true" tabindex="-1"></a><span class="fu">## 作业完成情况</span></span>
+<span id="cb28-107"><a href="#cb28-107" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"成功建立"</span>, <span class="fu">nrow</span>(id_mapping), <span class="st">"个学号-GitHub用户名映射</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-108"><a href="#cb28-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-109"><a href="#cb28-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-110"><a href="#cb28-110" aria-hidden="true" tabindex="-1"></a>目前还没有建立映射的同学。</span>
+<span id="cb28-111"><a href="#cb28-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-114"><a href="#cb28-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-115"><a href="#cb28-115" aria-hidden="true" tabindex="-1"></a>students <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span>学号 <span class="sc">%in%</span> id_mapping[[<span class="st">"学号"</span>]])</span>
+<span id="cb28-116"><a href="#cb28-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-117"><a href="#cb28-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-118"><a href="#cb28-118" aria-hidden="true" tabindex="-1"></a><span class="fu">### 获取各作业数据</span></span>
+<span id="cb28-119"><a href="#cb28-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-122"><a href="#cb28-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-123"><a href="#cb28-123" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fetch-homework-data</span></span>
+<span id="cb28-124"><a href="#cb28-124" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb28-125"><a href="#cb28-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-126"><a href="#cb28-126" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 作业1: Issue #1 回复者 ---</span></span>
+<span id="cb28-127"><a href="#cb28-127" aria-hidden="true" tabindex="-1"></a>hw1_users <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(issue1_comments, <span class="sc">~</span> .x<span class="sc">$</span>user<span class="sc">$</span>login) <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
+<span id="cb28-128"><a href="#cb28-128" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业1（Issue #1）回复人数："</span>, <span class="fu">length</span>(hw1_users), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-129"><a href="#cb28-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-130"><a href="#cb28-130" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 作业2: Issue #2 回复者 ---</span></span>
+<span id="cb28-131"><a href="#cb28-131" aria-hidden="true" tabindex="-1"></a>issue2_comments <span class="ot">&lt;-</span> <span class="fu">gh</span>(</span>
+<span id="cb28-132"><a href="#cb28-132" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GET /repos/{owner}/{repo}/issues/{issue_number}/comments"</span>,</span>
+<span id="cb28-133"><a href="#cb28-133" aria-hidden="true" tabindex="-1"></a>  <span class="at">owner =</span> <span class="st">"D2RS-2026spring"</span>,</span>
+<span id="cb28-134"><a href="#cb28-134" aria-hidden="true" tabindex="-1"></a>  <span class="at">repo =</span> <span class="st">"members"</span>,</span>
+<span id="cb28-135"><a href="#cb28-135" aria-hidden="true" tabindex="-1"></a>  <span class="at">issue_number =</span> <span class="dv">2</span>,</span>
+<span id="cb28-136"><a href="#cb28-136" aria-hidden="true" tabindex="-1"></a>  <span class="at">per_page =</span> <span class="dv">100</span>,</span>
+<span id="cb28-137"><a href="#cb28-137" aria-hidden="true" tabindex="-1"></a>  <span class="at">.limit =</span> <span class="cn">Inf</span></span>
+<span id="cb28-138"><a href="#cb28-138" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-139"><a href="#cb28-139" aria-hidden="true" tabindex="-1"></a>hw2_users <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(issue2_comments, <span class="sc">~</span> .x<span class="sc">$</span>user<span class="sc">$</span>login) <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
+<span id="cb28-140"><a href="#cb28-140" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业2（Issue #2）回复人数："</span>, <span class="fu">length</span>(hw2_users), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-141"><a href="#cb28-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-142"><a href="#cb28-142" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 作业3: PR 发起者（含 closed） ---</span></span>
+<span id="cb28-143"><a href="#cb28-143" aria-hidden="true" tabindex="-1"></a>prs <span class="ot">&lt;-</span> <span class="fu">gh</span>(</span>
+<span id="cb28-144"><a href="#cb28-144" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GET /repos/{owner}/{repo}/pulls"</span>,</span>
+<span id="cb28-145"><a href="#cb28-145" aria-hidden="true" tabindex="-1"></a>  <span class="at">owner =</span> <span class="st">"D2RS-2026spring"</span>,</span>
+<span id="cb28-146"><a href="#cb28-146" aria-hidden="true" tabindex="-1"></a>  <span class="at">repo =</span> <span class="st">"members"</span>,</span>
+<span id="cb28-147"><a href="#cb28-147" aria-hidden="true" tabindex="-1"></a>  <span class="at">state =</span> <span class="st">"all"</span>,</span>
+<span id="cb28-148"><a href="#cb28-148" aria-hidden="true" tabindex="-1"></a>  <span class="at">per_page =</span> <span class="dv">100</span>,</span>
+<span id="cb28-149"><a href="#cb28-149" aria-hidden="true" tabindex="-1"></a>  <span class="at">.limit =</span> <span class="cn">Inf</span></span>
+<span id="cb28-150"><a href="#cb28-150" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-151"><a href="#cb28-151" aria-hidden="true" tabindex="-1"></a>hw3_users <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(prs, <span class="sc">~</span> .x<span class="sc">$</span>user<span class="sc">$</span>login) <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
+<span id="cb28-152"><a href="#cb28-152" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业3（PR）发起人数："</span>, <span class="fu">length</span>(hw3_users), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-153"><a href="#cb28-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-154"><a href="#cb28-154" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 作业4: Issue #99 回复者 ---</span></span>
+<span id="cb28-155"><a href="#cb28-155" aria-hidden="true" tabindex="-1"></a>issue99_comments <span class="ot">&lt;-</span> <span class="fu">gh</span>(</span>
+<span id="cb28-156"><a href="#cb28-156" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GET /repos/{owner}/{repo}/issues/{issue_number}/comments"</span>,</span>
+<span id="cb28-157"><a href="#cb28-157" aria-hidden="true" tabindex="-1"></a>  <span class="at">owner =</span> <span class="st">"D2RS-2026spring"</span>,</span>
+<span id="cb28-158"><a href="#cb28-158" aria-hidden="true" tabindex="-1"></a>  <span class="at">repo =</span> <span class="st">"members"</span>,</span>
+<span id="cb28-159"><a href="#cb28-159" aria-hidden="true" tabindex="-1"></a>  <span class="at">issue_number =</span> <span class="dv">99</span>,</span>
+<span id="cb28-160"><a href="#cb28-160" aria-hidden="true" tabindex="-1"></a>  <span class="at">per_page =</span> <span class="dv">100</span>,</span>
+<span id="cb28-161"><a href="#cb28-161" aria-hidden="true" tabindex="-1"></a>  <span class="at">.limit =</span> <span class="cn">Inf</span></span>
+<span id="cb28-162"><a href="#cb28-162" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-163"><a href="#cb28-163" aria-hidden="true" tabindex="-1"></a>hw4_users <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(issue99_comments, <span class="sc">~</span> .x<span class="sc">$</span>user<span class="sc">$</span>login) <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
+<span id="cb28-164"><a href="#cb28-164" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业4（Issue #99）回复人数："</span>, <span class="fu">length</span>(hw4_users), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-165"><a href="#cb28-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-166"><a href="#cb28-166" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 作业5: projects 仓库的 Issues ---</span></span>
+<span id="cb28-167"><a href="#cb28-167" aria-hidden="true" tabindex="-1"></a>project_issues <span class="ot">&lt;-</span> <span class="fu">gh</span>(</span>
+<span id="cb28-168"><a href="#cb28-168" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GET /repos/{owner}/{repo}/issues"</span>,</span>
+<span id="cb28-169"><a href="#cb28-169" aria-hidden="true" tabindex="-1"></a>  <span class="at">owner =</span> <span class="st">"D2RS-2026spring"</span>,</span>
+<span id="cb28-170"><a href="#cb28-170" aria-hidden="true" tabindex="-1"></a>  <span class="at">repo =</span> <span class="st">"projects"</span>,</span>
+<span id="cb28-171"><a href="#cb28-171" aria-hidden="true" tabindex="-1"></a>  <span class="at">state =</span> <span class="st">"all"</span>,</span>
+<span id="cb28-172"><a href="#cb28-172" aria-hidden="true" tabindex="-1"></a>  <span class="at">per_page =</span> <span class="dv">100</span>,</span>
+<span id="cb28-173"><a href="#cb28-173" aria-hidden="true" tabindex="-1"></a>  <span class="at">.limit =</span> <span class="cn">Inf</span></span>
+<span id="cb28-174"><a href="#cb28-174" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-175"><a href="#cb28-175" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业5（projects Issues）数量："</span>, <span class="fu">length</span>(project_issues), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-176"><a href="#cb28-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-177"><a href="#cb28-177" aria-hidden="true" tabindex="-1"></a><span class="co"># 从 project issues 的 body 中提取所有学号</span></span>
+<span id="cb28-178"><a href="#cb28-178" aria-hidden="true" tabindex="-1"></a>hw5_student_ids <span class="ot">&lt;-</span> <span class="fu">character</span>(<span class="dv">0</span>)</span>
+<span id="cb28-179"><a href="#cb28-179" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (issue <span class="cf">in</span> project_issues) {</span>
+<span id="cb28-180"><a href="#cb28-180" aria-hidden="true" tabindex="-1"></a>  body <span class="ot">&lt;-</span> issue<span class="sc">$</span>body <span class="sc">%||%</span> <span class="st">""</span></span>
+<span id="cb28-181"><a href="#cb28-181" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 提取所有13位学号</span></span>
+<span id="cb28-182"><a href="#cb28-182" aria-hidden="true" tabindex="-1"></a>  ids <span class="ot">&lt;-</span> <span class="fu">str_extract_all</span>(body, <span class="st">"</span><span class="sc">\\</span><span class="st">d{13}"</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb28-183"><a href="#cb28-183" aria-hidden="true" tabindex="-1"></a>  hw5_student_ids <span class="ot">&lt;-</span> <span class="fu">c</span>(hw5_student_ids, ids)</span>
+<span id="cb28-184"><a href="#cb28-184" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb28-185"><a href="#cb28-185" aria-hidden="true" tabindex="-1"></a>hw5_student_ids <span class="ot">&lt;-</span> <span class="fu">unique</span>(hw5_student_ids)</span>
+<span id="cb28-186"><a href="#cb28-186" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"作业5 提取到学号数："</span>, <span class="fu">length</span>(hw5_student_ids), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-187"><a href="#cb28-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-188"><a href="#cb28-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-189"><a href="#cb28-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## 作业完成情况</span></span>
+<span id="cb28-190"><a href="#cb28-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-193"><a href="#cb28-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-194"><a href="#cb28-194" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: homework-check</span></span>
+<span id="cb28-195"><a href="#cb28-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-196"><a href="#cb28-196" aria-hidden="true" tabindex="-1"></a><span class="co"># 将学生名单与 GitHub 用户名映射合并</span></span>
+<span id="cb28-197"><a href="#cb28-197" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> students <span class="sc">|&gt;</span></span>
+<span id="cb28-198"><a href="#cb28-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(id_mapping, <span class="at">by =</span> <span class="st">"学号"</span>)</span>
 <span id="cb28-199"><a href="#cb28-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-202"><a href="#cb28-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-203"><a href="#cb28-203" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: homework-check</span></span>
-<span id="cb28-204"><a href="#cb28-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-205"><a href="#cb28-205" aria-hidden="true" tabindex="-1"></a><span class="co"># 将学生名单与 GitHub 用户名映射合并</span></span>
-<span id="cb28-206"><a href="#cb28-206" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> students <span class="sc">|&gt;</span></span>
-<span id="cb28-207"><a href="#cb28-207" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(id_mapping, <span class="at">by =</span> <span class="st">"学号"</span>)</span>
-<span id="cb28-208"><a href="#cb28-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-209"><a href="#cb28-209" aria-hidden="true" tabindex="-1"></a><span class="co"># 判断各项作业完成情况</span></span>
-<span id="cb28-210"><a href="#cb28-210" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
-<span id="cb28-211"><a href="#cb28-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb28-212"><a href="#cb28-212" aria-hidden="true" tabindex="-1"></a>    作业1_入学报到 <span class="ot">=</span> github_user <span class="sc">%in%</span> hw1_users,</span>
-<span id="cb28-213"><a href="#cb28-213" aria-hidden="true" tabindex="-1"></a>    作业2_模型性能 <span class="ot">=</span> github_user <span class="sc">%in%</span> hw2_users,</span>
-<span id="cb28-214"><a href="#cb28-214" aria-hidden="true" tabindex="-1"></a>    作业3_练习协作 <span class="ot">=</span> github_user <span class="sc">%in%</span> hw3_users,</span>
-<span id="cb28-215"><a href="#cb28-215" aria-hidden="true" tabindex="-1"></a>    作业4_我的主页 <span class="ot">=</span> github_user <span class="sc">%in%</span> hw4_users,</span>
-<span id="cb28-216"><a href="#cb28-216" aria-hidden="true" tabindex="-1"></a>    作业5_计划项目 <span class="ot">=</span> 学号 <span class="sc">%in%</span> hw5_student_ids</span>
-<span id="cb28-217"><a href="#cb28-217" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb28-218"><a href="#cb28-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-219"><a href="#cb28-219" aria-hidden="true" tabindex="-1"></a><span class="co"># 没有 GitHub 用户名的学生，作业1-4 标记为 FALSE</span></span>
-<span id="cb28-220"><a href="#cb28-220" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
-<span id="cb28-221"><a href="#cb28-221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb28-222"><a href="#cb28-222" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"作业"</span>), <span class="sc">~</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(github_user) <span class="sc">&amp;</span> <span class="fu">cur_column</span>() <span class="sc">!=</span> <span class="st">"作业5_计划项目"</span>, <span class="cn">FALSE</span>, .x)),</span>
-<span id="cb28-223"><a href="#cb28-223" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"作业"</span>), <span class="sc">~</span> <span class="fu">replace_na</span>(.x, <span class="cn">FALSE</span>))</span>
-<span id="cb28-224"><a href="#cb28-224" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-200"><a href="#cb28-200" aria-hidden="true" tabindex="-1"></a><span class="co"># 判断各项作业完成情况</span></span>
+<span id="cb28-201"><a href="#cb28-201" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
+<span id="cb28-202"><a href="#cb28-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb28-203"><a href="#cb28-203" aria-hidden="true" tabindex="-1"></a>    作业1_入学报到 <span class="ot">=</span> github_user <span class="sc">%in%</span> hw1_users,</span>
+<span id="cb28-204"><a href="#cb28-204" aria-hidden="true" tabindex="-1"></a>    作业2_模型性能 <span class="ot">=</span> github_user <span class="sc">%in%</span> hw2_users,</span>
+<span id="cb28-205"><a href="#cb28-205" aria-hidden="true" tabindex="-1"></a>    作业3_练习协作 <span class="ot">=</span> github_user <span class="sc">%in%</span> hw3_users,</span>
+<span id="cb28-206"><a href="#cb28-206" aria-hidden="true" tabindex="-1"></a>    作业4_我的主页 <span class="ot">=</span> github_user <span class="sc">%in%</span> hw4_users,</span>
+<span id="cb28-207"><a href="#cb28-207" aria-hidden="true" tabindex="-1"></a>    作业5_计划项目 <span class="ot">=</span> 学号 <span class="sc">%in%</span> hw5_student_ids</span>
+<span id="cb28-208"><a href="#cb28-208" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-209"><a href="#cb28-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-210"><a href="#cb28-210" aria-hidden="true" tabindex="-1"></a><span class="co"># 没有 GitHub 用户名的学生，作业1-4 标记为 FALSE</span></span>
+<span id="cb28-211"><a href="#cb28-211" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
+<span id="cb28-212"><a href="#cb28-212" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb28-213"><a href="#cb28-213" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"作业"</span>), <span class="sc">~</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(github_user) <span class="sc">&amp;</span> <span class="fu">cur_column</span>() <span class="sc">!=</span> <span class="st">"作业5_计划项目"</span>, <span class="cn">FALSE</span>, .x)),</span>
+<span id="cb28-214"><a href="#cb28-214" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"作业"</span>), <span class="sc">~</span> <span class="fu">replace_na</span>(.x, <span class="cn">FALSE</span>))</span>
+<span id="cb28-215"><a href="#cb28-215" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-216"><a href="#cb28-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-217"><a href="#cb28-217" aria-hidden="true" tabindex="-1"></a><span class="co"># 统计完成数量</span></span>
+<span id="cb28-218"><a href="#cb28-218" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
+<span id="cb28-219"><a href="#cb28-219" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb28-220"><a href="#cb28-220" aria-hidden="true" tabindex="-1"></a>    完成数 <span class="ot">=</span> 作业1_入学报到 <span class="sc">+</span> 作业2_模型性能 <span class="sc">+</span> 作业3_练习协作 <span class="sc">+</span> 作业4_我的主页 <span class="sc">+</span> 作业5_计划项目</span>
+<span id="cb28-221"><a href="#cb28-221" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-222"><a href="#cb28-222" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-223"><a href="#cb28-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-224"><a href="#cb28-224" aria-hidden="true" tabindex="-1"></a><span class="fu">### 总体统计</span></span>
 <span id="cb28-225"><a href="#cb28-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-226"><a href="#cb28-226" aria-hidden="true" tabindex="-1"></a><span class="co"># 统计完成数量</span></span>
-<span id="cb28-227"><a href="#cb28-227" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
-<span id="cb28-228"><a href="#cb28-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb28-229"><a href="#cb28-229" aria-hidden="true" tabindex="-1"></a>    完成数 <span class="ot">=</span> 作业1_入学报到 <span class="sc">+</span> 作业2_模型性能 <span class="sc">+</span> 作业3_练习协作 <span class="sc">+</span> 作业4_我的主页 <span class="sc">+</span> 作业5_计划项目</span>
-<span id="cb28-230"><a href="#cb28-230" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb28-231"><a href="#cb28-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-232"><a href="#cb28-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-233"><a href="#cb28-233" aria-hidden="true" tabindex="-1"></a><span class="fu">### 总体统计</span></span>
-<span id="cb28-234"><a href="#cb28-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-237"><a href="#cb28-237" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-238"><a href="#cb28-238" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: summary-stats</span></span>
-<span id="cb28-239"><a href="#cb28-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-240"><a href="#cb28-240" aria-hidden="true" tabindex="-1"></a><span class="co"># 各作业完成率</span></span>
-<span id="cb28-241"><a href="#cb28-241" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb28-242"><a href="#cb28-242" aria-hidden="true" tabindex="-1"></a>  作业 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"作业1 入学报到"</span>, <span class="st">"作业2 模型性能"</span>, <span class="st">"作业3 练习协作"</span>, <span class="st">"作业4 我的主页"</span>, <span class="st">"作业5 计划项目"</span>),</span>
-<span id="cb28-243"><a href="#cb28-243" aria-hidden="true" tabindex="-1"></a>  完成人数 <span class="ot">=</span> <span class="fu">c</span>(</span>
-<span id="cb28-244"><a href="#cb28-244" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(result<span class="sc">$</span>作业1_入学报到),</span>
-<span id="cb28-245"><a href="#cb28-245" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(result<span class="sc">$</span>作业2_模型性能),</span>
-<span id="cb28-246"><a href="#cb28-246" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(result<span class="sc">$</span>作业3_练习协作),</span>
-<span id="cb28-247"><a href="#cb28-247" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(result<span class="sc">$</span>作业4_我的主页),</span>
-<span id="cb28-248"><a href="#cb28-248" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(result<span class="sc">$</span>作业5_计划项目)</span>
-<span id="cb28-249"><a href="#cb28-249" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb28-250"><a href="#cb28-250" aria-hidden="true" tabindex="-1"></a>  总人数 <span class="ot">=</span> <span class="fu">nrow</span>(result)</span>
-<span id="cb28-251"><a href="#cb28-251" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb28-252"><a href="#cb28-252" aria-hidden="true" tabindex="-1"></a>summary_df<span class="sc">$</span>完成率 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">round</span>(summary_df<span class="sc">$</span>完成人数 <span class="sc">/</span> summary_df<span class="sc">$</span>总人数 <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>), <span class="st">"%"</span>)</span>
-<span id="cb28-253"><a href="#cb28-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-254"><a href="#cb28-254" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(summary_df, <span class="at">caption =</span> <span class="st">"各作业完成率统计"</span>)</span>
-<span id="cb28-255"><a href="#cb28-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-256"><a href="#cb28-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-257"><a href="#cb28-257" aria-hidden="true" tabindex="-1"></a><span class="fu">### 完成情况明细</span></span>
-<span id="cb28-258"><a href="#cb28-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-261"><a href="#cb28-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-262"><a href="#cb28-262" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-detail-table</span></span>
-<span id="cb28-263"><a href="#cb28-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-264"><a href="#cb28-264" aria-hidden="true" tabindex="-1"></a><span class="co"># 将 TRUE/FALSE 转换为可视化符号</span></span>
-<span id="cb28-265"><a href="#cb28-265" aria-hidden="true" tabindex="-1"></a>display <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
-<span id="cb28-266"><a href="#cb28-266" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(学院, 学号) <span class="sc">|&gt;</span></span>
-<span id="cb28-267"><a href="#cb28-267" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb28-268"><a href="#cb28-268" aria-hidden="true" tabindex="-1"></a>    作业1 <span class="ot">=</span> <span class="fu">ifelse</span>(作业1_入学报到, <span class="st">"✅"</span>, <span class="st">"❌"</span>),</span>
-<span id="cb28-269"><a href="#cb28-269" aria-hidden="true" tabindex="-1"></a>    作业2 <span class="ot">=</span> <span class="fu">ifelse</span>(作业2_模型性能, <span class="st">"✅"</span>, <span class="st">"❌"</span>),</span>
-<span id="cb28-270"><a href="#cb28-270" aria-hidden="true" tabindex="-1"></a>    作业3 <span class="ot">=</span> <span class="fu">ifelse</span>(作业3_练习协作, <span class="st">"✅"</span>, <span class="st">"❌"</span>),</span>
-<span id="cb28-271"><a href="#cb28-271" aria-hidden="true" tabindex="-1"></a>    作业4 <span class="ot">=</span> <span class="fu">ifelse</span>(作业4_我的主页, <span class="st">"✅"</span>, <span class="st">"❌"</span>),</span>
-<span id="cb28-272"><a href="#cb28-272" aria-hidden="true" tabindex="-1"></a>    作业5 <span class="ot">=</span> <span class="fu">ifelse</span>(作业5_计划项目, <span class="st">"✅"</span>, <span class="st">"❌"</span>),</span>
-<span id="cb28-273"><a href="#cb28-273" aria-hidden="true" tabindex="-1"></a>    <span class="at">GitHub =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(github_user), <span class="st">"—"</span>,</span>
-<span id="cb28-274"><a href="#cb28-274" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">paste0</span>(<span class="st">"["</span>, github_user, <span class="st">"](https://github.com/"</span>, github_user, <span class="st">")"</span>))</span>
-<span id="cb28-275"><a href="#cb28-275" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb28-276"><a href="#cb28-276" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(学号, GitHub, 作业1, 作业2, 作业3, 作业4, 作业5)</span>
-<span id="cb28-277"><a href="#cb28-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-278"><a href="#cb28-278" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(display, <span class="at">caption =</span> <span class="st">"学生作业完成情况明细表"</span>)</span>
-<span id="cb28-279"><a href="#cb28-279" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-280"><a href="#cb28-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-281"><a href="#cb28-281" aria-hidden="true" tabindex="-1"></a><span class="fu">### 未完成任何作业的学生</span></span>
+<span id="cb28-228"><a href="#cb28-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-229"><a href="#cb28-229" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: summary-stats</span></span>
+<span id="cb28-230"><a href="#cb28-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-231"><a href="#cb28-231" aria-hidden="true" tabindex="-1"></a><span class="co"># 各作业完成率</span></span>
+<span id="cb28-232"><a href="#cb28-232" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb28-233"><a href="#cb28-233" aria-hidden="true" tabindex="-1"></a>  作业 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"作业1 入学报到"</span>, <span class="st">"作业2 模型性能"</span>, <span class="st">"作业3 练习协作"</span>, <span class="st">"作业4 我的主页"</span>, <span class="st">"作业5 计划项目"</span>),</span>
+<span id="cb28-234"><a href="#cb28-234" aria-hidden="true" tabindex="-1"></a>  完成人数 <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb28-235"><a href="#cb28-235" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(result<span class="sc">$</span>作业1_入学报到),</span>
+<span id="cb28-236"><a href="#cb28-236" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(result<span class="sc">$</span>作业2_模型性能),</span>
+<span id="cb28-237"><a href="#cb28-237" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(result<span class="sc">$</span>作业3_练习协作),</span>
+<span id="cb28-238"><a href="#cb28-238" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(result<span class="sc">$</span>作业4_我的主页),</span>
+<span id="cb28-239"><a href="#cb28-239" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(result<span class="sc">$</span>作业5_计划项目)</span>
+<span id="cb28-240"><a href="#cb28-240" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb28-241"><a href="#cb28-241" aria-hidden="true" tabindex="-1"></a>  总人数 <span class="ot">=</span> <span class="fu">nrow</span>(result)</span>
+<span id="cb28-242"><a href="#cb28-242" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-243"><a href="#cb28-243" aria-hidden="true" tabindex="-1"></a>summary_df<span class="sc">$</span>完成率 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">round</span>(summary_df<span class="sc">$</span>完成人数 <span class="sc">/</span> summary_df<span class="sc">$</span>总人数 <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>), <span class="st">"%"</span>)</span>
+<span id="cb28-244"><a href="#cb28-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-245"><a href="#cb28-245" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(summary_df, <span class="at">caption =</span> <span class="st">"各作业完成率统计"</span>)</span>
+<span id="cb28-246"><a href="#cb28-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-247"><a href="#cb28-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-248"><a href="#cb28-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### 完成情况明细</span></span>
+<span id="cb28-249"><a href="#cb28-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-252"><a href="#cb28-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-253"><a href="#cb28-253" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-detail-table</span></span>
+<span id="cb28-254"><a href="#cb28-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-255"><a href="#cb28-255" aria-hidden="true" tabindex="-1"></a><span class="co"># 将 TRUE/FALSE 转换为可视化符号</span></span>
+<span id="cb28-256"><a href="#cb28-256" aria-hidden="true" tabindex="-1"></a>display <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
+<span id="cb28-257"><a href="#cb28-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(学院, 学号) <span class="sc">|&gt;</span></span>
+<span id="cb28-258"><a href="#cb28-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb28-259"><a href="#cb28-259" aria-hidden="true" tabindex="-1"></a>    作业1 <span class="ot">=</span> <span class="fu">ifelse</span>(作业1_入学报到, <span class="st">"✅"</span>, <span class="st">"❌"</span>),</span>
+<span id="cb28-260"><a href="#cb28-260" aria-hidden="true" tabindex="-1"></a>    作业2 <span class="ot">=</span> <span class="fu">ifelse</span>(作业2_模型性能, <span class="st">"✅"</span>, <span class="st">"❌"</span>),</span>
+<span id="cb28-261"><a href="#cb28-261" aria-hidden="true" tabindex="-1"></a>    作业3 <span class="ot">=</span> <span class="fu">ifelse</span>(作业3_练习协作, <span class="st">"✅"</span>, <span class="st">"❌"</span>),</span>
+<span id="cb28-262"><a href="#cb28-262" aria-hidden="true" tabindex="-1"></a>    作业4 <span class="ot">=</span> <span class="fu">ifelse</span>(作业4_我的主页, <span class="st">"✅"</span>, <span class="st">"❌"</span>),</span>
+<span id="cb28-263"><a href="#cb28-263" aria-hidden="true" tabindex="-1"></a>    作业5 <span class="ot">=</span> <span class="fu">ifelse</span>(作业5_计划项目, <span class="st">"✅"</span>, <span class="st">"❌"</span>),</span>
+<span id="cb28-264"><a href="#cb28-264" aria-hidden="true" tabindex="-1"></a>    <span class="at">GitHub =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(github_user), <span class="st">"—"</span>,</span>
+<span id="cb28-265"><a href="#cb28-265" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">paste0</span>(<span class="st">"["</span>, github_user, <span class="st">"](https://github.com/"</span>, github_user, <span class="st">")"</span>))</span>
+<span id="cb28-266"><a href="#cb28-266" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb28-267"><a href="#cb28-267" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(学号, GitHub, 作业1, 作业2, 作业3, 作业4, 作业5)</span>
+<span id="cb28-268"><a href="#cb28-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-269"><a href="#cb28-269" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(display, <span class="at">caption =</span> <span class="st">"学生作业完成情况明细表"</span>)</span>
+<span id="cb28-270"><a href="#cb28-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-271"><a href="#cb28-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-272"><a href="#cb28-272" aria-hidden="true" tabindex="-1"></a><span class="fu">### 未完成任何作业的学生</span></span>
+<span id="cb28-273"><a href="#cb28-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-276"><a href="#cb28-276" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-277"><a href="#cb28-277" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: no-homework</span></span>
+<span id="cb28-278"><a href="#cb28-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-279"><a href="#cb28-279" aria-hidden="true" tabindex="-1"></a>no_hw <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
+<span id="cb28-280"><a href="#cb28-280" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(完成数 <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-281"><a href="#cb28-281" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(学号, 姓名, 学院)</span>
 <span id="cb28-282"><a href="#cb28-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-285"><a href="#cb28-285" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-286"><a href="#cb28-286" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: no-homework</span></span>
-<span id="cb28-287"><a href="#cb28-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-288"><a href="#cb28-288" aria-hidden="true" tabindex="-1"></a>no_hw <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
-<span id="cb28-289"><a href="#cb28-289" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(完成数 <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
-<span id="cb28-290"><a href="#cb28-290" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(学号, 姓名, 学院)</span>
-<span id="cb28-291"><a href="#cb28-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-292"><a href="#cb28-292" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">nrow</span>(no_hw) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb28-293"><a href="#cb28-293" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"共有"</span>, <span class="fu">nrow</span>(no_hw), <span class="st">"名学生未完成任何作业：</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb28-294"><a href="#cb28-294" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(no_hw, <span class="at">caption =</span> <span class="st">"未完成任何作业的学生"</span>)</span>
-<span id="cb28-295"><a href="#cb28-295" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb28-296"><a href="#cb28-296" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"所有学生都至少完成了一项作业 🎉</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb28-297"><a href="#cb28-297" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb28-298"><a href="#cb28-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-299"><a href="#cb28-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-300"><a href="#cb28-300" aria-hidden="true" tabindex="-1"></a><span class="fu">### 按学院统计</span></span>
-<span id="cb28-301"><a href="#cb28-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-304"><a href="#cb28-304" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-305"><a href="#cb28-305" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: college-stats</span></span>
-<span id="cb28-306"><a href="#cb28-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-307"><a href="#cb28-307" aria-hidden="true" tabindex="-1"></a>college_stats <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
-<span id="cb28-308"><a href="#cb28-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(学院) <span class="sc">|&gt;</span></span>
-<span id="cb28-309"><a href="#cb28-309" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb28-310"><a href="#cb28-310" aria-hidden="true" tabindex="-1"></a>    学生数 <span class="ot">=</span> <span class="fu">n</span>(),</span>
-<span id="cb28-311"><a href="#cb28-311" aria-hidden="true" tabindex="-1"></a>    作业1 <span class="ot">=</span> <span class="fu">sum</span>(作业1_入学报到),</span>
-<span id="cb28-312"><a href="#cb28-312" aria-hidden="true" tabindex="-1"></a>    作业2 <span class="ot">=</span> <span class="fu">sum</span>(作业2_模型性能),</span>
-<span id="cb28-313"><a href="#cb28-313" aria-hidden="true" tabindex="-1"></a>    作业3 <span class="ot">=</span> <span class="fu">sum</span>(作业3_练习协作),</span>
-<span id="cb28-314"><a href="#cb28-314" aria-hidden="true" tabindex="-1"></a>    作业4 <span class="ot">=</span> <span class="fu">sum</span>(作业4_我的主页),</span>
-<span id="cb28-315"><a href="#cb28-315" aria-hidden="true" tabindex="-1"></a>    作业5 <span class="ot">=</span> <span class="fu">sum</span>(作业5_计划项目),</span>
-<span id="cb28-316"><a href="#cb28-316" aria-hidden="true" tabindex="-1"></a>    平均完成数 <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(完成数), <span class="dv">1</span>),</span>
-<span id="cb28-317"><a href="#cb28-317" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb28-318"><a href="#cb28-318" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb28-319"><a href="#cb28-319" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(平均完成数))</span>
-<span id="cb28-320"><a href="#cb28-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-321"><a href="#cb28-321" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(college_stats, <span class="at">caption =</span> <span class="st">"按学院统计作业完成情况"</span>)</span>
-<span id="cb28-322"><a href="#cb28-322" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-283"><a href="#cb28-283" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">nrow</span>(no_hw) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb28-284"><a href="#cb28-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"共有"</span>, <span class="fu">nrow</span>(no_hw), <span class="st">"名学生未完成任何作业：</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-285"><a href="#cb28-285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(no_hw, <span class="at">caption =</span> <span class="st">"未完成任何作业的学生"</span>)</span>
+<span id="cb28-286"><a href="#cb28-286" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb28-287"><a href="#cb28-287" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"所有学生都至少完成了一项作业 🎉</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-288"><a href="#cb28-288" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb28-289"><a href="#cb28-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-290"><a href="#cb28-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-291"><a href="#cb28-291" aria-hidden="true" tabindex="-1"></a><span class="fu">### 按学院统计</span></span>
+<span id="cb28-292"><a href="#cb28-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-295"><a href="#cb28-295" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-296"><a href="#cb28-296" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: college-stats</span></span>
+<span id="cb28-297"><a href="#cb28-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-298"><a href="#cb28-298" aria-hidden="true" tabindex="-1"></a>college_stats <span class="ot">&lt;-</span> result <span class="sc">|&gt;</span></span>
+<span id="cb28-299"><a href="#cb28-299" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(学院) <span class="sc">|&gt;</span></span>
+<span id="cb28-300"><a href="#cb28-300" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb28-301"><a href="#cb28-301" aria-hidden="true" tabindex="-1"></a>    学生数 <span class="ot">=</span> <span class="fu">n</span>(),</span>
+<span id="cb28-302"><a href="#cb28-302" aria-hidden="true" tabindex="-1"></a>    作业1 <span class="ot">=</span> <span class="fu">sum</span>(作业1_入学报到),</span>
+<span id="cb28-303"><a href="#cb28-303" aria-hidden="true" tabindex="-1"></a>    作业2 <span class="ot">=</span> <span class="fu">sum</span>(作业2_模型性能),</span>
+<span id="cb28-304"><a href="#cb28-304" aria-hidden="true" tabindex="-1"></a>    作业3 <span class="ot">=</span> <span class="fu">sum</span>(作业3_练习协作),</span>
+<span id="cb28-305"><a href="#cb28-305" aria-hidden="true" tabindex="-1"></a>    作业4 <span class="ot">=</span> <span class="fu">sum</span>(作业4_我的主页),</span>
+<span id="cb28-306"><a href="#cb28-306" aria-hidden="true" tabindex="-1"></a>    作业5 <span class="ot">=</span> <span class="fu">sum</span>(作业5_计划项目),</span>
+<span id="cb28-307"><a href="#cb28-307" aria-hidden="true" tabindex="-1"></a>    平均完成数 <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(完成数), <span class="dv">1</span>),</span>
+<span id="cb28-308"><a href="#cb28-308" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb28-309"><a href="#cb28-309" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb28-310"><a href="#cb28-310" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(平均完成数))</span>
+<span id="cb28-311"><a href="#cb28-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-312"><a href="#cb28-312" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(college_stats, <span class="at">caption =</span> <span class="st">"按学院统计作业完成情况"</span>)</span>
+<span id="cb28-313"><a href="#cb28-313" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
