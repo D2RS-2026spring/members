@@ -1,0 +1,294 @@
+---
+date: today
+---
+
+# 作业完成情况检查
+
+
+## 课程作业
+
+课程目前布置过下面的 5 项作业。
+
+- [ ] [**入学报到**](https://github.com/D2RS-2026spring/members/issues/1)：了解 GitHub 的基础用法
+- [ ] [**模型性能**](https://github.com/D2RS-2026spring/members/issues/2)：学习 Markdown 技术
+- [ ] [**练习协作**](https://github.com/D2RS-2026spring/members/pulls/)：掌握 Markdown 技术和 PR
+- [ ] [**我的主页**](https://github.com/D2RS-2026spring/members/issues/99)：尝试 AI 编程和项目管理
+- [ ] [**计划项目**](https://github.com/D2RS-2026spring/projects/)：分组、规划结课作品
+
+**判定标准：**
+
+| 作业 | 标准 | 数据来源 |
+|------|------|----------|
+| 作业1 入学报到 | 在 Issue #1 下回复 | `members` 仓库 Issue #1 评论 |
+| 作业2 模型性能 | 在 Issue #2 下回复 | `members` 仓库 Issue #2 评论 |
+| 作业3 练习协作 | 发起过 PR（含 closed） | `members` 仓库 Pull Requests |
+| 作业4 我的主页 | 在 Issue #99 下回复 | `members` 仓库 Issue #99 评论 |
+| 作业5 计划项目 | 在 projects 仓库发起 Issue | `projects` 仓库 Issues |
+
+```{r}
+#| label: setup
+#| include: false
+library(gh)
+library(jsonlite)
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(knitr)
+library(purrr)
+```
+
+## 数据获取
+
+### 学生名单
+
+```{r}
+#| label: student-list
+
+# 读取学生名单
+students <- read.csv("data/students/student-list.csv", fileEncoding = "UTF-8-BOM")
+colnames(students) <- c("学号", "姓名", "学院")
+students$学号 <- as.character(students$学号)
+
+cat("共有", nrow(students), "名学生\n")
+```
+
+### 从 Issue #1 建立学号-GitHub 用户名映射
+
+```{r}
+#| label: issue1-mapping
+
+# 获取 Issue #1 所有评论
+issue1_comments <- gh(
+  "GET /repos/{owner}/{repo}/issues/{issue_number}/comments",
+  owner = "D2RS-2026spring",
+  repo = "members",
+  issue_number = 1,
+  per_page = 100,
+  .limit = Inf
+)
+
+cat("Issue #1 共有", length(issue1_comments), "条评论\n")
+
+# 从评论中提取学号和 GitHub 用户名的对应关系
+extract_student_id <- function(comment) {
+  body <- comment$body
+  user <- comment$user$login
+  
+  # 尝试提取学号（13位数字，以2025开头）
+  student_id <- NA_character_
+  
+  # 格式: "学号：2025303110116" 或 "学号: 2025303110116"
+  student_id <- str_extract(body, "\\d{13}")
+  
+  data.frame(
+    github_user = user,
+    学号 = student_id,
+    stringsAsFactors = FALSE
+  )
+}
+
+# 批量提取映射关系
+id_mapping <- map_dfr(issue1_comments, extract_student_id)
+```
+
+
+
+```{r}
+# 去重：同一学号可能有多条评论，取第一条
+id_mapping <- id_mapping |>
+  filter(!is.na(学号)) |>
+  distinct(学号, .keep_all = TRUE)
+
+cat("成功建立", nrow(id_mapping), "个学号-GitHub用户名映射\n")
+```
+
+目前还没有建立映射的同学。
+
+```{r}
+students |> filter(!学号 %in% id_mapping[["学号"]])
+```
+
+### 获取各作业数据
+
+```{r}
+#| label: fetch-homework-data
+#| cache: true
+
+# --- 作业1: Issue #1 回复者 ---
+hw1_users <- map_chr(issue1_comments, ~ .x$user$login) |> unique()
+cat("作业1（Issue #1）回复人数：", length(hw1_users), "\n")
+
+# --- 作业2: Issue #2 回复者 ---
+issue2_comments <- gh(
+  "GET /repos/{owner}/{repo}/issues/{issue_number}/comments",
+  owner = "D2RS-2026spring",
+  repo = "members",
+  issue_number = 2,
+  per_page = 100,
+  .limit = Inf
+)
+hw2_users <- map_chr(issue2_comments, ~ .x$user$login) |> unique()
+cat("作业2（Issue #2）回复人数：", length(hw2_users), "\n")
+
+# --- 作业3: PR 发起者（含 closed） ---
+prs <- gh(
+  "GET /repos/{owner}/{repo}/pulls",
+  owner = "D2RS-2026spring",
+  repo = "members",
+  state = "all",
+  per_page = 100,
+  .limit = Inf
+)
+hw3_users <- map_chr(prs, ~ .x$user$login) |> unique()
+cat("作业3（PR）发起人数：", length(hw3_users), "\n")
+
+# --- 作业4: Issue #99 回复者 ---
+issue99_comments <- gh(
+  "GET /repos/{owner}/{repo}/issues/{issue_number}/comments",
+  owner = "D2RS-2026spring",
+  repo = "members",
+  issue_number = 99,
+  per_page = 100,
+  .limit = Inf
+)
+hw4_users <- map_chr(issue99_comments, ~ .x$user$login) |> unique()
+cat("作业4（Issue #99）回复人数：", length(hw4_users), "\n")
+
+# --- 作业5: projects 仓库的 Issues ---
+project_issues <- gh(
+  "GET /repos/{owner}/{repo}/issues",
+  owner = "D2RS-2026spring",
+  repo = "projects",
+  state = "all",
+  per_page = 100,
+  .limit = Inf
+)
+cat("作业5（projects Issues）数量：", length(project_issues), "\n")
+
+# 从 project issues 的 body 中提取所有学号
+hw5_student_ids <- character(0)
+for (issue in project_issues) {
+  body <- issue$body %||% ""
+  # 提取所有13位学号
+  ids <- str_extract_all(body, "\\d{13}")[[1]]
+  hw5_student_ids <- c(hw5_student_ids, ids)
+}
+hw5_student_ids <- unique(hw5_student_ids)
+cat("作业5 提取到学号数：", length(hw5_student_ids), "\n")
+```
+
+## 作业完成情况
+
+```{r}
+#| label: homework-check
+
+# 将学生名单与 GitHub 用户名映射合并
+result <- students |>
+  left_join(id_mapping, by = "学号")
+
+# 判断各项作业完成情况
+result <- result |>
+  mutate(
+    作业1_入学报到 = github_user %in% hw1_users,
+    作业2_模型性能 = github_user %in% hw2_users,
+    作业3_练习协作 = github_user %in% hw3_users,
+    作业4_我的主页 = github_user %in% hw4_users,
+    作业5_计划项目 = 学号 %in% hw5_student_ids
+  )
+
+# 没有 GitHub 用户名的学生，作业1-4 标记为 FALSE
+result <- result |>
+  mutate(
+    across(starts_with("作业"), ~ ifelse(is.na(github_user) & cur_column() != "作业5_计划项目", FALSE, .x)),
+    across(starts_with("作业"), ~ replace_na(.x, FALSE))
+  )
+
+# 统计完成数量
+result <- result |>
+  mutate(
+    完成数 = 作业1_入学报到 + 作业2_模型性能 + 作业3_练习协作 + 作业4_我的主页 + 作业5_计划项目
+  )
+```
+
+### 总体统计
+
+```{r}
+#| label: summary-stats
+
+# 各作业完成率
+summary_df <- data.frame(
+  作业 = c("作业1 入学报到", "作业2 模型性能", "作业3 练习协作", "作业4 我的主页", "作业5 计划项目"),
+  完成人数 = c(
+    sum(result$作业1_入学报到),
+    sum(result$作业2_模型性能),
+    sum(result$作业3_练习协作),
+    sum(result$作业4_我的主页),
+    sum(result$作业5_计划项目)
+  ),
+  总人数 = nrow(result)
+)
+summary_df$完成率 <- paste0(round(summary_df$完成人数 / summary_df$总人数 * 100, 1), "%")
+
+kable(summary_df, caption = "各作业完成率统计")
+```
+
+### 完成情况明细
+
+```{r}
+#| label: tbl-detail-table
+
+# 将 TRUE/FALSE 转换为可视化符号
+display <- result |>
+  arrange(学院, 学号) |>
+  mutate(
+    作业1 = ifelse(作业1_入学报到, "✅", "❌"),
+    作业2 = ifelse(作业2_模型性能, "✅", "❌"),
+    作业3 = ifelse(作业3_练习协作, "✅", "❌"),
+    作业4 = ifelse(作业4_我的主页, "✅", "❌"),
+    作业5 = ifelse(作业5_计划项目, "✅", "❌"),
+    GitHub = ifelse(is.na(github_user), "—",
+                    paste0("[", github_user, "](https://github.com/", github_user, ")"))
+  ) |>
+  select(学号, GitHub, 作业1, 作业2, 作业3, 作业4, 作业5)
+
+kable(display, caption = "学生作业完成情况明细表")
+```
+
+### 未完成任何作业的学生
+
+```{r}
+#| label: no-homework
+
+no_hw <- result |>
+  filter(完成数 == 0) |>
+  select(学号, 姓名, 学院)
+
+if (nrow(no_hw) > 0) {
+  cat("共有", nrow(no_hw), "名学生未完成任何作业：\n")
+  kable(no_hw, caption = "未完成任何作业的学生")
+} else {
+  cat("所有学生都至少完成了一项作业 🎉\n")
+}
+```
+
+### 按学院统计
+
+```{r}
+#| label: college-stats
+
+college_stats <- result |>
+  group_by(学院) |>
+  summarise(
+    学生数 = n(),
+    作业1 = sum(作业1_入学报到),
+    作业2 = sum(作业2_模型性能),
+    作业3 = sum(作业3_练习协作),
+    作业4 = sum(作业4_我的主页),
+    作业5 = sum(作业5_计划项目),
+    平均完成数 = round(mean(完成数), 1),
+    .groups = "drop"
+  ) |>
+  arrange(desc(平均完成数))
+
+kable(college_stats, caption = "按学院统计作业完成情况")
+```
