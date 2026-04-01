@@ -8,13 +8,30 @@ website:
     left:
       - href: index.qmd
         text: 首页
+      - href: 00-introduction.qmd
+        text: 课程导论
+      - href: 01-tools-reference.qmd
+        text: 技术工具
       - href: issue1_students.qmd
-        text: 学生名单
+        text: "Issue #1 分析"
       - href: issue2_voting.qmd
-        text: 模型投票
+        text: "Issue #2 分析"
+      - href: members-list.qmd
+        text: 成员名单
+      - href: projects.qmd
+        text: 结课项目
+      - href: zuoye.qmd
+        text: 检查作业
 
 format:
   html:
     theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-fold: show
+    code-summary: "显示/隐藏代码"
+    code-tools: true
 
-editor: visual
+execute:
+  warning: false
+  message: false

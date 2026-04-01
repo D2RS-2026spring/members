@@ -1,4 +1,9 @@
 /.quarto/
+/_site/
+
+*_cache/
+
 __pycache__/
-*.pyc
-*.pyo
+
+*_files/$
+.DS_Store

@@ -1,0 +1,247 @@
+---
+title: "结课项目信息"
+date: today
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(gh)
+library(jsonlite)
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(knitr)
+library(purrr)
+```
+
+## 加载学生名单
+
+```{r}
+#| label: load-student-list
+
+# 读取学生名单
+students <- read.csv("data/students/student-list.csv", fileEncoding = "UTF-8-BOM")
+colnames(students) <- c("学号", "姓名", "学院")
+students$学号 <- as.character(students$学号)
+
+# 创建有效学号集合
+valid_student_ids <- students$学号
+
+cat("学生名单中共有", length(valid_student_ids), "名学生\n")
+```
+
+## 从 projects 仓库获取项目信息
+
+```{r}
+#| label: fetch-projects
+#| cache: true
+
+# 获取 projects 仓库的所有 Issues
+project_issues <- gh(
+  "GET /repos/{owner}/{repo}/issues",
+  owner = "D2RS-2026spring",
+  repo = "projects",
+  state = "all",
+  per_page = 100,
+  .limit = Inf
+)
+
+cat("共获取到", length(project_issues), "个项目 Issue\n")
+```
+
+## 提取项目详细信息
+
+```{r}
+#| label: extract-project-info
+
+# 初始化项目信息列表
+project_info_list <- list()
+all_extracted_ids <- character(0)
+invalid_id_records <- list()
+
+for (issue in project_issues) {
+  body <- issue$body %||% ""
+  title <- issue$title %||% "未命名项目"
+  issue_number <- issue$number
+
+  # 提取学号（13位数字）
+  ids <- str_extract_all(body, "\\d{13}")[[1]]
+  ids <- unique(ids)  # 去重
+
+  # 记录所有提取的学号
+  all_extracted_ids <- c(all_extracted_ids, ids)
+
+  # 校验学号是否合法
+  valid_ids <- ids[ids %in% valid_student_ids]
+  invalid_ids <- ids[!ids %in% valid_student_ids]
+
+  # 记录非法学号
+  if (length(invalid_ids) > 0) {
+    invalid_id_records[[length(invalid_id_records) + 1]] <- data.frame(
+      项目序号 = issue_number,
+      项目名称 = title,
+      非法学号 = paste(invalid_ids, collapse = ", "),
+      stringsAsFactors = FALSE
+    )
+  }
+
+  # 提取 GitHub 仓库链接
+  # 匹配 github.com/用户名/仓库名 格式
+  repo_urls <- str_extract_all(body, "https?://github\\.com/[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+(/[^\\s)]*)?")[[1]]
+  repo_url <- ifelse(length(repo_urls) > 0, repo_urls[1], NA_character_)
+
+  # 保存项目信息（只保留合法学号）
+  project_info_list[[length(project_info_list) + 1]] <- data.frame(
+    序号 = issue_number,
+    项目名称 = title,
+    成员 = paste(valid_ids, collapse = ", "),
+    成员数 = length(valid_ids),
+    仓库链接 = repo_url,
+    状态 = issue$state,
+    stringsAsFactors = FALSE
+  )
+}
+
+# 合并为数据框
+project_info_df <- bind_rows(project_info_list) |>
+  arrange(序号)
+
+# 合并非法学号记录
+invalid_id_df <- bind_rows(invalid_id_records)
+
+cat("成功提取", nrow(project_info_df), "个项目信息\n")
+cat("共提取到", length(all_extracted_ids), "个学号\n")
+cat("其中合法学号:", sum(all_extracted_ids %in% valid_student_ids), "个\n")
+cat("非法学号:", sum(!all_extracted_ids %in% valid_student_ids), "个\n")
+```
+
+## 项目列表
+
+```{r}
+#| label: tbl-projects
+#| tbl-cap: "作业5项目信息汇总"
+
+# 格式化链接
+display_df <- project_info_df |>
+  mutate(
+    # 项目名称链接到 ISSUE
+    项目名称 = paste0("[", 项目名称, "](https://github.com/D2RS-2026spring/projects/issues/", 序号, ")"),
+    # 仓库链接
+    仓库链接 = ifelse(is.na(仓库链接), "—",
+                    paste0("[链接](", 仓库链接, ")"))
+  )
+
+kable(display_df, align = c("r", "l", "l", "c", "l", "c"))
+```
+
+## 成员统计
+
+```{r}
+#| label: member-stats
+
+# 统计总成员数
+all_members <- unlist(strsplit(project_info_df$成员, ", "))
+all_members <- all_members[all_members != ""]
+
+cat("项目总数：", nrow(project_info_df), "\n")
+cat("参与学生总数：", length(unique(all_members)), "\n")
+cat("平均每个项目成员数：", round(mean(project_info_df$成员数), 1), "\n")
+```
+
+## 按成员查看项目
+
+```{r}
+#| label: member-projects
+
+# 创建成员-项目对应表
+member_project_list <- list()
+
+for (i in seq_len(nrow(project_info_df))) {
+  members <- unlist(strsplit(project_info_df$成员[i], ", "))
+  members <- members[members != ""]
+
+  # 创建带链接的项目名称
+  project_name <- project_info_df$项目名称[i]
+  issue_number <- project_info_df$序号[i]
+  linked_project <- paste0("[", project_name, "](https://github.com/D2RS-2026spring/projects/issues/", issue_number, ")")
+
+  for (member in members) {
+    member_project_list[[member]] <- c(
+      member_project_list[[member]],
+      linked_project
+    )
+  }
+}
+
+# 转换为数据框
+member_df <- tibble(
+  学号 = names(member_project_list),
+  参与项目 = sapply(member_project_list, paste, collapse = "; ")
+) |>
+  arrange(学号)
+
+kable(member_df, caption = "学生参与项目情况")
+```
+
+## 缺少仓库链接的项目
+
+```{r}
+#| label: missing-repo
+
+missing_repo <- project_info_df |>
+  filter(is.na(仓库链接)) |>
+  select(序号, 项目名称, 成员)
+
+if (nrow(missing_repo) > 0) {
+  cat("以下项目缺少仓库链接，需要跟进：\n")
+  kable(missing_repo, caption = "缺少仓库链接的项目")
+} else {
+  cat("✅ 所有项目都已填写仓库链接\n")
+}
+```
+
+## 学号合法性检查
+
+```{r}
+#| label: validate-student-ids
+
+# 显示非法学号详情
+if (nrow(invalid_id_df) > 0) {
+  cat("⚠️ 发现非法学号（不在学生名单中）：\n\n")
+  kable(invalid_id_df, caption = "包含非法学号的项目")
+
+  # 汇总所有非法学号
+  all_invalid_ids <- unique(unlist(strsplit(invalid_id_df$非法学号, ", ")))
+  all_invalid_ids <- all_invalid_ids[all_invalid_ids != ""]
+  cat("\n所有非法学号列表：", paste(all_invalid_ids, collapse = ", "), "\n")
+} else {
+  cat("✅ 所有提取的学号均在学生名单中\n")
+}
+```
+
+## 未参与项目的学生
+
+```{r}
+#| label: unassigned-students
+
+# 获取已参与项目的学生（合法学号）
+all_valid_members <- unlist(strsplit(project_info_df$成员, ", "))
+all_valid_members <- unique(all_valid_members[all_valid_members != ""])
+
+# 找出未参与项目的学生
+unassigned <- students |>
+  filter(!学号 %in% all_valid_members) |>
+  select(学号, 姓名, 学院)
+
+if (nrow(unassigned) > 0) {
+  cat("以下学生尚未加入任何项目：\n")
+  kable(unassigned, caption = paste0("未参与项目的学生（共", nrow(unassigned), "人）"))
+} else {
+  cat("✅ 所有学生都已加入项目\n")
+}
+
+cat("\n已参与项目学生数：", length(all_valid_members), "\n")
+cat("未参与项目学生数：", nrow(unassigned), "\n")
+```
