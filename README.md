@@ -2,9 +2,8 @@
 
 本项目用于 D2RS-2026spring 课程的学生成员管理和数据分析。
 
-## 📚 项目简介
+## 📚 项目简介本项目包含两个数据分析案例：
 
-本项目包含两个数据分析案例：
 
 1. **Issue #1 - 学生加入申请数据分析**：从 GitHub Issue 中收集学生信息（学号、姓名、感兴趣方向）
 2. **Issue #2 - AI模型性能投票分析**：分析学生对不同 AI 模型的偏好排序
@@ -18,6 +17,9 @@
 - **GitHub API**：数据来源
 - **GitHub Pages**：网站托管
 - **GitHub Actions**：自动化部署
+## 个人信息
+- 学号：2025303120076
+- 姓名：刘浩东
 
 ## 📁 项目结构
 
@@ -219,3 +221,8 @@ MIT License
 - Quarto: https://quarto.org/
 - GitHub Pages: https://pages.github.com/
 - RStudio: https://www.rstudio.com/
+# 2025303120076 个人仓库
+- 学号：2025303120076
+- 姓名：XXX
+- 分支：add-my-info
+
