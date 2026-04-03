@@ -112,7 +112,6 @@ students |> filter(!学号 %in% id_mapping[["学号"]])
 
 ```{r}
 #| label: fetch-homework-data
-#| cache: true
 
 # --- 作业1: Issue #1 回复者 ---
 hw1_users <- map_chr(issue1_comments, ~ .x$user$login) |> unique()
