@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>万雨捷 | 个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f4f7fb;
+            padding: 0 20px 40px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .navbar {
+            background: #1e3c72;
+            padding: 15px 30px;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffd966;
+        }
+        .content {
+            padding: 40px 35px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #1e3c72;
+            border-left: 6px solid #4a90e2;
+            padding-left: 18px;
+            margin: 35px 0 20px;
+        }
+        h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin: 25px 0 10px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #ccc, transparent);
+            margin: 30px 0;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #4a90e2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 30px;
+            background: #f8fafd;
+            padding: 20px 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .info-item {
+            display: flex;
+            align-items: baseline;
+        }
+        .info-label {
+            font-weight: 600;
+            width: 70px;
+            color: #1e3c72;
+        }
+        .info-value {
+            color: #2c3e50;
+        }
+        .badge {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin: 5px 8px 5px 0;
+        }
+        .badge-light {
+            background: #e9f0fa;
+            color: #1e3c72;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 24px;
+        }
+        li::before {
+            content: "•";
+            color: #4a90e2;
+            font-weight: bold;
+            font-size: 1.4rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 35px;
+            background: #f0f4fa;
+            color: #5a6e85;
+            font-size: 0.9rem;
+            border-top: 1px solid #d9e2ef;
+        }
+        @media (max-width: 600px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="index.html">🏠 首页</a>
+            <a href="about.html">📄 关于我</a>
+        </div>
+
+        <div class="content">
+            <div class="profile">
+                <img src="images/avatar.jpg" alt="头像" class="avatar" onerror="this.src='https://via.placeholder.com/140x140?text=万雨捷'">
+                <div>
+                    <h1>万雨捷</h1>
+                    <p style="font-size: 1.2rem; color: #4a6f9a;">环境工程 · 本科应届 · 马拉松爱好者</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <h2>📋 基本信息</h2>
+            <div class="info-grid">
+                <div class="info-item"><span class="info-label">学号</span><span class="info-value">2025303120001</span></div>
+                <div class="info-item"><span class="info-label">年龄</span><span class="info-value">23岁</span></div>
+                <div class="info-item"><span class="info-label">电话</span><span class="info-value">18062609273</span></div>
+                <div class="info-item"><span class="info-label">邮箱</span><span class="info-value">3074313543@qq.com</span></div>
+                <div class="info-item"><span class="info-label">城市</span><span class="info-value">湖北省武汉市</span></div>
+                <div class="info-item"><span class="info-label">学校</span><span class="info-value">武汉纺织大学</span></div>
+                <div class="info-item"><span class="info-label">专业</span><span class="info-value">环境工程</span></div>
+                <div class="info-item"><span class="info-label">学历</span><span class="info-value">本科</span></div>
+            </div>
+
+            <h2>🎓 报考信息</h2>
+            <p style="background: #e9f0fa; padding: 15px 20px; border-radius: 8px;">
+                <strong>报考院校：</strong>华中农业大学 · <strong>报考专业：</strong>资源与环境（专业学位研究生）
+            </p>
+
+            <h2>📚 教育背景</h2>
+            <p><strong>2021.09 — 2025.06</strong> 武汉纺织大学 环境工程 本科</p>
+            <ul>
+                <li>学分绩点：3.55（专业排名前10%）</li>
+                <li>主修课程：水污染控制工程 · 噪声控制工程 · 大气污染控制工程 · 环境监测</li>
+            </ul>
+
+            <h2>🏅 技能证书</h2>
+            <div>
+                <span class="badge">CET-4</span>
+                <span class="badge">CET-6</span>
+                <span class="badge">普通话二甲</span>
+                <span class="badge">MS Office二级</span>
+            </div>
+            <p style="margin-top: 15px;"><strong>办公技能：</strong> Word, Excel, PowerPoint, CAD, Origin, SolidWorks</p>
+
+            <h2>🏃 兴趣爱好</h2>
+            <p>跑步 · 阅读 · 马拉松</p>
+            <p>已完赛：2023武汉半马、2024宜昌全马、2025重庆全马</p>
+        </div>
+
+        <div class="footer">
+            © 2026 万雨捷 · 个人网站
+        </div>
+    </div>
+</body>
+</html>
