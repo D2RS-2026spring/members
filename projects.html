@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-04-03">
+<meta name="dcterms.date" content="2026-05-12">
 
 <title>结课项目信息 – D2RS-2026spring 数据分析</title>
 <style>
@@ -198,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 3, 2026</p>
+      <p class="date">May 12, 2026</p>
     </div>
   </div>
   
@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"学生名单中共有"</span>, <span class="fu">length</span>(valid_student_ids), <span class="st">"名学生</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>学生名单中共有 312 名学生</code></pre>
+<pre><code>学生名单中共有 311 名学生</code></pre>
 </div>
 </div>
 </section>
@@ -248,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"共获取到"</span>, <span class="fu">length</span>(project_issues), <span class="st">"个项目 Issue</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>共获取到 84 个项目 Issue</code></pre>
+<pre><code>共获取到 106 个项目 Issue</code></pre>
 </div>
 </div>
 </section>
@@ -315,21 +315,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"成功提取"</span>, <span class="fu">nrow</span>(project_info_df), <span class="st">"个项目信息</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>成功提取 84 个项目信息</code></pre>
+<pre><code>成功提取 106 个项目信息</code></pre>
 </div>
 <details open="" class="code-fold">
 <summary>显示/隐藏代码</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"共提取到"</span>, <span class="fu">length</span>(all_extracted_ids), <span class="st">"个学号</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>共提取到 300 个学号</code></pre>
+<pre><code>共提取到 365 个学号</code></pre>
 </div>
 <details open="" class="code-fold">
 <summary>显示/隐藏代码</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"其中合法学号:"</span>, <span class="fu">sum</span>(all_extracted_ids <span class="sc">%in%</span> valid_student_ids), <span class="st">"个</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>其中合法学号: 293 个</code></pre>
+<pre><code>其中合法学号: 358 个</code></pre>
 </div>
 <details open="" class="code-fold">
 <summary>显示/隐藏代码</summary>
@@ -387,8 +387,8 @@ Table&nbsp;1: 作业5项目信息汇总
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/2">基于MediaPipe的关键点检测复现</a></td>
-<td style="text-align: left;">2025303120173, 2025303110123, 2025303110129, 2025303120093, 2025303120174</td>
-<td style="text-align: center;">5</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
 <td style="text-align: left;"><a href="https://github.com/cito37/mediapipe">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
@@ -426,18 +426,18 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/7">基于 meanflow 的 sar2rgb 漂移模型</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/7">【Self-Supervised Pretraining of Transformers for Satellite Image Time Series】论文复刻</a></td>
 <td style="text-align: left;">2025303120178, 2025303110131, 2025303120170, 2025303120110</td>
 <td style="text-align: center;">4</td>
-<td style="text-align: left;"><a href="https://github.com/yisar/drifting-sar2rgb">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/rsts-encoder">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/8">【可重复研究项目】土壤持水性 van Genuchten 模型复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/8">空气质量数据分析</a></td>
 <td style="text-align: left;">2025303120141, 2025303120150, 2025303110083</td>
 <td style="text-align: center;">3</td>
-<td style="text-align: left;"><a href="https://github.com/rmlark/Soil_Water_Retention">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/MHFDH/my_reproduce_project">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
@@ -469,7 +469,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/12">鸢尾花数据集的可重复数据分析</a></td>
 <td style="text-align: left;">2025303120045, 2025303120009, 2025303120013</td>
 <td style="text-align: center;">3</td>
-<td style="text-align: left;"><a href="https://github.com/user-attachments/files/26047722/iris_reproducible_project.zip">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/iris-reproducible-project">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
@@ -517,7 +517,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/18">[可重复研究] 凋落物分解主场效应</a></td>
 <td style="text-align: left;">2025305110001</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: left;">—</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/litter-decomposition-hfa">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
@@ -613,7 +613,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/30">Crop-Recommendation-System-Using-Machine-Learning项目的可复性评估与复现</a></td>
 <td style="text-align: left;">2025303120182, 2025303120161, 2025303120166, 2025303110125</td>
 <td style="text-align: center;">4</td>
-<td style="text-align: left;"><a href="https://github.com/JieHan369/Crop-Recommendation-System-Using-Machine-Learning">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/Crop-Recommendation-System-Using-Machine-Learning">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
@@ -658,10 +658,10 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: right;">36</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/36">关于土壤有机碳Meta分析的数据复现</a></td>
-<td style="text-align: left;">2025303120085, 2025303120144, 2025303120060, 2025303110085, 2025303110077</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: left;"><a href="https://github.com/user-attachments/assets/e16362de-f130-416c-88b1-b49c5fc6a14b%22">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/36">关于微生物群落中的协同生长是多稳态形成的驱动力的论文复现</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;"><a href="https://github.com/HY-hyyyy/Microbiology-Team">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
@@ -677,7 +677,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/38">全球水稻多类分割项目可复现性分析报告</a></td>
 <td style="text-align: left;">2025303120162, 2025303120159, 2025303110124, 2025303120180</td>
 <td style="text-align: center;">4</td>
-<td style="text-align: left;"><a href="https://github.com/broucemonkey-stack/RiceSEG-Reproduction">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/RiceSEG-Reproduction">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
@@ -709,7 +709,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/42">基于 SuperCC 框架的微生物群落工程与除草剂生物修复的可重复性评估</a></td>
 <td style="text-align: left;">2025303110052, 2025303120081</td>
 <td style="text-align: center;">2</td>
-<td style="text-align: left;"><a href="https://github.com/ruanzhepu/superCC">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/2025WL/Group-Assignment-2026">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
@@ -723,7 +723,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <tr class="even">
 <td style="text-align: right;">44</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/44">关于济州岛柑橘园数字孪生的个性化农业潜力复现</a></td>
-<td style="text-align: left;">2025303110027, 2025303110026, 2025303110040, 2025303110028, 2025303120146</td>
+<td style="text-align: left;">2025303120146, 2025303110027, 2025303110026, 2025303110040, 2025303110028</td>
 <td style="text-align: center;">5</td>
 <td style="text-align: left;"><a href="https://github.com/heoseong/Digital_twin">链接</a></td>
 <td style="text-align: center;">open</td>
@@ -757,7 +757,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/48">温度-深度时间序列反演饱和带土壤水分垂直通量试验的复现</a></td>
 <td style="text-align: left;">2025303110061, 2025303120134, 2025303120124, 2025303120143, 2025303110049</td>
 <td style="text-align: center;">5</td>
-<td style="text-align: left;"><a href="https://github.com/flovar/flovar">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/user-attachments/assets/a8558e8d-27ea-4e16-b568-af4d660b43db%22">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
@@ -773,7 +773,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/50">基于秀丽隐杆线虫的高通量毒性筛选：现有技术平台、核心优势与未来方向的数据复现</a></td>
 <td style="text-align: left;">2025303110024, 2025303120025, 2025303110029, 2025303120012</td>
 <td style="text-align: center;">4</td>
-<td style="text-align: left;"><a href="https://github.com/jiaoliu425/nematode-hts-toxicology">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/nematode-toxicology-team">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
@@ -786,10 +786,10 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: right;">52</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">半干旱区植被演替过程中土壤水分对微生物碳磷代谢的调控作用复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">水分损耗减少主导 CO₂提升的水分利用效率，而非光合作用增强论文复现</a></td>
 <td style="text-align: left;">2025303120014, 2025303120044, 2025303110039, 2025303110032, 2025303110004</td>
 <td style="text-align: center;">5</td>
-<td style="text-align: left;"><a href="https://github.com/BILLDOU/work.git">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/CO2-enhanced-water-use-efficiency.git">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
@@ -797,7 +797,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/53">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a></td>
 <td style="text-align: left;">2025303110063, 2025303120073, 2025303110144</td>
 <td style="text-align: center;">3</td>
-<td style="text-align: left;"><a href="https://github.com/zlznevergu/zlzlunwenfuxian">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/zlznevergu/zlzgroup-lunwenfuxian-project">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="even">
@@ -818,10 +818,10 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: right;">56</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/56">农田土壤肾形虫属原生生物内共生细菌群落特征及驱动因素可重复性评估报告</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/56">磁性 SA/PVA/Fe3O4复合载体固定化耐受菌株对土壤镉 的吸附及其机理研究</a></td>
 <td style="text-align: left;">2025303110081, 2025303110067, 2025303120084</td>
 <td style="text-align: center;">3</td>
-<td style="text-align: left;">—</td>
+<td style="text-align: left;"><a href="https://github.com/LiBoFei1129/soil-cadmium-immobilized-bacteria">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
@@ -873,14 +873,6 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: center;">open</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">63</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/63">【静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用】——可重复性研究作业</a></td>
-<td style="text-align: left;">2025303110086, 2025303110069, 2025303110079, 2025303120077, 2025303120100</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: left;"><a href="https://github.com/RenYuan916/paper-reproduction-md">链接</a></td>
-<td style="text-align: center;">open</td>
-</tr>
-<tr class="even">
 <td style="text-align: right;">64</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/64">基与nrt的可重复性研究试验</a></td>
 <td style="text-align: left;">2025303110141, 2025303110139, 2025303120114, 2025303120147, 2025303120110</td>
@@ -888,7 +880,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/ec-jrc/nrt">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">65</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/65">Unlocking Visual Secrets: Inverting Features with Diffusion Priors for Image Reconstruction</a></td>
 <td style="text-align: left;"></td>
@@ -896,15 +888,15 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;">—</td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: right;">66</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/66">基于Sustaining vulnerable agroecosystems with compost: Lasting benefits to soil health and carbon storage in semiarid winter wheat (Triticum aestivum, L.)文献的部分数据图复现</a></td>
 <td style="text-align: left;">2025303120043, 2025303120064, 2025303110019, 2025303110073, 2025303120135</td>
 <td style="text-align: center;">5</td>
-<td style="text-align: left;"><a href="https://github.com/hrodgers5/Compost_Cover_Crops_Semiarid_Wheat">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/compost_wheat_reproduce">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">67</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/67">可重复性研究作业</a></td>
 <td style="text-align: left;">2025303120128</td>
@@ -912,7 +904,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/30-niu/github.io/commit/e35c9226e54c577f881ffa0f0b1976ecad7a7184">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: right;">68</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/68">大种子的智慧：种子大小本身即是一种防御策略</a></td>
 <td style="text-align: left;">2025303110010, 2025303110008, 2025303110005, 2025303110011, 2025303110015</td>
@@ -920,7 +912,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/user-attachments/assets/29db513b-06ce-4ff1-a47d-7e43bfc3643f%22">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">69</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/69">Update README.md</a></td>
 <td style="text-align: left;"></td>
@@ -928,7 +920,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;">—</td>
 <td style="text-align: center;">closed</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: right;">70</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/70">全球能源消耗与碳排放情况——源自灌溉农业数据复现</a></td>
 <td style="text-align: left;">2025303110096, 2025303110092, 2025303110107, 2025303120119</td>
@@ -936,15 +928,15 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/Britney-128/D2RS--zy.git">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">71</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/71">细菌丰富度增强土壤有机质的热稳定性：分子多样性与热力学稳定性之间的长期权衡 论文可复现性评估</a></td>
-<td style="text-align: left;">2025303120022, 2025303120015, 2025303120027, 2025303110025</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">—</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;"><a href="https://github.com/zj0022/my-repro-project">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: right;">72</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/72">可重复性研究</a></td>
 <td style="text-align: left;">2025303120121, 2025303120095, 2025303120153, 2025303120099</td>
@@ -952,15 +944,15 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/sophiambecker/gSMS-validation">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">73</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/73">《Field Testing of Gamma-Spectroscopy Method for Soil Water Content Estimation in an Agricultural Field》可重复研究评估</a></td>
 <td style="text-align: left;">2025303120121, 2025303120095, 2025303120153, 2025303120099</td>
 <td style="text-align: center;">4</td>
 <td style="text-align: left;"><a href="https://github.com/sophiambecker/gSMS-validation">链接</a></td>
-<td style="text-align: center;">open</td>
+<td style="text-align: center;">closed</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: right;">74</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/74">[个人作业] 复现评估：A reproducible R workflow to preserve variable and value labels</a></td>
 <td style="text-align: left;">2025303110132</td>
@@ -968,7 +960,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;">—</td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">75</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/75">基于《Effective treatment of Cu2+-containing acid mine drainage with acidic-cupric resistant electroactive biofilms》的可重复性研究</a></td>
 <td style="text-align: left;">2025303110009</td>
@@ -976,7 +968,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/Andy-95277259/DATA.git">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: right;">76</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/76">基于开源 R 语言遥感工具包 RStoolbox 开展可重复性研究</a></td>
 <td style="text-align: left;">2025303120176</td>
@@ -984,7 +976,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/soil-rs-analysis">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">77</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/77">基于《Precipitation rather than temperature primarily drives global termite effects on litter decomposition》部分数据图复现</a></td>
 <td style="text-align: left;">2025303110068</td>
@@ -992,7 +984,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/Yunhhhsheng/-.git">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: right;">78</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/78">基于《Transcriptional regulation of nitrogen-associated metabolism and growt》文章部分图复现</a></td>
 <td style="text-align: left;">2025303110101, 2025303120130, 2025303110105, 2025303120083, 2025303110108</td>
@@ -1000,7 +992,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/Bijiayu-yyds/article_recover">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">79</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/79">基于人脸识别的项目</a></td>
 <td style="text-align: left;">2025303120164, 2025303110126, 2025303110133</td>
@@ -1008,7 +1000,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/user-attachments/files/26429581/daima.py">链接</a></td>
 <td style="text-align: center;">closed</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: right;">80</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/80">基于人脸识别的项目</a></td>
 <td style="text-align: left;">2025303120164, 2025303110126, 2025303110133</td>
@@ -1016,7 +1008,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/prasanna-ezhilmurugan/face-recognition-system/tree/main#">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">81</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/81">Mango-Mamba 芒果叶病害轻量级检测模型结果复现</a></td>
 <td style="text-align: left;">2025305120260</td>
@@ -1024,7 +1016,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/binhpt310/Mango-Mamba-and-VN-MangoLeaf">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: right;">82</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/82">个人作业 2025303110057</a></td>
 <td style="text-align: left;">2025303110057</td>
@@ -1032,7 +1024,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;">—</td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">83</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/83">Combined effect of molybdenum and nitrogen fertilization on nitrogen metabolism and amino acid content in tobacco leaves的复现</a></td>
 <td style="text-align: left;">2025303120113, 2025303120069</td>
@@ -1040,12 +1032,196 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/yanggang-0304/Data-R">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: right;">84</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/84">机器学习预测重金属在铁（羟基）氧化物上的吸附行为：基于吸附效率与结合构型的综合分析的可重复性研究</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/84">土地利用变化对德国有机碳储量的百年遗留影响的可重复性研究</a></td>
 <td style="text-align: left;">2025303110074, 2025303110053</td>
 <td style="text-align: center;">2</td>
-<td style="text-align: left;"><a href="https://github.com/Junqin-Liu/Adsorption-model">链接</a></td>
+<td style="text-align: left;"><a href="https://github.com/dsemde/LUC-legacy-SOC">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">85</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/85">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis的复现</a></td>
+<td style="text-align: left;">2025303110094, 2025303110087, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">86</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/86">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a></td>
+<td style="text-align: left;">2025303110094, 2025303110087, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">closed</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">87</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/87">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a></td>
+<td style="text-align: left;">2025303110087, 2025303110094, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">88</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/88">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a></td>
+<td style="text-align: left;">2025303110094, 2025303110087, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">89</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/89">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a></td>
+<td style="text-align: left;">2025303110094, 2025303110087, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">90</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/90">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a></td>
+<td style="text-align: left;">2025303110094, 2025303110087, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">91</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/91">多年冻土中矿物-酶相互作用 复现</a></td>
+<td style="text-align: left;">2025303120148, 2025303110065, 2025303110064, 2025303120023</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><a href="https://github.com/zhengdispecial/D2RS-2026spring">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">92</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/92">可重复性实验-【藻类胞外聚合物提取实验复现】</a></td>
+<td style="text-align: left;">2025303110037, 2025303110044, 2025303120011, 2025303110038</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/members">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">93</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/93"># 基于《不同硫肥对大豆生长及产量影响》的可重复性研究</a></td>
+<td style="text-align: left;">2025303110110</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><a href="https://github.com/q234-coder/repro-r-project">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">94</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/94">基于Reproduce-the-Resource-Utilization-of-Agricultural-Waste 文献的可重复数据分析</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">95</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/95">灌溉农业的全球能源使用与碳排放文章数据复现</a></td>
+<td style="text-align: left;">2025303120119, 2025303110107</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><a href="https://github.com/Britney-128/Energy-Use-in-Irrigated-Agriculture.git">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">96</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/96">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a></td>
+<td style="text-align: left;">2025303110063, 2025303120073, 2025303110144</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><a href="https://github.com/zlznevergu/zlzgroup-lunwenfuxian-project">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">97</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/97">不同施氮量对水稻生长及产量影响可重复性研究</a></td>
+<td style="text-align: left;">2025303110110</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/rice-nitrogen-project">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">98</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/98">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a></td>
+<td style="text-align: left;">2025303110063, 2025303120073, 2025303110144</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><a href="https://github.com/ly9495/xiangmufuxian.git">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">99</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/99">Molecular trade-offs in soil organic carbon composition at continental scale论文数据复现</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">100</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/100">可重复性作业—-静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用</a></td>
+<td style="text-align: left;">2025303110086, 2025303110069, 2025303110079, 2025303120077, 2025303120100, 2025303110102</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><a href="https://github.com/ChenZhuo-hz/paper-reproduction-md/tree/main%7C">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">101</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/101">基于《Deterministic colonization arises early during the transition of soil bacteria to the phyllosphere and is shaped by plant-microbe interactions》部分数据图复现</a></td>
+<td style="text-align: left;">2025303120139, 2025303120099</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/gfss-lunwenfuxian-project">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">102</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/102">基于《Bacterial social interactions in synthetic Bacillus consortia enhance plant growth》论文项目部分复现</a></td>
+<td style="text-align: left;">2025303120153, 2025303120144, 2025303120060, 2025303120095</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><a href="https://github.com/yanliu2023/iMeta/">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">103</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/103">中国土壤数据集复现项目</a></td>
+<td style="text-align: left;">2025303120127, 2025303120106, 2025303110090, 2025303120101, 2025303110097</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><a href="https://github.com/shgsong/CSDLv2">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">104</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/104">柑橘养分利用课题情况复现</a></td>
+<td style="text-align: left;">2025303120132, 2025303120086, 2025303120109, 2025303110099</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/citrus-nutrient-analysis-project.git">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">105</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/105">柑橘养分利用课题情况复现</a></td>
+<td style="text-align: left;">2025303120132, 2025303120086, 2025303120109, 2025303110099</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/citrus-nutrient-analysis-project.git">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">106</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/106">大种子的智慧：种子大小本身即是一种防御策略</a></td>
+<td style="text-align: left;">2025303110010, 2025303110008, 2025303110005, 2025303110011, 2025303110015</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><a href="https://github.com/user-attachments/assets/cec599f6-3a51-4b13-ada1-397284609825%22">链接</a></td>
+<td style="text-align: center;">open</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">107</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/107">node2vec算法复现研究报告</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;"><a href="https://github.com/CANGSU-mei/Node2Vec-SynCom-Reproduction-main.git">链接</a></td>
 <td style="text-align: center;">open</td>
 </tr>
 </tbody>
@@ -1068,7 +1244,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"项目总数："</span>, <span class="fu">nrow</span>(project_info_df), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>项目总数： 84 </code></pre>
+<pre><code>项目总数： 106 </code></pre>
 </div>
 <details open="" class="code-fold">
 <summary>显示/隐藏代码</summary>
@@ -1082,7 +1258,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"平均每个项目成员数："</span>, <span class="fu">round</span>(<span class="fu">mean</span>(project_info_df<span class="sc">$</span>成员数), <span class="dv">1</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>平均每个项目成员数： 3.5 </code></pre>
+<pre><code>平均每个项目成员数： 3.4 </code></pre>
 </div>
 </div>
 </section>
@@ -1144,11 +1320,11 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110004</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">半干旱区植被演替过程中土壤水分对微生物碳磷代谢的调控作用复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">水分损耗减少主导 CO₂提升的水分利用效率，而非光合作用增强论文复现</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110005</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/68">大种子的智慧：种子大小本身即是一种防御策略</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/68">大种子的智慧：种子大小本身即是一种防御策略</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/106">大种子的智慧：种子大小本身即是一种防御策略</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110006</td>
@@ -1160,7 +1336,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110008</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/68">大种子的智慧：种子大小本身即是一种防御策略</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/68">大种子的智慧：种子大小本身即是一种防御策略</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/106">大种子的智慧：种子大小本身即是一种防御策略</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110009</td>
@@ -1168,11 +1344,11 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110010</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/68">大种子的智慧：种子大小本身即是一种防御策略</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/68">大种子的智慧：种子大小本身即是一种防御策略</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/106">大种子的智慧：种子大小本身即是一种防御策略</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110011</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/68">大种子的智慧：种子大小本身即是一种防御策略</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/68">大种子的智慧：种子大小本身即是一种防御策略</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/106">大种子的智慧：种子大小本身即是一种防御策略</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110012</td>
@@ -1188,7 +1364,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110015</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/68">大种子的智慧：种子大小本身即是一种防御策略</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/68">大种子的智慧：种子大小本身即是一种防御策略</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/106">大种子的智慧：种子大小本身即是一种防御策略</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110017</td>
@@ -1215,208 +1391,200 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/50">基于秀丽隐杆线虫的高通量毒性筛选：现有技术平台、核心优势与未来方向的数据复现</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2025303110025</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/71">细菌丰富度增强土壤有机质的热稳定性：分子多样性与热力学稳定性之间的长期权衡 论文可复现性评估</a></td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">2025303110026</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/44">关于济州岛柑橘园数字孪生的个性化农业潜力复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110027</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/44">关于济州岛柑橘园数字孪生的个性化农业潜力复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110028</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/44">关于济州岛柑橘园数字孪生的个性化农业潜力复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110029</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/50">基于秀丽隐杆线虫的高通量毒性筛选：现有技术平台、核心优势与未来方向的数据复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110030</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/19">基于Transforming breakfast bio-waste into hydrogen storage materials文献的可重复数据分析</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110031</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/47">基于机器学习的农业肥料推荐系统</a></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">2025303110032</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">半干旱区植被演替过程中土壤水分对微生物碳磷代谢的调控作用复现</a></td>
-</tr>
 <tr class="even">
+<td style="text-align: left;">2025303110032</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">水分损耗减少主导 CO₂提升的水分利用效率，而非光合作用增强论文复现</a></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">2025303110033</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/49">可重复性项目提交-Tropical cyclone rainfall extends inland</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110034</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/19">基于Transforming breakfast bio-waste into hydrogen storage materials文献的可重复数据分析</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110035</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/54">土壤特性和沉积物淤积调节恢复湿地甲烷通量的可重复性评估</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110036</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/15">生态阈值与火烧干扰研究</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110037</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/58">可重复性实验-【藻类胞外聚合物提取实验复现】</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2025303110038</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/58">可重复性实验-【藻类胞外聚合物提取实验复现】</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/58">可重复性实验-【藻类胞外聚合物提取实验复现】</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/92">可重复性实验-【藻类胞外聚合物提取实验复现】</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2025303110039</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">半干旱区植被演替过程中土壤水分对微生物碳磷代谢的调控作用复现</a></td>
+<td style="text-align: left;">2025303110038</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/58">可重复性实验-【藻类胞外聚合物提取实验复现】</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/92">可重复性实验-【藻类胞外聚合物提取实验复现】</a></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">2025303110039</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">水分损耗减少主导 CO₂提升的水分利用效率，而非光合作用增强论文复现</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303110040</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/44">关于济州岛柑橘园数字孪生的个性化农业潜力复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110041</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/13">基于Anthropogenic climate change may reduce global diazotroph diversity文献的部分数据图复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110042</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/55">氮添加对土壤微生物碳利用效率影响研究实验复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110043</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/57">可重复性研究作业</a></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">2025303110044</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/58">可重复性实验-【藻类胞外聚合物提取实验复现】</a></td>
-</tr>
 <tr class="even">
+<td style="text-align: left;">2025303110044</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/58">可重复性实验-【藻类胞外聚合物提取实验复现】</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/92">可重复性实验-【藻类胞外聚合物提取实验复现】</a></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">2025303110046</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/19">基于Transforming breakfast bio-waste into hydrogen storage materials文献的可重复数据分析</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110047</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/15">生态阈值与火烧干扰研究</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110048</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/10">【土壤微生物311组】可重复研究项目评估 - 高寒矿区土壤微生物肥料研究</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110049</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/48">温度-深度时间序列反演饱和带土壤水分垂直通量试验的复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110050</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/3">RadEro v1.0.8 示例复现报告</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110051</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/37">Molecular trade-offs in soil organic carbon composition at continental scale数据复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110052</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/42">基于 SuperCC 框架的微生物群落工程与除草剂生物修复的可重复性评估</a></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">2025303110053</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/84">机器学习预测重金属在铁（羟基）氧化物上的吸附行为：基于吸附效率与结合构型的综合分析的可重复性研究</a></td>
-</tr>
 <tr class="even">
+<td style="text-align: left;">2025303110053</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/84">土地利用变化对德国有机碳储量的百年遗留影响的可重复性研究</a></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">2025303110054</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/37">Molecular trade-offs in soil organic carbon composition at continental scale数据复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110055</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/39">AgriGPTs: Research and Development of Agricultural Large Models</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110056</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/37">Molecular trade-offs in soil organic carbon composition at continental scale数据复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110057</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/82">个人作业 2025303110057</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110058</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/14">基于点注释内场图像的大豆种子定位与计数</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110059</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/21">关于秸秆还田土壤碳库Meta分析的研究项目复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110060</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/43">WRC15_Rhizo仓库根际养分与微生物群落关系图复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110061</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/48">温度-深度时间序列反演饱和带土壤水分垂直通量试验的复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110062</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/21">关于秸秆还田土壤碳库Meta分析的研究项目复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110063</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/53">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/53">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/96">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/98">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110064</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/17">多年冻土中矿物-酶相互作用 复现</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2025303110065</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/17">多年冻土中矿物-酶相互作用 复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/17">多年冻土中矿物-酶相互作用 复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/91">多年冻土中矿物-酶相互作用 复现</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2025303110067</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/56">农田土壤肾形虫属原生生物内共生细菌群落特征及驱动因素可重复性评估报告</a></td>
+<td style="text-align: left;">2025303110065</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/17">多年冻土中矿物-酶相互作用 复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/91">多年冻土中矿物-酶相互作用 复现</a></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">2025303110067</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/56">磁性 SA/PVA/Fe3O4复合载体固定化耐受菌株对土壤镉 的吸附及其机理研究</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303110068</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/77">基于《Precipitation rather than temperature primarily drives global termite effects on litter decomposition》部分数据图复现</a></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">2025303110069</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/63">【静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用】——可重复性研究作业</a></td>
-</tr>
 <tr class="odd">
+<td style="text-align: left;">2025303110069</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/100">可重复性作业—-静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303110070</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/33">全球耕地氮损失复现-Nature food-Optimized agricultural management reduces global cropland nitrogen losses to air and water</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110071</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/16">土壤信息数据库及其机器学习建模</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110072</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/3">RadEro v1.0.8 示例复现报告</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110073</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/66">基于Sustaining vulnerable agroecosystems with compost: Lasting benefits to soil health and carbon storage in semiarid winter wheat (Triticum aestivum, L.)文献的部分数据图复现</a></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">2025303110074</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/84">机器学习预测重金属在铁（羟基）氧化物上的吸附行为：基于吸附效率与结合构型的综合分析的可重复性研究</a></td>
-</tr>
 <tr class="even">
+<td style="text-align: left;">2025303110074</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/84">土地利用变化对德国有机碳储量的百年遗留影响的可重复性研究</a></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">2025303110075</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/3">RadEro v1.0.8 示例复现报告</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110076</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/3">RadEro v1.0.8 示例复现报告</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2025303110077</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/36">关于土壤有机碳Meta分析的数据复现</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110078</td>
@@ -1424,7 +1592,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110079</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/63">【静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用】——可重复性研究作业</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/100">可重复性作业—-静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110080</td>
@@ -1432,7 +1600,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110081</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/56">农田土壤肾形虫属原生生物内共生细菌群落特征及驱动因素可重复性评估报告</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/56">磁性 SA/PVA/Fe3O4复合载体固定化耐受菌株对土壤镉 的吸附及其机理研究</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110082</td>
@@ -1440,19 +1608,19 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110083</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/8">【可重复研究项目】土壤持水性 van Genuchten 模型复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/8">空气质量数据分析</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110084</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/16">土壤信息数据库及其机器学习建模</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2025303110085</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/36">关于土壤有机碳Meta分析的数据复现</a></td>
+<td style="text-align: left;">2025303110086</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/100">可重复性作业—-静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用</a></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2025303110086</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/63">【静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用】——可重复性研究作业</a></td>
+<td style="text-align: left;">2025303110087</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/85">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis的复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/86">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/87">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/88">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/89">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/90">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110088</td>
@@ -1464,27 +1632,35 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110090</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/51">用于陆面模式模拟的中国土壤属性数据集的数据复现项目</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/51">用于陆面模式模拟的中国土壤属性数据集的数据复现项目</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/103">中国土壤数据集复现项目</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110092</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/70">全球能源消耗与碳排放情况——源自灌溉农业数据复现</a></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">2025303110094</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/85">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis的复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/86">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/87">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/88">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/89">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/90">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">2025303110095</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/33">全球耕地氮损失复现-Nature food-Optimized agricultural management reduces global cropland nitrogen losses to air and water</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110096</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/70">全球能源消耗与碳排放情况——源自灌溉农业数据复现</a></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">2025303110097</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/51">用于陆面模式模拟的中国土壤属性数据集的数据复现项目</a></td>
-</tr>
 <tr class="odd">
+<td style="text-align: left;">2025303110097</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/51">用于陆面模式模拟的中国土壤属性数据集的数据复现项目</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/103">中国土壤数据集复现项目</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303110098</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/5">一种新型单一营养素水培溶液中的大豆营养-可重复研究作业</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2025303110099</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/104">柑橘养分利用课题情况复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/105">柑橘养分利用课题情况复现</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110100</td>
@@ -1495,32 +1671,40 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/78">基于《Transcriptional regulation of nitrogen-associated metabolism and growt》文章部分图复现</a></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">2025303110102</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/100">可重复性作业—-静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用</a></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">2025303110103</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/28">SoilGrids250m 项目可重复性评估</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110104</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/59">磷酸盐肥料农学效率研究 - 可复现性评估报告</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110105</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/78">基于《Transcriptional regulation of nitrogen-associated metabolism and growt》文章部分图复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110106</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/11">可重复研究评估—植物表型与营养数据分析开源项目</a></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">2025303110107</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/70">全球能源消耗与碳排放情况——源自灌溉农业数据复现</a></td>
-</tr>
 <tr class="odd">
+<td style="text-align: left;">2025303110107</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/70">全球能源消耗与碳排放情况——源自灌溉农业数据复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/95">灌溉农业的全球能源使用与碳排放文章数据复现</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303110108</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/78">基于《Transcriptional regulation of nitrogen-associated metabolism and growt》文章部分图复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110109</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/20">多尺度下物种入侵悖论的复现研究</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2025303110110</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/93"># 基于《不同硫肥对大豆生长及产量影响》的可重复性研究</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/97">不同施氮量对水稻生长及产量影响可重复性研究</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110111</td>
@@ -1571,32 +1755,24 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/25">基于机器学习的环境监测与定量分析的可重复性实验</a></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2025303110123</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/2">基于MediaPipe的关键点检测复现</a></td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">2025303110124</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/38">全球水稻多类分割项目可复现性分析报告</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110125</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/30">Crop-Recommendation-System-Using-Machine-Learning项目的可复性评估与复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/61">土壤属性制图研究的可重复性评估：基于机器学习方法的土壤属性预测及数字制图</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110126</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/4">基于 YOLOv8 的实时识别</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/79">基于人脸识别的项目</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/80">基于人脸识别的项目</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110127</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/60">可重复性研究作业</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303110128</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/61">土壤属性制图研究的可重复性评估：基于机器学习方法的土壤属性预测及数字制图</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2025303110129</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/2">基于MediaPipe的关键点检测复现</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110130</td>
@@ -1604,7 +1780,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110131</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/7">基于 meanflow 的 sar2rgb 漂移模型</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/7">【Self-Supervised Pretraining of Transformers for Satellite Image Time Series】论文复刻</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303110132</td>
@@ -1652,7 +1828,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303110144</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/53">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/53">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/96">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/98">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120001</td>
@@ -1688,7 +1864,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120011</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/58">可重复性实验-【藻类胞外聚合物提取实验复现】</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/58">可重复性实验-【藻类胞外聚合物提取实验复现】</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/92">可重复性实验-【藻类胞外聚合物提取实验复现】</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120012</td>
@@ -1700,23 +1876,15 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120014</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">半干旱区植被演替过程中土壤水分对微生物碳磷代谢的调控作用复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">水分损耗减少主导 CO₂提升的水分利用效率，而非光合作用增强论文复现</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2025303120015</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/71">细菌丰富度增强土壤有机质的热稳定性：分子多样性与热力学稳定性之间的长期权衡 论文可复现性评估</a></td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">2025303120017</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/9">滦河流域径流变化主控因子模型复现</a></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">2025303120022</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/71">细菌丰富度增强土壤有机质的热稳定性：分子多样性与热力学稳定性之间的长期权衡 论文可复现性评估</a></td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120023</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/17">多年冻土中矿物-酶相互作用 复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/17">多年冻土中矿物-酶相互作用 复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/91">多年冻土中矿物-酶相互作用 复现</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120025</td>
@@ -1727,108 +1895,108 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/29">中国沿海泥滩潮间带病毒的生物多样性项目复现</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2025303120027</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/71">细菌丰富度增强土壤有机质的热稳定性：分子多样性与热力学稳定性之间的长期权衡 论文可复现性评估</a></td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">2025303120029</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/57">可重复性研究作业</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120030</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/47">基于机器学习的农业肥料推荐系统</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120031</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/9">滦河流域径流变化主控因子模型复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120033</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/13">基于Anthropogenic climate change may reduce global diazotroph diversity文献的部分数据图复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120034</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/41">人为气候变化可能会降低全球固氮生物多样性</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120036</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/13">基于Anthropogenic climate change may reduce global diazotroph diversity文献的部分数据图复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120037</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/28">SoilGrids250m 项目可重复性评估</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120038</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/19">基于Transforming breakfast bio-waste into hydrogen storage materials文献的可重复数据分析</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120039</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/15">生态阈值与火烧干扰研究</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120041</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/54">土壤特性和沉积物淤积调节恢复湿地甲烷通量的可重复性评估</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120043</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/66">基于Sustaining vulnerable agroecosystems with compost: Lasting benefits to soil health and carbon storage in semiarid winter wheat (Triticum aestivum, L.)文献的部分数据图复现</a></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">2025303120044</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">半干旱区植被演替过程中土壤水分对微生物碳磷代谢的调控作用复现</a></td>
-</tr>
 <tr class="odd">
+<td style="text-align: left;">2025303120044</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/52">水分损耗减少主导 CO₂提升的水分利用效率，而非光合作用增强论文复现</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303120045</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/12">鸢尾花数据集的可重复数据分析</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120047</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/13">基于Anthropogenic climate change may reduce global diazotroph diversity文献的部分数据图复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120052</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/15">生态阈值与火烧干扰研究</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120055</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/41">人为气候变化可能会降低全球固氮生物多样性</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120059</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/10">【土壤微生物311组】可重复研究项目评估 - 高寒矿区土壤微生物肥料研究</a></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">2025303120060</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/36">关于土壤有机碳Meta分析的数据复现</a></td>
-</tr>
 <tr class="odd">
+<td style="text-align: left;">2025303120060</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/102">基于《Bacterial social interactions in synthetic Bacillus consortia enhance plant growth》论文项目部分复现</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303120061</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/35">农业面源污染K-Means聚类与多元回归分析 - 可重复研究项目</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120062</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/35">农业面源污染K-Means聚类与多元回归分析 - 可重复研究项目</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120063</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/54">土壤特性和沉积物淤积调节恢复湿地甲烷通量的可重复性评估</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120064</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/66">基于Sustaining vulnerable agroecosystems with compost: Lasting benefits to soil health and carbon storage in semiarid winter wheat (Triticum aestivum, L.)文献的部分数据图复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120065</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/19">基于Transforming breakfast bio-waste into hydrogen storage materials文献的可重复数据分析</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120066</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/62">可重复性研究——中国南部地区酸性矿山废水底泥中病毒群落的分布模式及生态驱动因素</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120069</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/83">Combined effect of molybdenum and nitrogen fertilization on nitrogen metabolism and amino acid content in tobacco leaves的复现</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2025303120070</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/85">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis的复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/86">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/87">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/88">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/89">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/90">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120071</td>
@@ -1840,7 +2008,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120073</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/53">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/53">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/96">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/98">基于功能视角的中国三峡库区经济林恢复对土壤物理质量影响评估结果复现</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120075</td>
@@ -1852,7 +2020,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120077</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/63">【静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用】——可重复性研究作业</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/100">可重复性作业—-静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120078</td>
@@ -1876,11 +2044,19 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120084</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/56">农田土壤肾形虫属原生生物内共生细菌群落特征及驱动因素可重复性评估报告</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/56">磁性 SA/PVA/Fe3O4复合载体固定化耐受菌株对土壤镉 的吸附及其机理研究</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2025303120085</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/36">关于土壤有机碳Meta分析的数据复现</a></td>
+<td style="text-align: left;">2025303120086</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/104">柑橘养分利用课题情况复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/105">柑橘养分利用课题情况复现</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2025303120087</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/85">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis的复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/86">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/87">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/88">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/89">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/90">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2025303120088</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/85">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis的复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/86">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/87">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/88">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/89">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/90">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120089</td>
@@ -1899,64 +2075,64 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/20">多尺度下物种入侵悖论的复现研究</a></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2025303120093</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/2">基于MediaPipe的关键点检测复现</a></td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">2025303120094</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/21">关于秸秆还田土壤碳库Meta分析的研究项目复现</a></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">2025303120095</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/34">可重复研究评估作业 - 沐禹廷</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/72">可重复性研究</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/73">《Field Testing of Gamma-Spectroscopy Method for Soil Water Content Estimation in an Agricultural Field》可重复研究评估</a></td>
-</tr>
 <tr class="even">
+<td style="text-align: left;">2025303120095</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/34">可重复研究评估作业 - 沐禹廷</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/72">可重复性研究</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/73">《Field Testing of Gamma-Spectroscopy Method for Soil Water Content Estimation in an Agricultural Field》可重复研究评估</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/102">基于《Bacterial social interactions in synthetic Bacillus consortia enhance plant growth》论文项目部分复现</a></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">2025303120097</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/14">基于点注释内场图像的大豆种子定位与计数</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120098</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/5">一种新型单一营养素水培溶液中的大豆营养-可重复研究作业</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120099</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/34">可重复研究评估作业 - 沐禹廷</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/72">可重复性研究</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/73">《Field Testing of Gamma-Spectroscopy Method for Soil Water Content Estimation in an Agricultural Field》可重复研究评估</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2025303120100</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/63">【静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用】——可重复性研究作业</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/34">可重复研究评估作业 - 沐禹廷</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/72">可重复性研究</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/73">《Field Testing of Gamma-Spectroscopy Method for Soil Water Content Estimation in an Agricultural Field》可重复研究评估</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/101">基于《Deterministic colonization arises early during the transition of soil bacteria to the phyllosphere and is shaped by plant-microbe interactions》部分数据图复现</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2025303120101</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/51">用于陆面模式模拟的中国土壤属性数据集的数据复现项目</a></td>
+<td style="text-align: left;">2025303120100</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/100">可重复性作业—-静电耦合和水桥在生物分子于水-黏土界面吸附层级中的作用</a></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">2025303120101</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/51">用于陆面模式模拟的中国土壤属性数据集的数据复现项目</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/103">中国土壤数据集复现项目</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303120102</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/16">土壤信息数据库及其机器学习建模</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120104</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/32">地中海橄榄园土壤侵蚀研究论文复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120105</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/11">可重复研究评估—植物表型与营养数据分析开源项目</a></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">2025303120106</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/51">用于陆面模式模拟的中国土壤属性数据集的数据复现项目</a></td>
-</tr>
 <tr class="odd">
+<td style="text-align: left;">2025303120106</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/51">用于陆面模式模拟的中国土壤属性数据集的数据复现项目</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/103">中国土壤数据集复现项目</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303120107</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/55">氮添加对土壤微生物碳利用效率影响研究实验复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120108</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/34">可重复研究评估作业 - 沐禹廷</a></td>
 </tr>
+<tr class="even">
+<td style="text-align: left;">2025303120109</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/104">柑橘养分利用课题情况复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/105">柑橘养分利用课题情况复现</a></td>
+</tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120110</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/7">基于 meanflow 的 sar2rgb 漂移模型</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/64">基与nrt的可重复性研究试验</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/7">【Self-Supervised Pretraining of Transformers for Satellite Image Time Series】论文复刻</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/64">基与nrt的可重复性研究试验</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120111</td>
@@ -1988,7 +2164,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120119</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/70">全球能源消耗与碳排放情况——源自灌溉农业数据复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/70">全球能源消耗与碳排放情况——源自灌溉农业数据复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/95">灌溉农业的全球能源使用与碳排放文章数据复现</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120121</td>
@@ -2003,28 +2179,36 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/48">温度-深度时间序列反演饱和带土壤水分垂直通量试验的复现</a></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">2025303120125</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/85">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis的复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/86">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/87">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/88">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/89">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/90">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303120126</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/9">滦河流域径流变化主控因子模型复现</a></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">2025303120127</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/51">用于陆面模式模拟的中国土壤属性数据集的数据复现项目</a></td>
-</tr>
 <tr class="odd">
+<td style="text-align: left;">2025303120127</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/51">用于陆面模式模拟的中国土壤属性数据集的数据复现项目</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/103">中国土壤数据集复现项目</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303120128</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/67">可重复性研究作业</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120129</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/40">土壤养分与作物产量关系图复现</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120130</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/78">基于《Transcriptional regulation of nitrogen-associated metabolism and growt》文章部分图复现</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120131</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/32">地中海橄榄园土壤侵蚀研究论文复现</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2025303120132</td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/104">柑橘养分利用课题情况复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/105">柑橘养分利用课题情况复现</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120134</td>
@@ -2044,7 +2228,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120139</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/23">可重复性评估研究-枯萎病根际微生物组的通用变异规律</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/23">可重复性评估研究-枯萎病根际微生物组的通用变异规律</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/101">基于《Deterministic colonization arises early during the transition of soil bacteria to the phyllosphere and is shaped by plant-microbe interactions》部分数据图复现</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120140</td>
@@ -2052,7 +2236,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120141</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/8">【可重复研究项目】土壤持水性 van Genuchten 模型复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/8">空气质量数据分析</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120142</td>
@@ -2064,7 +2248,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120144</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/36">关于土壤有机碳Meta分析的数据复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/102">基于《Bacterial social interactions in synthetic Bacillus consortia enhance plant growth》论文项目部分复现</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120145</td>
@@ -2080,7 +2264,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120148</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/17">多年冻土中矿物-酶相互作用 复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/17">多年冻土中矿物-酶相互作用 复现</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/91">多年冻土中矿物-酶相互作用 复现</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120149</td>
@@ -2088,7 +2272,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120150</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/8">【可重复研究项目】土壤持水性 van Genuchten 模型复现</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/8">空气质量数据分析</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120151</td>
@@ -2100,7 +2284,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120153</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/34">可重复研究评估作业 - 沐禹廷</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/72">可重复性研究</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/73">《Field Testing of Gamma-Spectroscopy Method for Soil Water Content Estimation in an Agricultural Field》可重复研究评估</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/34">可重复研究评估作业 - 沐禹廷</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/72">可重复性研究</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/73">《Field Testing of Gamma-Spectroscopy Method for Soil Water Content Estimation in an Agricultural Field》可重复研究评估</a>; <a href="https://github.com/D2RS-2026spring/projects/issues/102">基于《Bacterial social interactions in synthetic Bacillus consortia enhance plant growth》论文项目部分复现</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120155</td>
@@ -2160,7 +2344,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120170</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/7">基于 meanflow 的 sar2rgb 漂移模型</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/7">【Self-Supervised Pretraining of Transformers for Satellite Image Time Series】论文复刻</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120171</td>
@@ -2169,14 +2353,6 @@ Table&nbsp;1: 作业5项目信息汇总
 <tr class="even">
 <td style="text-align: left;">2025303120172</td>
 <td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/24">基于深度残差神经网络与SAR-光学融合的Sentinel-2云去除</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2025303120173</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/2">基于MediaPipe的关键点检测复现</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2025303120174</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/2">基于MediaPipe的关键点检测复现</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120175</td>
@@ -2192,7 +2368,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </tr>
 <tr class="even">
 <td style="text-align: left;">2025303120178</td>
-<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/7">基于 meanflow 的 sar2rgb 漂移模型</a></td>
+<td style="text-align: left;"><a href="https://github.com/D2RS-2026spring/projects/issues/7">【Self-Supervised Pretraining of Transformers for Satellite Image Time Series】论文复刻</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120179</td>
@@ -2268,7 +2444,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <colgroup>
 <col style="width: 2%">
 <col style="width: 53%">
-<col style="width: 43%">
+<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2284,19 +2460,9 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">18</td>
-<td style="text-align: left;">[可重复研究] 凋落物分解主场效应</td>
-<td style="text-align: left;">2025305110001</td>
-</tr>
-<tr class="odd">
 <td style="text-align: right;">23</td>
 <td style="text-align: left;">可重复性评估研究-枯萎病根际微生物组的通用变异规律</td>
 <td style="text-align: left;">2025303110003, 2025303120139, 2025303120076, 2025303121001, 2025303120118</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">56</td>
-<td style="text-align: left;">农田土壤肾形虫属原生生物内共生细菌群落特征及驱动因素可重复性评估报告</td>
-<td style="text-align: left;">2025303110081, 2025303110067, 2025303120084</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">65</td>
@@ -2309,19 +2475,54 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">71</td>
-<td style="text-align: left;">细菌丰富度增强土壤有机质的热稳定性：分子多样性与热力学稳定性之间的长期权衡 论文可复现性评估</td>
-<td style="text-align: left;">2025303120022, 2025303120015, 2025303120027, 2025303110025</td>
-</tr>
-<tr class="even">
 <td style="text-align: right;">74</td>
 <td style="text-align: left;">[个人作业] 复现评估：A reproducible R workflow to preserve variable and value labels</td>
 <td style="text-align: left;">2025303110132</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">82</td>
 <td style="text-align: left;">个人作业 2025303110057</td>
 <td style="text-align: left;">2025303110057</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">85</td>
+<td style="text-align: left;">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis的复现</td>
+<td style="text-align: left;">2025303110094, 2025303110087, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">86</td>
+<td style="text-align: left;">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</td>
+<td style="text-align: left;">2025303110094, 2025303110087, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">87</td>
+<td style="text-align: left;">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</td>
+<td style="text-align: left;">2025303110087, 2025303110094, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">88</td>
+<td style="text-align: left;">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</td>
+<td style="text-align: left;">2025303110094, 2025303110087, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">89</td>
+<td style="text-align: left;">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</td>
+<td style="text-align: left;">2025303110094, 2025303110087, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">90</td>
+<td style="text-align: left;">Designing RNA sequencing experiments: A practical guide to reproducible gene expression analysis 论文复现</td>
+<td style="text-align: left;">2025303110094, 2025303110087, 2025303120125, 2025303120087, 2025303120070, 2025303120088</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">94</td>
+<td style="text-align: left;">基于Reproduce-the-Resource-Utilization-of-Agricultural-Waste 文献的可重复数据分析</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">99</td>
+<td style="text-align: left;">Molecular trade-offs in soil organic carbon composition at continental scale论文数据复现</td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
@@ -2350,7 +2551,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <pre><code>⚠️ 发现非法学号（不在学生名单中）：
 
 
-所有非法学号列表： 0016646781000, 2643651525001, 3278740230025, 0924271620301, 1010115184451, 8329269000355, 4015755966561 </code></pre>
+所有非法学号列表： 0016646781000, 2643651525001, 3278740230025, 0924271620301, 1010115184451 </code></pre>
 </div>
 </div>
 </section>
@@ -2380,7 +2581,7 @@ Table&nbsp;1: 作业5项目信息汇总
 </div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>未参与项目的学生（共35人）</caption>
+<caption>未参与项目的学生（共34人）</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">学号</th>
@@ -2410,53 +2611,53 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">2025303110025</td>
+<td style="text-align: left;">吴铭洲</td>
+<td style="text-align: left;">资源与环境学院</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303110045</td>
 <td style="text-align: left;">唐成翰</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">2025303110077</td>
+<td style="text-align: left;">郭有艳</td>
+<td style="text-align: left;">资源与环境学院</td>
+</tr>
 <tr class="even">
-<td style="text-align: left;">2025303110066</td>
-<td style="text-align: left;">李健萍</td>
+<td style="text-align: left;">2025303110085</td>
+<td style="text-align: left;">黄跃</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2025303110087</td>
-<td style="text-align: left;">丁庆庆</td>
-<td style="text-align: left;">资源与环境学院</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">2025303110091</td>
 <td style="text-align: left;">周力</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303110093</td>
 <td style="text-align: left;">季佳辉</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">2025303110123</td>
+<td style="text-align: left;">李嘉睿</td>
+<td style="text-align: left;">资源与环境学院</td>
+</tr>
 <tr class="even">
-<td style="text-align: left;">2025303110094</td>
-<td style="text-align: left;">方立堃</td>
+<td style="text-align: left;">2025303110129</td>
+<td style="text-align: left;">胡乐怡</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2025303110099</td>
-<td style="text-align: left;">杨冰婉</td>
-<td style="text-align: left;">资源与环境学院</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2025303110102</td>
-<td style="text-align: left;">江祥鸿</td>
-<td style="text-align: left;">资源与环境学院</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2025303110110</td>
-<td style="text-align: left;">陈思阳</td>
-<td style="text-align: left;">资源与环境学院</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">2025303110142</td>
 <td style="text-align: left;">李艳峰</td>
+<td style="text-align: left;">资源与环境学院</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2025303120015</td>
+<td style="text-align: left;">唐艳</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="odd">
@@ -2465,8 +2666,18 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">2025303120022</td>
+<td style="text-align: left;">张晋</td>
+<td style="text-align: left;">资源与环境学院</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">2025303120024</td>
 <td style="text-align: left;">张逸帆</td>
+<td style="text-align: left;">资源与环境学院</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2025303120027</td>
+<td style="text-align: left;">徐蔚宝</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="odd">
@@ -2480,38 +2691,28 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2025303120070</td>
-<td style="text-align: left;">余虹</td>
-<td style="text-align: left;">资源与环境学院</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">2025303120074</td>
 <td style="text-align: left;">刘心蕊</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120080</td>
 <td style="text-align: left;">古振峰</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">2025303120086</td>
-<td style="text-align: left;">孙宜宜</td>
-<td style="text-align: left;">资源与环境学院</td>
-</tr>
 <tr class="odd">
-<td style="text-align: left;">2025303120087</td>
-<td style="text-align: left;">孙铭仪</td>
+<td style="text-align: left;">2025303120085</td>
+<td style="text-align: left;">姜真</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2025303120088</td>
-<td style="text-align: left;">孟雨欣</td>
+<td style="text-align: left;">2025303120093</td>
+<td style="text-align: left;">常东颖</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2025303120096</td>
-<td style="text-align: left;">张恺</td>
+<td style="text-align: left;">张芷璇</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="even">
@@ -2520,46 +2721,41 @@ Table&nbsp;1: 作业5项目信息汇总
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">2025303120109</td>
-<td style="text-align: left;">李致远</td>
-<td style="text-align: left;">资源与环境学院</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">2025303120115</td>
 <td style="text-align: left;">梁冬玲</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2025303120120</td>
 <td style="text-align: left;">汪同宇</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120123</td>
 <td style="text-align: left;">游彬</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">2025303120125</td>
-<td style="text-align: left;">焦静雨</td>
-<td style="text-align: left;">资源与环境学院</td>
-</tr>
 <tr class="even">
-<td style="text-align: left;">2025303120132</td>
-<td style="text-align: left;">王硕</td>
-<td style="text-align: left;">资源与环境学院</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">2025303120137</td>
 <td style="text-align: left;">聂雅杉</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2025303120154</td>
 <td style="text-align: left;">顾湘</td>
 <td style="text-align: left;">资源与环境学院</td>
 </tr>
+<tr class="even">
+<td style="text-align: left;">2025303120173</td>
+<td style="text-align: left;">欧阳权</td>
+<td style="text-align: left;">资源与环境学院</td>
+</tr>
 <tr class="odd">
+<td style="text-align: left;">2025303120174</td>
+<td style="text-align: left;">沈文君</td>
+<td style="text-align: left;">资源与环境学院</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">2025303120183</td>
 <td style="text-align: left;">黄张赛</td>
 <td style="text-align: left;">资源与环境学院</td>
@@ -2580,7 +2776,7 @@ Table&nbsp;1: 作业5项目信息汇总
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"未参与项目学生数："</span>, <span class="fu">nrow</span>(unassigned), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>未参与项目学生数： 35 </code></pre>
+<pre><code>未参与项目学生数： 34 </code></pre>
 </div>
 </div>
 
